@@ -8,7 +8,7 @@ deploy:
   provider: releases
   api_key:
     secure: h5VZPhsedrqhtdYW6mV8HNGQpqYKuCovRjw0rgR4lWQW/bl43XV83TWQ4rK8D/gFHIZWhuod9aLOzoOkvT6+VbUU6IipRkzahVC6B4dg5QvrX/N5mKLHHMI0q3+gWUb85ubF5N2UxaPovhyXQ/ptKuOH9QUTpyp/HqC4e4r6DBQ+WfSr0PY+THTsFqTaPdsmef4Df/2XkD6iJBjHXp9iyyaOqKkkdLLWNeEXuoHrpplcJ+RjS+ffkhuHY3MsE46ANWPJJji6gwUVx+LjA5ZNt5N83j38Il9/O3I+6qBMNHFyqL3kWVRDDnp4UjStpKvxgHaH8jpdD0iG+0JUpCBFNPzPgjwPSBlkPp5kBB6ODbLIW6nBrGg0+Traz6qzBNMjcxgdyTxIccYgtj/UUf94+GNE9VbetYvqnRl9D3s8iBTfFE0xe4XS69fc88+OkfacxKKvuGjZgJcmcRzm6VgoOR7kW1C7Wj8xF0hz6xDcIbPTmhUhZiu7Mj3lhNRRB1GhzCjnKGxVPSL5iTdvivQkXZN7zDDHtGViP4EELqakW/OKVbBTUaxEdCe4z3MVvtt65LxWx6le2FnzN9zr5H9Y+Whd8g8qVyliv1rwjWBg/usPdut/1BPZUphfV7sggd2A7DcCgsFPKcLCCXb88RvvWuXuYO4o4y9aWBbTMsH0q9M=
-  file: root.pdf
+  file: build/root.pdf
   skip_cleanup: true
   on:
     repo: upd89/doc
