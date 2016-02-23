@@ -22,6 +22,10 @@ install:
   - cd $TRAVIS_BUILD_DIR
   - pip install pygments
 
+cache:
+  directories:
+  - texlive
+
 script:
   - make
   - make protocols
