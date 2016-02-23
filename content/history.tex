@@ -1,0 +1,32 @@
+\begin{comment}
+2.1.1 Impressum und Revision
+Das Hauptdokument sollte auf der Titelblatt-Rückseite (oder Seite 2) je eine Angabe zur Erstellung und letzten Aktualisierung des Dokuments haben sowie ein Impressum (Kontakt-/Autoren- bzw. Dokumenten- Bezugsadresse im Internet, z.B. www.integis.ch > Projekte).
+Die SW-Engineering-Dokumente selber können eigene Tabellen mit Historie-Informationen enthalten.
+\end{comment}
+\thispagestyle{plain}
+\null
+\vfill
+\begin{minipage}[b]{\textwidth}
+\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{lX}
+			\toprule
+			\textbf{Erstellungsdatum} & 22. Februar 2016\ 10:34\\
+			  \textbf{Änderungsdatum} &  \input{version_time.tex} \\
+			  \textbf{Druckdatum} & \today\ \currenttime \\
+			  \midrule
+			  \textbf{Bezugsadresse} & \url{https://hsr-ba-fs15-dat.github.io/ba-doc/main.pdf} \\
+			  \xxx["url"]
+\textbf{Version} & \input{version.tex}  \\
+\textbf{Git Hash} & \input{version_hash.tex}  \\
+\midrule
+\textbf{Autoren} & \ubos \ \href{mailto:ubosshard@gmail.com}{ubosshard@gmail.com} \\
+& \pchr \ \href{mailto:philipp.christen@gmail.com}{philipp.christen@gmail.com} \\
+\textbf{Lizenz} & \cc 2016\\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+%\DTMsavetimestamp{2016-06-08 09:46:16 +0200}
+
+\end{minipage}
+

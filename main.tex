@@ -1,0 +1,105 @@
+%&"preamble"
+% rename to non-existing .fmt file in order to use style.sty directly
+
+%\RequirePackage[l2tabu, orthodox]{nag}
+
+\documentclass{scrbook}
+% http://tex.stackexchange.com/questions/21854/automatically-make-footnote-carrying-pages-vertically-stretchable
+\raggedbottom
+\usepackage[bottom]{footmisc}
+\usepackage{gitinfo}
+\usepackage{style}
+\usepackage[subpreambles=false]{standalone}
+\usepackage{datetime}
+\usepackage{cclicenses}
+\input{./macros}
+\input{./content/glossary-acronyms}
+\addbibresource{./bibliography/bibliography.bib}
+
+
+%\newcommand{\version}{1.0}
+%\chead{\textcolor{red}{DRAFT}}
+
+%\lefoot{}
+%\lehead{}
+%\rohead{}
+%\rofoot{}
+%\cfoot{}
+
+
+\newtoggle{isprint}
+\newtoggle{isdigital}
+
+\togglefalse{isprint} 
+\toggletrue{isprint}
+\toggletrue{isdigital}
+
+\hyphenation{Web-app-li-ka-ti-on}
+\KOMAoption{listof}{leveldown}
+
+\begin{document}
+	\frontmatter
+		\import{content/}{title.tex} 
+		\clearpage
+		%\import{content/}{history.tex}
+		%\clearpage
+
+
+		\import{content/}{abstract.tex}
+		\import{content/management-summary/}{management-summary.tex}
+		\import{content/}{aufgabenstellung.tex}
+
+		\clearpage
+		\phantomsection
+		\addcontentsline{toc}{chapter}{\contentsname}
+		\microtypesetup{protrusion=false}
+		\tableofcontents
+
+		\clearpage
+		\phantomsection
+		\addcontentsline{toc}{section}{\listfigurename}
+		\listoffigures
+		
+		%\clearpage
+		\phantomsection
+		\addcontentsline{toc}{section}{\listtablename}
+
+		\listoftables
+		
+		%\clearpage
+		\phantomsection
+		\addcontentsline{toc}{section}{Programmcodeverzeichnis}
+		\tcblistof[\section*]{minted}{Programmcodeverzeichnis}
+
+		%\clearpage
+		\phantomsection
+		\addcontentsline{toc}{section}{Liste der Entscheidungen}
+		\tcblistof[\section*]{decisions}{Liste der Entscheidungen}
+		
+		%\clearpage
+		% \phantomsection
+		% \addcontentsline{toc}{section}{Pseudocodeverzeichnis}
+		% \tcblistof[\section*]{pseudocode}{Pseudocodeverzeichnis}
+
+		\microtypesetup{protrusion=true}
+
+
+	\mainmatter
+		\import{content/technischer-bericht/}{technischer-bericht.tex}
+		\import{content/projektdokumentation/}{projektdokumentation.tex}
+		\import{content/projektmanagement/}{projektmanagement.tex}
+		\import{content/softwaredokumentation/}{softwaredokumentation.tex}
+	
+		% Appendix
+		\cleardoublepage
+		\phantomsection
+		\addcontentsline{toc}{part}{\appendixname}
+		\appendix
+		\import{content/appendix/}{appendix.tex}
+		% \import{content/examples/}{examples.tex}
+		
+	\backmatter
+		\import{bibliography/}{bibliography.tex}
+		\import{content/appendix/}{glossar.tex}
+	
+\end{document}

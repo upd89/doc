@@ -1,0 +1,505 @@
+\ProvidesPackage{style}
+\KOMAoptions{paper=a4,fontsize=12pt,twoside,open=any,draft=false}
+
+% PDF 1.6
+\pdfminorversion=6
+\usepackage{morewrites}
+\usepackage{wrapfig}
+
+
+% ------------------------------------------------------------------------------
+% Font related
+% ------------------------------------------------------------------------------
+% Use 8-bit encoding that has 256 glyphs
+\usepackage[T1]{fontenc} 
+
+% UTF8 input encoding
+\usepackage[utf8]{inputenc}
+
+% Adobe Utopia Fonts
+%\usepackage{fourier}
+\usepackage{lmodern}
+
+% Sans-serif default (Prof. Stefan Keller's preference)
+\renewcommand*\familydefault{\sfdefault}
+% ------------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+% General
+% ------------------------------------------------------------------------------
+\usepackage{import}
+
+% Probably better: use pdflatex -draftmode
+%\usepackage{syntonly}
+%\syntaxonly
+
+\usepackage{lipsum}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage[ngerman]{babel} 
+\usepackage{verbatim} % comments
+\usepackage{xspace}
+
+
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use "draft" to disable
+% tracking=true, kerning=true, spacing=true - activate these techniques
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+% TODO: enable
+% AFTER babel
+\usepackage[activate={true,nocompatibility},final,babel,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+
+
+\usepackage{todonotes}
+%\usepackage[obeyFinal]{todonotes}
+
+\usepackage{etoolbox}
+\usepackage{xpatch}
+\tracingpatches
+
+\usepackage{xifthen}
+\usepackage{xstring}
+\usepackage[binary-units=true]{siunitx}
+\sisetup{
+	locale=DE,
+	output-decimal-marker = {.},
+	group-separator = {'},
+	per-mode = symbol,
+}
+
+% ------------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+% General purpose macros
+% ------------------------------------------------------------------------------
+
+% Remove left and right spaces (e.g. macro parameters)
+\def\trim#1{\ignorespaces#1\unskip}
+
+
+% Create horizontal rule command with 1 argument of height
+\newcommand{\hr}[1]{\rule{\linewidth}{#1}} 
+% ------------------------------------------------------------------------------
+
+
+
+% ------------------------------------------------------------------------------
+% Graphics related
+% ------------------------------------------------------------------------------
+% See http://en.wikibooks.org/wiki/LaTeX/Importing_Graphics
+\usepackage{graphicx}
+\graphicspath{{./fig/}}
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% Flow chart
+\usetikzlibrary{shapes.geometric, arrows}
+
+% CD directory dree
+\usetikzlibrary{trees}
+
+
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.11}
+
+% http://tex.stackexchange.com/questions/37581/latex-figures-side-by-side
+\usepackage{subcaption}
+
+% star icons
+\usepackage{bbding}
+
+% http://tex.stackexchange.com/questions/101858/make-two-figures-aligned-at-top
+% http://tex.stackexchange.com/questions/47245/set-a-maximum-width-and-height-for-an-image
+\usepackage[export]{adjustbox}
+
+\usepackage{float} % [H]
+% ------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% Tables
+%-------------------------------------------------------------------------------
+\usepackage{booktabs}
+\usepackage{ltablex}
+%\usepackage{slashbox}
+\usepackage{diagbox}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{xcolor}
+
+\definecolor{paragraphTitle}{HTML}{4A00F3}
+% -----------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+% BibTeX
+% ------------------------------------------------------------------------------
+\usepackage[backend=biber, url=true]{biblatex}
+\usepackage[babel,german=guillemets]{csquotes}
+
+
+% ------------------------------------------------------------------------------
+% Page & Float & List numbering
+% ------------------------------------------------------------------------------
+\numberwithin{equation}{chapter} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{chapter} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{chapter} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+% Removes all indentation from paragraphs
+\setlength\parindent{0pt}
+
+% Also number subsection and include in toc
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+% Numbering for front pages
+\newcommand{\front}[1]{
+	\setcounter{page}{1}
+	\pagenumbering{roman}
+	#1
+}
+
+\newcommand{\main}[1]{
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+	#1
+}
+
+% Reset chapter numbering for every part
+% Default H for figure and table floats
+\makeatletter
+\@addtoreset{chapter}{part}
+\def\fps@figure{H}
+\def\fps@table{H}
+\makeatother
+
+
+
+% http://tex.stackexchange.com/questions/139547/latex-sublist-numbering
+\usepackage{enumitem}
+\setlist[enumerate]{label*=\arabic*.}
+\setlist[description]{leftmargin=0.5cm, labelindent=0.5cm}
+% ------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+% Header & Footer
+% http://tex.stackexchange.com/questions/10713/switching-from-fancyhdr-to-srcpage2
+%-------------------------------------------------------------------------------
+\usepackage[automark,headsepline,footsepline]{scrpage2}
+\pagestyle{scrheadings}
+
+\renewcommand{\headfont}{\normalfont}
+\renewcommand{\pnumfont}{\normalfont}
+% \renewcommand*{\chapterheadstartvskip}{\vspace*{0.05cm}}
+% Empty in center
+\cfoot{}
+\chead{}
+
+% Head even
+\lehead{\pagemark}
+\rehead{\MakeUppercase{\headmark}}
+
+% Foot even
+\lefoot{\pagemark}
+\refoot{}
+% Head odd
+\lohead{\MakeUppercase{\headmark}}
+\rohead{\pagemark}
+% Foot odd
+\lofoot{}
+\rofoot{\pagemark}
+% ------------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+% Other styling
+% ------------------------------------------------------------------------------
+\usepackage[paper=a4paper,
+%lmargin=2.2cm, % mittlerer Rand
+%rmargin=1.5cm, % äußerer Rand
+inner=1.7cm,
+outer=1.5cm,
+tmargin=1.7cm,
+headsep=5mm,
+bmargin=2.2cm,
+marginparwidth= 0cm, % Breite des Marginpars
+marginparsep = 3mm,
+includehead, % Kopfzeile in Berechnung einbeziehen
+includefoot, % Fusszeile in Berechnung einbeziehen
+includemp, % Marginpar in die Berechnung mit einbeziehen
+bindingoffset=5mm
+]{geometry}
+
+
+% Multi-line footnote indent
+\deffootnote[1em]{1em}{1em}{\textsuperscript{\thefootnotemark}\,}
+% ------------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+% Referencing
+% ------------------------------------------------------------------------------
+% Keep this package order!
+\usepackage[german]{varioref}
+
+\usepackage[
+	unicode,
+	colorlinks,        % Links ohne Umrandungen in zu wählender Farbe
+	linkcolor=black,   % Farbe interner Verweise
+	filecolor=black,   % Farbe externer Verweise
+	citecolor=black    % Farbe von Zitaten
+]{hyperref}
+% http://tex.stackexchange.com/questions/15430/titlesec-hyperref-algorithm2e-and-appendix
+\renewcommand*{\theHchapter}{\thepart.\thechapter}
+\renewcommand*{\theHsection}{\thepart.\thechapter.\thesection}
+\renewcommand*{\theHsubsection}{\thepart.\thechapter.\thesection.\thesubsection}
+
+\usepackage[german]{cleveref}
+% ------------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+% Glossary & Acronyms
+% Usage: \gls{label}
+% See: http://en.wikibooks.org/wiki/LaTeX/Glossary
+% Full doc: http://mirror.switch.ch/ftp/mirror/tex/macros/latex/contrib/glossaries/glossaries-user.pdf
+% ------------------------------------------------------------------------------
+% Be sure this comes after hyperref
+\usepackage[toc,numberedsection=autolabel,shortcuts]{glossaries}
+\makeglossaries
+
+% Reset acronym usage after each part
+%\apptocmd{\partheadendvskip}{\glsresetall}{}{}
+
+% Glossary with URL key
+\glsaddkey
+{url}
+{}
+{\glsentryurl}
+{\Glsentryurl}
+{\glsurl}
+{\Glsurl}
+{\GLSurl}
+
+\newglossarystyle{url}
+{% based on list style (adapt as required)
+	\setglossarystyle{list}%
+	\renewcommand{\glossentry}[2]{%
+		\item[\glsentryitem{##1}%
+		\glstarget{##1}{\glossentryname{##1}}]
+		\glossentrydesc{##1}\glspostdescription\space##2%
+		\ifglshasfield{url}{##1}{\glspar
+			\glsletentryfield{\thisurl}{##1}{url}%
+			\expandafter\url\expandafter{\thisurl}}{}}%
+}
+\setglossarystyle{url}
+
+
+% ------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+% Syntax highlighting
+% 1. Install Python (e.g. $ brew install python)
+% 2. Install Python package "pygments" (e.g. $ pip install pygments)
+% 3. Add -shell-escape to latex/pdflatex/etc. commands
+%-------------------------------------------------------------------------------
+\usepackage[cache]{minted}
+\usepackage[most]{tcolorbox}
+
+\tcbuselibrary{minted}
+\definecolor{codebggray}{rgb}{0.95,0.95,0.95}
+
+
+\newtcblisting[auto counter,number within=chapter,list inside=minted]{srclst}[3][]{%
+	beamer,
+	before=\par\medskip,
+	after=\par\medskip,
+	title={Programmcode \thetcbcounter: #3},
+	label type=lst,
+	list entry={\protect\numberline{\thetcbcounter}#3},
+	minted language=#2,
+	minted options = {breaklines,breakautoindent,tabsize=2,fontsize=\footnotesize},
+	listing only,
+	breakable,
+	enhanced,
+	%colframe=blue!50!black,drop fuzzy shadow,
+	#1}
+
+
+\newtcblisting{src}[2][]{%
+	beamer,
+	before=\par\medskip,
+	after=\par\medskip,
+	minted language=#2,
+	minted options = {breaklines,breakautoindent,tabsize=2,fontsize=\footnotesize},
+	listing only,
+	breakable,
+	enhanced
+	#1}
+
+\crefname{lst}{Programmcode}{Programmcodes}
+\Crefname{lst}{Programmcode}{Programmcodes}
+
+
+
+\newtcolorbox[auto counter,number within=chapter,list inside=decisions,Crefname={Entscheid}{Entscheide},crefname={Entscheid}{Entscheide}]{tcbdecision}[2][]{%
+	beamer,
+	before=\par\medskip,
+	after=\par\medskip,
+	title={Entscheid \thetcbcounter: #2},
+	list entry={\protect\numberline{\thetcbcounter}#2},
+	enhanced,
+	colback=red!5,
+	colframe=red!70!black,drop fuzzy shadow,
+	#1}
+
+% Im Kontext <ctx> wurde, um <nfr> für <sol> und gegen <other> entschieden und akzeptieren, dass <cons>
+\newenvironment{decision}[2][]{\begin{tcbdecision}[#1]{#2}}{\end{tcbdecision}}
+
+\crefname{dec}{Entscheid}{Entscheide}
+\Crefname{dec}{Entscheid}{Entscheide}
+
+
+\newcounter{scrumstories}
+\newtcolorbox[use counter=scrumstories, list inside=scrumepic,Crefname={Epic}{Epics},crefname={Epic}{Epics}]{tcbscrumepic}[2][]{%
+	beamer,
+	before=\par\medskip,
+	after=\par\medskip,
+	label type=epic,
+	title={Epic \thetcbcounter: #2},
+	list entry={\protect\numberline{\thetcbcounter}#2},
+	enhanced,
+	colback=green!5,
+	colframe=green!70!black,drop fuzzy shadow,
+	#1}
+
+\crefname{epic}{Epic}{Epics}
+\Crefname{epic}{Epic}{Epics}
+
+
+\newtcolorbox[auto counter,number within=scrumstories,list inside=scrumstory,Crefname={User Story}{User Stories},crefname={User Story}{User Stories}]{tcbscrumstory}[2][]{%
+	beamer,
+	before=\par\medskip,
+	after=\par\medskip,
+	label type=story,
+	title={User Story \thetcbcounter: #2},
+	list entry={\protect\numberline{\thetcbcounter}#2},
+	enhanced,
+	colback=gray!5,
+	colframe=gray!70!black,drop fuzzy shadow,
+	#1}
+
+\crefname{story}{User Story}{User Stories}
+\Crefname{story}{User Story}{User Stories}
+
+
+
+% Old version
+%\newcommand{\scrumstory}[5]{ % title, role, func, benefit
+%	\begin{tcbscrumstory}{#1}
+%		Als ein
+%		\begin{addmargin}[1em]{0em}#2\end{addmargin}
+%		, will ich
+%		\begin{addmargin}[1em]{0em}#3\end{addmargin}
+%		, sodass
+%		\begin{addmargin}[1em]{0em}#4\end{addmargin}
+%		
+%		#5
+%	\end{tcbscrumstory}
+%}
+
+%\newcommand{\scrumacptcrit}[3]{ % given, if, then
+%	\tcblower
+%	\begin{center}\textbf{Akzeptanzkriterien}\end{center}
+%	
+%	Gegeben
+%	\begin{addmargin}[1em]{0em}#1\end{addmargin}
+%	, wenn
+%	\begin{addmargin}[1em]{0em}#2\end{addmargin}
+%	, dann
+%	\begin{addmargin}[1em]{0em}#3\end{addmargin}
+%}
+
+\newenvironment{scrumepic}[2][]{\begin{tcbscrumepic}[#1]{#2}}{\end{tcbscrumepic}}
+\newenvironment{scrumstory}[2][]{\begin{tcbscrumstory}[#1]{#2}}{\end{tcbscrumstory}}
+
+\newcommand{\storyacceptance}{
+	\tcblower
+	\textbf{Akzeptanzkriterien}\\
+}
+
+\newcommand{\storyitem}[1]{
+	\begin{itemize}[nosep]
+	\item[\textendash]{#1}
+	\end{itemize}
+}
+
+
+%\tcbuselibrary{skins}
+\newtcolorbox[auto counter,number within=chapter,list inside=pseudocode,Crefname={Pseudocode}{Pseudocodes},crefname={Pseudocode}{Pseudocodes}]{tcbpseudocode}[2][]{%
+	label type=alg,
+	beamer,
+	before=\par\medskip,
+	after=\par\medskip,
+	title={Pseudocode \thetcbcounter: #2},
+	list entry={\protect\numberline{\thetcbcounter}#2},
+	enhanced,
+	%colback=red!5,
+	%colframe=red!70!black,drop fuzzy shadow,
+	#1}
+
+
+\crefname{alg}{Pseudocode}{Pseudocodes}
+\Crefname{alg}{Pseudocode}{Pseudocodes}
+
+\usepackage{algpseudocode}
+\usepackage{linegoal}
+
+\newcommand*{\LongGets}[2]{\State #1 $\gets$ \parbox[t]{\linegoal}{#2\strut}}
+\newcommand*{\LongState}[1]{\State\parbox[t]{\linegoal}{#1\strut}}
+
+
+%\AtBeginEnvironment{pseudocode}{\begin{algorithmic}}
+%\AtEndEnvironment{pseudocode}{\end{algorithmic}}
+
+\newenvironment{pseudocode}[2][]{
+		\begin{tcbpseudocode}[#1]{#2}
+		\begin{algorithmic}	
+	}{
+		\end{algorithmic}
+		\end{tcbpseudocode}
+	}
+
+% ------------------------------------------------------------------------------
+
+\usepackage[nounderscore]{syntax}
+
+\makeatletter
+\def\curpath{\import@path}
+\makeatother
+
+
+% after everything else
+\usepackage{scrhack}
+
+
+\newcommand*{\parahighlight}[1]{\textcolor{paragraphTitle}{#1}}
+
+% defines a new column type C with a width argument, which centers text
+% see https://tex.stackexchange.com/questions/12703/how-to-create-fixed-width-table-columns-with-text-raggedright-centered-raggedlef
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}

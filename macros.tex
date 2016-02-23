@@ -1,0 +1,45 @@
+% names & full names
+\newcommand{\ubo}{U.\ Bosshard\xspace}
+\newcommand{\ubos}{Ueli Bosshard\xspace}
+
+\newcommand{\pch}{P.\ Christen\xspace}
+\newcommand{\pchr}{Philipp Christen\xspace}
+
+\newcommand{\proff}{Prof.\ Farhad Mehta\xspace}
+\newcommand{\prof}{Prof.\ F.\ Mehta\xspace}
+
+% \mytable{cols}{content}{caption}{lbl}
+\newcommand{\mytable}[4]{
+	\begin{table}[H]
+		\centering
+		\begin{tabularx}{\textwidth}{#1}
+			\toprule
+			#2
+			\bottomrule
+		\end{tabularx}
+		\caption{#3}
+\label{tab:#4}
+	\end{table}
+}
+
+
+% uses todonotes
+\newcommand{\xxx}[1][]{
+	\ifthenelse{\equal{#1}{}}{\todo[inline]{TODO}}{\todo[inline]{TODO:\ #1}}	
+}
+
+% pretty url without http://
+\newcommand{\purl}[1]{%
+	\href{#1}{\StrBehind{#1}{http://}}%
+}
+\newcommand{\shellcmd}[1]{\\\indent\indent\texttt{\footnotesize\# #1}\\}
+
+\newcommand*{\zeroOfThree}{\FiveStar\FiveStar\FiveStarOpen}
+\newcommand*{\oneOfThree}{\FiveStar\FiveStarOpen\FiveStarOpen}
+\newcommand*{\twoOfThree}{\FiveStar\FiveStar\FiveStarOpen}
+\newcommand*{\threeOfThree}{\FiveStar\FiveStar\FiveStar}
+
+\newcommand*\cleartoleftpage{%
+  \clearpage
+  \ifodd\value{page}\hbox{}\newpage\fi
+}

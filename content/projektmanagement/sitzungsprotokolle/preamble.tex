@@ -1,0 +1,11 @@
+\usepackage{../../../style}
+\input{../../glossary-acronyms.tex}
+\input{../../../macros.tex}
+
+% Remove section numbering
+\renewcommand*\thesection{}
+
+% Remove spacing between section numbering and section titl
+\makeatletter
+\renewcommand*{\@seccntformat}[1]{\csname the#1\endcsname}
+\makeatother

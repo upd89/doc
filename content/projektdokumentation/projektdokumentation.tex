@@ -1,0 +1,88 @@
+\begin{comment}
+2.3 Teil II: SW-Projektdokumentation
+Hier folgen die Dokumente gemäss Software-Engineering-Vorgehen.
+2.3.1 Überblick
+Zweck und Inhalt dieses Kapitels
+2.3.2 Vision
+Verweis auf Teil I.
+2.3.3 Anforderungsspezifikation
+Enthält folgende mögliche Unterkapitel:
+ Rahmenbedingungen (wenn nicht schon oben abgehandelt)
+ Anwendungsfalldiagramm
+ Hauptanwendungsfall
+ Funktionale Anforderungen
+ Nicht-Funktionale Anforderungen
+ Weitere: Aktivitätsdiagramme, Fallbeispiele, Szenarien, Prototypen...
+2.3.4 Analyse
+Klassen-, bzw. Domainmodell.
+2.3.5 Design (Entwurf)
+Die Architektur soll eine objektorientierte Problemdomain umfassen. Eine allfällig eingesetzte Datenbank darf diese Problemdomain permanent speichern, nicht aber ersetzen.
+Enthält folgende mögliche Unterkapitel:
+ Klassenverantwortlichkeiten (Klassenname, Verantwortlichkeit, Wissen, Tun, Abhängigkeiten); CRC- Diagramme?
+ Sequenzdiagramm / Kollaborationsdiagramm
+2.3.6 Implementation (Entwicklung)
+Objektkatalog: könnte mit einem Thesaurus verwaltet werden! Rest individuell.
+2.3.7 Test
+Enthält folgende mögliche Unterkapitel:
+ Testverfahren automatisch (mit JUnit) und manuell (dokumentiert; z.B. GUI); durchnummeriert.
+ Iterationen 1 ... X
+2.3.8 Resultate
+Resultate und Ergebnisse der Arbeit. Dieser Abschnitt richtet sich an den speziell für das entsprechende Fachgebiet interessierten Ingenieur. Er soll es ihm ermöglichen, die für die Problemlösung gemachten Überlegungen zu verstehen und nachzuvollziehen.
+2.3.9 Weiterentwicklung
+Möglichkeiten der Weiterentwicklung: Funktionen und mögliches weiteres Vorgehen. Weiterentwicklung scheint allgemein ein heikler Punkt zu sein in allen Projekten, besonders auch in SA/DA-Projekten:
+In realen Projekten, im RUP-Prozess wird er kaum betont und auch für Sie und für die Auftraggeber scheint es ein Problem zu sein. Warum?
+ Wenn man dort zuviel aufschreibt, dann könnte das als Manko aufgefasst werden; und Aufschreiben nimmt erst noch Zeit weg...
+ Zudem ist aus Sicht Auftraggeber (ohne "Gegensteuer") eine zusätzliche Funktion besser bewertbar als der "Wert" eines robusten, sauberen Designs oder eines Refactorings (z.B. der Separierung der Objekt/Klassen-Zuständigkeiten).
+Ein Test, wie "sauber" - namentlich: wie änderungsfreundlich - ein Design ist, zeigt sich beispielsweise in der Antwort auf folgende Frage: "Welche Interfaces muss man implementieren und/oder welche Komponenten/Klassen muss man erweitern (schlimmstenfalls anpassen), um eine weitere Funktionalität einzubauen? Z.B. ein weiterer Exportfilter?".
+Daher gelten folgende Regelungen zur Weiterentwicklung (gilt auch für andere Projektarten):
+ Weiterentwicklung ist obligatorisch und erscheint in zwei separaten Kapitel (ggf. Dokument): Im Technischen Bericht, Unterkapitel Resultate/Ausblick, und in der SW-Projektdokumentation.
+ Weiterentwicklung im Technischen Bericht ist allgemein gehalten und daher weniger heikel. Wichtig ist die Aufzählung der hauptsächlichen weiteren möglichen funktionalen oder nicht-funktionalen Anforderungen.
+ Weiterentwicklung in der SW-Projektdokumentation ist an Architekten / SW-Entwickler gerichtet wie jedes andere SW-Dokument.
+ Gewichtung: Es wird separat bewertet und zusätzlich erst spät (SA/DA bei der Präsentation) vollständig abgegeben wird. Spät heisst bei DAs auf der Dokumentation der Präsentation (inkl. CD). Sein ungewichtetes Gewicht gegenüber der Gesamtdokumentation ist umfangmässig ca. 1/15. Zur Erinnerung siehe Unterkapitel Lieferdokumente mit ca. 15 Hauptkapitel-/-Dokumenten.
+2.3.10 Benutzerdokumentation
+Installationsanleitung(en), Bedienungsanleitung(en) und Tutorien (evtl. in den Anhang)! Vergessen Sie a) nicht den CD-Inhalt zu notieren und auch in die Doku. zu nehmen.
+Testen sie die Installation mit realistischen Vorgaben!!
+2.4.1 Allgemeines
+ Normen
+ Konfigurationsmanagement (Entwicklungs-Werkzeuge, Eingesetzte Software)
+2.4.2 Projektmanagement
+Enthält folgende mögliche Unterkapitel:
+ Vorgehen
+ Zeitplanung
+ (Erreichen der Ziele siehe sep. Kapitel "Bewertung und Ausblick").
+Zeitplanung: Die Zeitplanung orientiert sich an den Meilensteinen und ist nach folgender Idee strukturiert:
+     Inception => Elaboration => Construction 1 => Construction 2 => ... => Transition
+Das ergibt folgendes Zeitdiagramm:
+￼2.4.3
+                          Dokumente
+Dokumente Teil I:             |
++ Einführung                  |
++ Vision                      |
++ "Stand der Technik"         |
++ Umsetzungskonzept           |
++ Resultate                   |
+Dokumente Teil II:            |
++ Anforderungsspezifikation   |
++ Analyse                     |
++ Design                      |
++ Implementation              |
++ Projektmgmt.&-Monitoring    |
++ Test                        |
++ Resultate und Weiterentw.   |
++ Benutzerdokumentation       |
++ Glossar und Abkürzungsverz. |
++ Literatur- und Quellenverz. |
+                              +----+------+---------+---------+------> Tage
+               Zeitabschnitte: Inc.  Elab.  Constr.1  Constr.2  Trans.
+Projektmonitoring
+Code-Analyse (Metriken).
+\end{comment}
+
+\part{Projektdokumentation}
+
+\subimport{}{anforderungen.tex}
+\subimport{}{analyse.tex}
+\subimport{}{design_implementation.tex}
+\subimport{}{testing.tex}
+\subimport{}{resultate_ausblick.tex}
+
