@@ -1,5 +1,6 @@
 # doc
 Latex documentation
 
+Latest build:
+https://redmine.upd89.org/upd89/doc/main.pdf
 
-[![Build Status](https://travis-ci.org/upd89/doc.svg?branch=master)](https://travis-ci.org/upd89/doc)
