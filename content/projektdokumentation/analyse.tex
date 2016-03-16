@@ -11,58 +11,86 @@ Hier werden bereits existierende Lösungen für ähnliche Problemstellungen vorg
 
 \subsection{Landscape}
 https://landscape.canonical.com/
+
 Landscape von Canonical ist ein proprietärer Web-Service für das Managen von Ubuntu-Systemen an einem zentralen Ort.
+
 Es kann Software verwaltet und installiert werden, ebenso Security-Updates. Updates können auch automatisch installiert oder wieder entfernt werden.
+
 Landscape unterstützt neben Servern auch Desktops.
 
+
 Features:
-Deployment
-Software und Update Management inkl. Repository-Verwaltung
-Monitoring, inkl. Prozess-Zugriff sowie div. Hardware-Abfragen
-RBAC (Role-Based Access Control)
+
+\begin{itemize}
+\item Deployment
+\item Software und Update Management inkl. Repository-Verwaltung
+\item Monitoring, inkl. Prozess-Zugriff sowie div. Hardware-Abfragen
+\item RBAC (Role-Based Access Control)
+\end{itemize}
+
 
 Kosten:
+
 per se Kostenlos, benötigt aber eine Advantage-Lizenz. Diese kostet im Minimum 320 USD pro Server pro Jahr.
+
 \xxx[Source: http://www.ubuntu.com/management/ubuntu-advantage]
 
 \subsection{Ansible}
+
 https://www.ansible.com/
 
 Ansible ist eine Plattform zur Automatisierung von Tasks und zur Orchestrierung. Sie kombiniert Softwareverteilung, Kommando-Ausführung und Konfigurationsmanagement.Server werden via SSH angesprochen, es ist kein Agent erforderlich.
+
 Ansible Tower die zentrale Web-basierte Kommandozentrale und ist Open-Source.
+
 \xxx[Source https://de.wikipedia.org/wiki/Ansible]
 
 Features:
-Applikations-Deployment
-Konfigurations-Management
-User-definierbare Playbooks für Tasks
-REST-Schnittstelle für Einbinden in andere Systeme
+\begin{itemize}
+\item Applikations-Deployment
+\item Konfigurations-Management
+\item User-definierbare Playbooks für Tasks
+\item REST-Schnittstelle für Einbinden in andere Systeme
+\end{itemize}
 
 Kosten:
+
 Im Enterprise-Paket kostet Ansible Tower 50 USD pro Server pro Jahr für > 1000 Server.
+
 \xxx[Source: https://www.ansible.com/pricing]
 
 \subsection{Vagrant}
+
 https://de.wikipedia.org/wiki/Vagrant_%28Software%29
+
 https://www.vagrantup.com/
 
 \xxx[Wirklich relevant?]
 
 
 \subsection{Spacewalk}
+
 http://spacewalk.redhat.com/
+
 Spacewalk ist eine Open-Source Systemmanagement-Lösung für Linux-Systeme. Es basiert auf einer Community, von welcher auch der Support kommt.
+
 Es bietet unter anderem auch ein Update-Management über Systeme und Systemgruppen hinweg. Das Ganze funktioniert über eine zentrale Web-Applikation.
+
 Spacewalk unterstützt Fedora, CentOS, SLE und Debian.
 
 Features:
-Inventar über Hardware und installierte Software
-Installation von Software und Updates
-Konfigurationen verteilen und managen
-Content-Verteilung
+
+\begin{itemize}
+\item Inventar über Hardware und installierte Software
+\item Installation von Software und Updates
+\item Konfigurationen verteilen und managen
+\item Content-Verteilung
+\end{itemize}
 
 Kosten:
+
 Gratis
+
 \xxx[Source: http://spacewalk.redhat.com/faq.html ]
 
 
@@ -74,9 +102,12 @@ https://technet.microsoft.com/de-de/windowsserver/bb332157.aspx
 Windows Server Update Services ist eine proprietäre Update-Software von Microsoft für zentralisiertes Managen von Patches für Microsoft-Server.
 
 Features:
-Verteilen der Updates, einmaliges Herunterladen
-Client-Komponente, welche mit dem Manager kommuniziert und Status-Details liefert
-Gruppieren von Systemen
+
+\begin{itemize}
+\item Verteilen der Updates, einmaliges Herunterladen
+\item Client-Komponente, welche mit dem Manager kommuniziert und Status-Details liefert
+\item Gruppieren von Systemen
+\end{itemize}
 
 Kosten:
 Kostenlos
