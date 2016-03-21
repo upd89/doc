@@ -25,12 +25,12 @@
 
 % uses todonotes
 \newcommand{\xxx}[1][]{
-	\ifthenelse{\equal{#1}{}}{\todo[inline]{TODO}}{\todo[inline]{TODO:\ #1}}	
+	\ifthenelse{\equal{#1}{}}{\todo[inline]{TODO}}{\todo[inline]{TODO:\ #1}}
 }
 
-% pretty url without http://
+% pretty url without http:// or https://
 \newcommand{\purl}[1]{%
-	\href{#1}{\StrBehind{#1}{http://}}%
+	\href{#1}{\StrBehind{#1}{://}}%
 }
 \newcommand{\shellcmd}[1]{\\\indent\indent\texttt{\footnotesize\# #1}\\}
 
