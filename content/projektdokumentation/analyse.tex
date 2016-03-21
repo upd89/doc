@@ -8,30 +8,39 @@ Hier werden bereits existierende Lösungen für ähnliche Problemstellungen vorg
 
 \subsection{UPD89}
 
+\newcommand{\competitor}[7]{
+	\begin{tabularx}{\linewidth}{lX}
+		\toprule
+		\textbf{Produkt} & #1\\
+		\midrule
+		\textbf{Hersteller} & #2\\
+		\textbf{Beschreibung} & #3\\
+		\textbf{Features} & #4\\
+    \textbf{Lizenz} & #5\\
+		\textbf{Kosten} & #6\\
+    \textbf{URL} & #7\\
+		\bottomrule
+	\end{tabularx}
+}
 
 \subsection{Landscape}
-https://landscape.canonical.com/
 
-Landscape von Canonical ist ein proprietärer Web-Service für das Managen von Ubuntu-Systemen an einem zentralen Ort.
+\competitor{Landscape}
+{Canonical}
+{Landscape von Canonical ist ein proprietärer Web-Service für das Managen von Ubuntu-Systemen an einem zentralen Ort.
 
 Es kann Software verwaltet und installiert werden, ebenso Security-Updates. Updates können auch automatisch installiert oder wieder entfernt werden.
 
-Landscape unterstützt neben Servern auch Desktops.
-
-
-Features:
-
-\begin{itemize}
+Landscape unterstützt neben Servern auch Desktops.}
+{\begin{itemize}
 \item Deployment
 \item Software und Update Management inkl. Repository-Verwaltung
 \item Monitoring, inkl. Prozess-Zugriff sowie div. Hardware-Abfragen
 \item RBAC (Role-Based Access Control)
-\end{itemize}
-
-
-Kosten:
-
-per se Kostenlos, benötigt aber eine Advantage-Lizenz. Diese kostet im Minimum 320 USD pro Server pro Jahr.
+\end{itemize}}
+{}
+{Kostenlos, benötigt aber eine Advantage-Lizenz. Diese kostet im Minimum 320 USD pro Server pro Jahr.}
+{https://landscape.canonical.com/}
 
 \xxx[Source: http://www.ubuntu.com/management/ubuntu-advantage]
 
@@ -86,6 +95,10 @@ Features:
 \item Konfigurationen verteilen und managen
 \item Content-Verteilung
 \end{itemize}
+
+Lizenz:
+
+\gls{gplv2}
 
 Kosten:
 
