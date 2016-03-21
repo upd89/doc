@@ -8,7 +8,7 @@ Hier werden bereits existierende Lösungen für ähnliche Problemstellungen vorg
 
 \subsection{UPD89}
 
-\newcommand{\competitor}[7]{
+\newcommand{\competitor}[8]{
 	\begin{tabularx}{\linewidth}{lX}
 		\toprule
 		\textbf{Produkt} & #1\\
@@ -19,6 +19,7 @@ Hier werden bereits existierende Lösungen für ähnliche Problemstellungen vorg
     \textbf{Lizenz} & #5\\
 		\textbf{Kosten} & #6\\
     \textbf{URL} & #7\\
+    \textbf{Eignung} & #8\\
 		\bottomrule
 	\end{tabularx}
 }
@@ -41,6 +42,7 @@ Landscape unterstützt neben Servern auch Desktops.}
 {Proprietär}
 {Kostenlos, benötigt aber eine Advantage-Lizenz. Diese kostet im Minimum 320 USD pro Server pro Jahr.\footnote{Quelle: http://www.ubuntu.com/management/ubuntu-advantage}}
 {https://landscape.canonical.com/}
+{}
 
 \subsection{Ansible}
 
@@ -58,7 +60,7 @@ Ansible Tower die zentrale Web-basierte Kommandozentrale und ist Open-Source.\fo
 {GNU General Public License v3}
 {Im Enterprise-Paket kostet Ansible Tower 50 USD pro Server pro Jahr für > 1000 Server.\footnote{Quelle: https://www.ansible.com/pricing}}
 {https://www.ansible.com/}
-
+{}
 
 \subsection{Spacewalk}
 
@@ -77,8 +79,8 @@ Spacewalk unterstützt Fedora, CentOS, SLE und Debian.}
 \end{itemize}}
 {GPLv2}
 {Kostenlos\footnote{Quelle: http://spacewalk.redhat.com/faq.html}}
-{http://spacewalk.redhat.com/}
-
+{\purl{http://spacewalk.redhat.com/}}
+{}
 
 \subsection{WSUS}
 
@@ -93,3 +95,4 @@ Spacewalk unterstützt Fedora, CentOS, SLE und Debian.}
 {Proprietär}
 {Kostenlos\footnote{Quelle: https://technet.microsoft.com/en-us/windowsserver/bb332157}}
 {https://technet.microsoft.com/de-de/windowsserver/bb332157.aspx}
+{WSUS eignet sich nur für Microsoft-Produkte. Da Nine.ch ausschlisslich Linux-basierende Server verwendet, fällt WSUS aus Technologischen Gründen weg.}
