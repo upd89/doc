@@ -4,7 +4,7 @@
 
 \section{Konkurrenz} \label{sec:analysis:competition}
 
-Hier werden bereits existierende Lösungen für ähnliche Problemstellungen vorgestellt und analysiert sowie mit der Lösung \gls{UPD89} verglichen.
+Hier werden bereits existierende Lösungen für ähnliche Problemstellungen vorgestellt und analysiert sowie mit der Lösung \gls{upd89} verglichen.
 
 \subsection{UPD89}
 
@@ -33,12 +33,12 @@ Hier werden bereits existierende Lösungen für ähnliche Problemstellungen vorg
 Es kann Software verwaltet und installiert werden, ebenso Security-Updates. Updates können auch automatisch installiert oder wieder entfernt werden.
 
 Landscape unterstützt neben Servern auch Desktops.}
-{\begin{itemize}
-\item Deployment
-\item Software und Update Management inkl. Repository-Verwaltung
-\item Monitoring, inkl. Prozess-Zugriff sowie div. Hardware-Abfragen
-\item RBAC (Role-Based Access Control)
-\end{itemize}}
+{
+- Deployment\\
+- Software und Update Management inkl. Repository-Verwaltung\\
+- Monitoring, inkl. Prozess-Zugriff sowie div. Hardware-Abfragen\\
+- RBAC (Role-Based Access Control)\\
+}
 {Proprietär}
 {Kostenlos, benötigt aber eine Advantage-Lizenz. Diese kostet im Minimum 320 USD pro Server pro Jahr.\footnote{Quelle: \purl{http://www.ubuntu.com/management/ubuntu-advantage}}}
 {\purl{https://landscape.canonical.com/}}
@@ -51,12 +51,12 @@ Landscape unterstützt neben Servern auch Desktops.}
 {Ansible ist eine Plattform zur Automatisierung von Tasks und zur Orchestrierung. Sie kombiniert Softwareverteilung, Kommando-Ausführung und Konfigurationsmanagement.Server werden via SSH angesprochen, es ist kein Agent erforderlich.
 
 Ansible Tower die zentrale Web-basierte Kommandozentrale und ist Open-Source.\footnote{Quelle: \purl{https://www.ansible.com/subscription-agreement}}}
-{\begin{itemize}
-\item Applikations-Deployment
-\item Konfigurations-Management
-\item User-definierbare Playbooks für Tasks
-\item REST-Schnittstelle für Einbinden in andere Systeme
-\end{itemize}}
+{
+- Applikations-Deployment\\
+- Konfigurations-Management\\
+- User-definierbare Playbooks für Tasks\\
+- REST-Schnittstelle für Einbinden in andere Systeme\\
+}
 {GNU General Public License v3}
 {Im Enterprise-Paket kostet Ansible Tower 50 USD pro Server pro Jahr für > 1000 Server.\footnote{Quelle: \purl{https://www.ansible.com/pricing}}}
 {\purl{https://www.ansible.com/}}
@@ -71,12 +71,12 @@ Ansible Tower die zentrale Web-basierte Kommandozentrale und ist Open-Source.\fo
 Es bietet unter anderem auch ein Update-Management über Systeme und Systemgruppen hinweg. Das Ganze funktioniert über eine zentrale Web-Applikation.
 
 Spacewalk unterstützt Fedora, CentOS, SLE und Debian.}
-{\begin{itemize}
-\item Inventar über Hardware und installierte Software
-\item Installation von Software und Updates
-\item Konfigurationen verteilen und managen
-\item Content-Verteilung
-\end{itemize}}
+{
+- Inventar über Hardware und installierte Software\\
+- Installation von Software und Updates\\
+- Konfigurationen verteilen und managen\\
+- Content-Verteilung\\
+}
 {GNU General Public License v2}
 {Kostenlos\footnote{Quelle: \purl{http://spacewalk.redhat.com/faq.html}}}
 {\purl{http://spacewalk.redhat.com/}}
@@ -87,15 +87,15 @@ Spacewalk unterstützt Fedora, CentOS, SLE und Debian.}
 \competitor{Windows Server Update Services}
 {Microsoft}
 {Windows Server Update Services ist eine proprietäre Update-Software von Microsoft für zentralisiertes Managen von Patches für Microsoft-Server.}
-{\begin{itemize}
-\item Verteilen der Updates, einmaliges Herunterladen
-\item Client-Komponente, welche mit dem Manager kommuniziert und Status-Details liefert
-\item Gruppieren von Systemen
-\end{itemize}}
+{
+- Verteilen der Updates, einmaliges Herunterladen\\
+- Client-Komponente, welche mit dem Manager kommuniziert und Status-Details liefert\\
+- Gruppieren von Systemen\\
+}
 {Proprietär}
 {Kostenlos\footnote{Quelle: \purl{https://technet.microsoft.com/en-us/windowsserver/bb332157}}}
 {\purl{https://technet.microsoft.com/de-de/windowsserver/bb332157.aspx}}
-{WSUS eignet sich nur für Microsoft-Produkte. Da Nine.ch ausschlisslich Linux-basierende Server verwendet, fällt WSUS aus technologischen Gründen weg.}
+{WSUS eignet sich nur für Microsoft-Produkte. Da Nine.ch ausschliesslich Linux-basierende Server verwendet, fällt WSUS aus technologischen Gründen weg.}
 
 \subsection{Puppet}
 
@@ -104,13 +104,13 @@ Spacewalk unterstützt Fedora, CentOS, SLE und Debian.}
 {Puppet ist ein Tool um Systeme zu konfigurieren, Software zu installieren oder Programme auszuführen sowie um Daten zu synchronisieren.
 
 Puppet ist als Open-Source oder als kostenpflichtige Enterprise-Version erhältlich. }
-{\begin{itemize}
-\item Unterstützt verschiedene Linux- und Windows-Systeme
-\item in Ruby geschrieben
-\item deklarative Sprache zur Ressourcenbeschreibung für Systemkonfigurationen
-\item Monitoring (Puppet Dashboard)
-\item Client-Server-Architektur mit einem Daemon auf jedem Node
-\end{itemize}}
+{
+- Unterstützt verschiedene Linux- und Windows-Systeme\\
+- in Ruby geschrieben\\
+- deklarative Sprache zur Ressourcenbeschreibung für Systemkonfigurationen\\
+- Monitoring (Puppet Dashboard)\\
+- Client-Server-Architektur mit einem Daemon auf jedem Node\\
+}
 {Apache 2.0 (seit 2.7.0, früher GPL)}
 {Kostenlos als Open-Source\footnote{Quelle: \purl{http://info.puppetlabs.com/open-source-puppet-download.html}} oder 120 USD pro Jahr pro Server mit Standard-Support als Enterprise-Verion\footnote{Quelle: \purl{https://puppetlabs.com/puppet/how-to-buy}}}
 {\purl{https://puppetlabs.com/}}
