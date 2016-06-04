@@ -36,17 +36,25 @@ Überschriften (Unterkapitel) ohne Nummerierung einsetzen!
 
 \section*{Ausgangslage}
 
-\xxx
+Nine.ch betreibt über 1500 Linux-Serversysteme mit unterschiedlichen Konfigurationen. Software-Komponenten werden über herkömmliche Debian-Pakete installiert. Bei Veröffentlichung von Sicherheitsupdates müssen diese zeitnah auf sämtlichen betroffenen Serversystemen installiert werden, was bisher manuell mit verschiedenen Bash-Scripts erreicht wird.
 
-\section*{Ziele}
+Dies hat mehrere Nachteile: Es gibt keine zuverlässigen Feedback-Mechanismen, es verursacht jede Woche mehrere Stunden Aufwand und resultiert im schlimmsten Fall in einer Verzögerung von mehreren Tagen bis zur Installation.
 
-\xxx
+\section*{Vorgehen und Technologien}
 
-\section*{Ergebnisse}
+Der Kunde gab vor, dass auf jedem Server ein Agent laufen muss, der ausstehende Updates an ein Kontrollcenter meldet, welches mit Ruby on Rails und PostgreSQL umgesetzt wird. So kann das System leicht in die bestehende Umgebung eingebunden und weiterentwickelt werden. 
 
-\xxx
+Auf dem Agent wird eine Python-Bibliothek zur Anbindung an die Debian-Paketverwaltung verwendet. Die Kommunikation zwischen Agenten und Kontrollcenter erfolgt per HTTPS mit Clientzertifikaten, um eine sichere Kommunikation auch über unsichere Netze zu gewährleisten.
+
+\section*{Ergebnisse}   
+
+Im Rahmen der Bachelorarbeit wurde eine Open-Source-Lösung entwickelt, welche das Einspielen von Updates auf Serversystemen vereinfacht. Der Benutzer kann über die Software bestimmen auf welchen Systemen welche Updates durchgeführt werden sollen. Diese werden an die entsprechenden Systeme gesendet und dort automatisch ausgeführt und zurück an das Kontrollcenter gemeldet.
+
+
+Der User kann zudem Systeme und Pakete gruppieren, um Masseninstallationen von Updates auf mehreren Systemen gleichzeitig durchzuführen. Durch verschiedene Auswertungen kann man sich eine bessere Übersicht über die Systeme und Pakete verschaffen.
 
 \section*{Ausblick}
 
-\xxx
+Die Software wurde mit dem Ziel entwickelt, als Open-Source-Lösung veröffentlicht zu werden. Deshalb ist der Quellcode offen erhältlich und das Benutzen oder Erweitern der Applikation ist erwünscht. Nine.ch wird sie für ihre Zwecke noch erweitern und in ihre bestehende IT-Landschaft einbetten.
 
+Eine Anbindung an andere Paketverwaltungssysteme ist denkbar, da die Agents nur über eine API mit dem Kontrollcenter kommunizieren und die Implementation der Agents unabhängig davon ist.
