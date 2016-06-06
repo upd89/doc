@@ -46,6 +46,13 @@ Der Kunde gab vor, dass auf jedem Server ein Agent laufen muss, der ausstehende 
 
 Auf dem Agent wird eine Python-Bibliothek zur Anbindung an die Debian-Paketverwaltung verwendet. Die Kommunikation zwischen Agenten und Kontrollcenter erfolgt per HTTPS mit Clientzertifikaten, um eine sichere Kommunikation auch über unsichere Netze zu gewährleisten.
 
+\begin{figure}
+  \centering
+    \includegraphics[width=0.7\textwidth]{upd89-overview}
+  \caption{Die Lösung ersetzt nicht den Paket-Manager der Distribution, sondern ermöglicht das zentrale Updatemanagement einer grossen Anzahl von Servern.}
+  \label{fig:overview}
+\end{figure}
+
 \section*{Ergebnisse}   
 
 Im Rahmen der Bachelorarbeit wurde eine Open-Source-Lösung entwickelt, welche das Einspielen von Updates auf Serversystemen vereinfacht. Der Benutzer kann über die Software bestimmen auf welchen Systemen welche Updates durchgeführt werden sollen. Diese werden an die entsprechenden Systeme gesendet und dort automatisch ausgeführt und zurück an das Kontrollcenter gemeldet.
@@ -53,8 +60,22 @@ Im Rahmen der Bachelorarbeit wurde eine Open-Source-Lösung entwickelt, welche d
 
 Der User kann zudem Systeme und Pakete gruppieren, um Masseninstallationen von Updates auf mehreren Systemen gleichzeitig durchzuführen. Durch verschiedene Auswertungen kann man sich eine bessere Übersicht über die Systeme und Pakete verschaffen.
 
+\begin{figure}
+  \centering
+    \includegraphics[width=0.7\textwidth]{upd89-processes}
+  \caption{Die asynchrone Kommunikation erfolgt Ereignisgesteuert.}
+  \label{fig:processes}
+\end{figure}
+
 \section*{Ausblick}
 
 Die Software wurde mit dem Ziel entwickelt, als Open-Source-Lösung veröffentlicht zu werden. Deshalb ist der Quellcode offen erhältlich und das Benutzen oder Erweitern der Applikation ist erwünscht. Nine.ch wird sie für ihre Zwecke noch erweitern und in ihre bestehende IT-Landschaft einbetten.
 
 Eine Anbindung an andere Paketverwaltungssysteme ist denkbar, da die Agents nur über eine API mit dem Kontrollcenter kommunizieren und die Implementation der Agents unabhängig davon ist.
+
+\begin{figure}
+  \centering
+    \includegraphics[width=\textwidth]{screenshot_comboview}
+  \caption{Die Weboberfläche ermöglicht die gezielte Auswahl von Updates.}
+  \label{fig:userinterface}
+\end{figure}
