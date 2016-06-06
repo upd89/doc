@@ -1,0 +1,55 @@
+\documentclass[class=scrbook,crop=false]{standalone}
+
+\input{./preamble}
+
+\begin{document}
+	
+	\section{Projektsitzung 21. März 2016}
+	
+	\begin{tabular}{ll}
+		\textbf{Datum} & 21.3.2016 \\
+		\textbf{Zeit} & 13:10 \textendash 13:55 Uhr \\
+		\textbf{Ort} & \acs{hsr} \\
+		\textbf{Anwesende} & \proff \\ & \ubos \\ & \pchr
+	\end{tabular}
+	
+	\subsection*{Traktanden}
+	
+	\begin{itemize}
+		\item End of Elaboration
+        \item Review Domainmodell und UseCases
+	\end{itemize}
+	
+	\subsection*{Protokoll}
+
+	\begin{itemize}
+        \item Finale Aufgabenstellung unterzeichnet
+        \item Use-Cases OK.
+        \begin{itemize}
+            \item Nicht zu technisch werden lassen, ohne implementationsspezifische Details (konkret: FQDN/Zertifikate entfernen). Aber: kann bei Brief Format als "Technische Details" erwähnt werden.
+            \item "Read-Only-User" zu "User" umbenennen
+        \end{itemize}
+        \item Domänenmodell
+        \begin{itemize}
+            \item Optionale Punkte, z.B. delay/API-Call/etc. --> entfernen und wenn es implementiert wurde, wieder einfügen
+            \item Assoziationen wenn möglich bennen, z.B. User erstellt Job
+            \item Anstatt State z.B. System Update-State verwenden
+            \item Sprache einheitlich halten
+            \item System: eventuell required restart auslagern in Notifications
+            \item Zwischen-Klassen verwenden bei n-n-Beziehungen (Update/System, Package/PackageGroup, Package/System)
+            \item State eventuell auslagern aus Task und SystemUpdate-Beziehung
+            \item Vorschlag: Task-Execution von Task-Spezifikation trennen
+            \item Permissions als eigene Klasse
+            \item Das Domainmodell soll Konzepte beinhalten, nicht das Klassenmodell
+        \end{itemize}
+        \item Nächste Woche wegen Ostern kein Meeting. Bei Bedarf geht auch ein Email
+    \end{itemize}
+	
+    \subsection*{Tasks bis zur nächsten Sitzung}
+    
+    \begin{enumerate}
+        \item Domain-Model überarbeiten
+    \end{enumerate}
+
+
+\end{document}

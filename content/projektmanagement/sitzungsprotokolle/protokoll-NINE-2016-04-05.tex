@@ -1,0 +1,62 @@
+\documentclass[class=scrbook,crop=false]{standalone}
+
+\input{./preamble}
+
+\begin{document}
+	
+    \section{Meeting Nine.ch, 5. April 2016}
+    
+    \begin{tabular}{ll}
+        \textbf{Datum} & 5.4.2016 \\
+        \textbf{Zeit} & 16:00 \textendash 17:00 Uhr \\
+        \textbf{Ort} & \acs{hsr} \\
+        \textbf{Anwesende} & \sasie \\ & \rulrich \\ & \ubos \\ & \pchr
+    \end{tabular}
+    
+    \subsection*{Traktanden}
+    
+    \begin{itemize}
+        \item Ergebnisse von Sprint 1
+        \item Präsentation Prototyp
+        \item Preview/Abnahme Sprint 2
+    \end{itemize}
+    
+    \subsection*{Fragen}
+    
+	\begin{itemize}
+        \item Multi-Threading mit Rails
+        \item Mail betreffend Regelwerk
+        \item Testumgebung von nine
+        \item Erfahrungen/Tipps zu
+        \begin{itemize}
+            \item Unicorn?
+            \item ActiveAdmin?
+            \item Netzke
+        \end{itemize}
+    \end{itemize}
+    
+    \subsection*{Protokoll}
+    
+    \begin{itemize}
+        \item Test-Umgebung wurde aufgesetzt, Zugangsdaten erhalten
+        \item Bestätigungs-Mail betreffend Regelwerk wird geschickt -> haben wir erhalten
+        \item Alternative für ActiveAdmin oder Netzke: Administrate
+        \item Rails Umgebung (Multi-Threading): nine verwendet Apache und mod \textunderscore passenger -> kann auch so verwendet werden
+        \item Agents kontaktieren
+        \begin{itemize}
+            \item Für die Umsetzung ist es OK, wenn wir davon ausgehen, dass die Agents direkt erreichbar sind
+            \item Sicherheit muss gewährleistet sein (Zugriff auf Agent muss abgesichert sein)
+            \item nine verwendet selbst ein Message-Bus (RabbitMQ) -> wäre Luxuslösung
+        \end{itemize}
+        \item Mini-Code-Review der API:
+            \item kleinere Methoden/Klassen schreiben
+            \item Weniger Business-Logik in Controller, mehr in Models.
+            \item Eventuell Service-Klassen (Service Pattern) einführen, welche die Logik übernehmen
+        \end{itemize}
+        \item Samuel wird voraussichtlich an Abschlusspräsentation teilnehmen
+        \item Identifikation der Pakete: Name + Architektur + Distribution
+        \item Nächstes Meeting: 19.4. 16:00 bei Nine
+    \end{itemize}
+
+
+\end{document}

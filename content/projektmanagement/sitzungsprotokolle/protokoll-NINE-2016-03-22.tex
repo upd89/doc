@@ -1,0 +1,50 @@
+\documentclass[class=scrbook,crop=false]{standalone}
+
+\input{./preamble}
+
+\begin{document}
+	
+    \section{Meeting Nine.ch, 22. März 2016}
+    
+    \begin{tabular}{ll}
+        \textbf{Datum} & 22.3.2016 \\
+        \textbf{Zeit} & 16:00 \textendash 17:00 Uhr \\
+        \textbf{Ort} & \acs{hsr} \\
+        \textbf{Anwesende} & \sasie \\ & \rulrich \\ & \ubos \\ & \pchr
+    \end{tabular}
+    
+    \subsection*{Traktanden}
+    
+    \begin{itemize}
+        \item Ergebnisse von Elaboration-Phase
+        \item Definition Sprint 1
+        \item Workflow / Rules
+    \end{itemize}
+
+	\subsection*{Fragen}
+	
+	\begin{itemize}
+        \item Rails 5? (Web-Sockets!) -> Ja, aber Achtung, abklären ob alle verwendeten GEMs Rails 5 kompatibel sind
+        \item Test-Umgebung -> Bestellt, 10 VMs
+    \end{itemize}
+    
+    \subsection*{Protokoll}
+    
+	\begin{itemize}
+        \item Workflow
+        \begin{itemize}
+            \item Problem bei Failover-Paaren: Failover muss manuell getriggert werden. --> Serieller Ablauf funktioniert nicht wie angedacht
+            \item Eventuell: Gruppe definieren, welche nicht gleichzeitig aktualisiert werden darf + warnen
+            \item Generell: Workflow-Feature eher "nice-to-have".
+            \item Resultat: Regelwerk wird weggelassen, Sam macht entsprechendes E-Mail
+        \end{itemize}
+        \item Domain-Model: OK, Permission-System "gute Idee, macht Sinn"
+        \item Sprint 1: OK, "ambitioniert"
+        \item Präsentation: Nine.ch würde gerne an Schlusspräsentation teilnehmen. Termin TBD
+        \item Rails 5: OK, wenn Gems supported sind --> selbst definieren
+        \item Testing-Hardware wird zur Verfügung gestellt, 4xUbuntu 12.04, 4xUbuntu 14.04, 1xCC, 1xRedmine. --> 10 Systeme
+        \item Slack-Invite wird versendet
+        \item Nächstes Meeting: 5.4.2016, 16:00
+    \end{itemize}
+
+\end{document}

@@ -1,0 +1,150 @@
+\documentclass[class=scrbook,crop=false]{standalone}
+
+\input{./preamble}
+
+\begin{document}
+	
+    \section{Meeting Nine.ch, 8. März 2016}
+    
+    \begin{tabular}{ll}
+        \textbf{Datum} & 8.3.2016 \\
+        \textbf{Zeit} & 16:00 \textendash 17:00 Uhr \\
+        \textbf{Ort} & \acs{hsr} \\
+        \textbf{Anwesende} & \sasie \\ & \rulrich \\ & \ubos \\ & \pchr
+    \end{tabular}
+    
+    \subsection*{Traktanden}
+    
+    \begin{itemize}
+        \item Aufgabenstellung
+        \begin{itemize}
+            \item OK des Kunden
+        \end{itemize}
+        \item Vorschlag Projektplan
+        \begin{itemize}
+            \item Meilensteine festlegen
+        \end{itemize}
+        \item Use-Cases
+        \item Abläufe/Mockups
+    \end{itemize}
+    
+    \subsection*{Fragen}
+    
+    \begin{itemize}
+        \item Ruby interface to apt-pkg, Goal of this project is to have a proper Ruby binding to APT like in Python. - Currently install, remove packages commands are not implemented. (Keine Frage)
+        \item Debian 6 durch Debian 7 ersetzen? -> Debian nicht mehr erwähnen
+        \item Client-Side JS? Präferenzen? Angular ok? -> ok
+        \item TDD? In welcher Form? -> keine Vorgabe durch nine
+        \item Reboot-required erkennbar, aber nur durch Download der debs + grep nach "requires-reboot". Frage: Handling der Pakete? Caching lokal OK? -> output von apt genügt
+        \begin{itemize}
+            \item Grösserer Aufwand wenn im Vorherein erkennen, ob reboot required. Im Nachhinein simpel durch /var/run/...
+        \end{itemize}
+    \end{itemize}
+    
+    \subsection*{Protokoll}
+    
+    \subsubsection*{Entscheide}
+    
+    \begin{itemize}
+        \item Debian kann aus der Aufgabenstellung gestrichen werden
+        \item Sitzungen alle 2 Wochen bei nine, jeweils Dienstags um 16:00 Uhr
+        \item Aufgabenstellung/Projektauftrag OK
+    \end{itemize}
+    
+    \subsubsection*{Tipps}
+    
+	\begin{itemize}
+        \item Bei der Festlegung der verwendeten Versionen auf Supportdauer achten (Bsp. Rails LTS)
+        \item Python-Modul 'apt' verwendet C-Bindings, allenfalls können die verwendet werden
+        \item Angular erhöht Komplexität unter Umständen unnötig, da vieles mit Rails bereits möglich ist
+        \item TDD: Tests sind sinnvoll, nine achtet aber primär auf Nachhaltigkeit
+    \end{itemize}
+    
+    \subsection*{Architektur}
+    
+    \subsubsection*{Abläufe aus der Praxis}
+    
+    \begin{itemize}
+        \item unkritische Updates auf unkritischen Systemen verteilen
+        \item weitere Gruppen von Updates auf Gruppe von Systemen verteilen
+        \item 1 System updaten (mit Auswahl aller Updates)
+        \item 1 Patch möglichst schnell ausbreiten (selten)
+    \end{itemize}
+    
+    \subsubsection{Gruppierung der Systeme}
+    
+    \begin{itemize}
+        \item Sinnvolle Gruppen: Default, HA-Systeme, DB-Systeme (z.B. falls DB installiert)
+        \item Standard-Gruppe für neue Systeme?
+        \item Info/Konfiguration von Agent um Gruppenzuordnung zu steuern?
+        \begin{itemize}
+            \item Gefahr, dass CC von Agent abhängig ist.
+        \end{itemize}
+        \item Systeme müssen nachträglich anderer Gruppe zugeordnet werden können
+        \item Erstellen/Löschen/Ändern von anderen Gruppen trotzdem sinnvoll
+    \end{itemize}
+    
+    \subsubsection{Gruppierung der Pakete}
+    
+    \begin{itemize}
+        \item Unbekannte Pakete werden in Dashbord angezeigt und können dort in eine (bzw mehrere?) Paket-Gruppe eingeteilt werden
+    \end{itemize}
+    
+    \subsubsection{Update-Freigabe}
+    
+    IST:
+    
+    \begin{itemize}
+        \item Erst unkritische Systeme und unkritische Pakete, dann zweiter/dritter Durchlauf mit immer "kritischeren" Kombinationen bis alles aktualisiert wurde
+        \item Erst grosse Masse von unkritischen Kombinationen, danach Spezialfälle
+        \item HA-Systeme werden separat aktualisiert, da sehr kritisch
+        \item DB-Systeme in einem eigenen Step um verwundbare Fläche (Unterbruchsdauer) klein zu halten (-> Replikation)
+        \item Logik basiert derzeit auf Blacklists
+        \item Blacklist ist Pattern-Matching von Paket-Namen (Kernel, MySQL, Postgres, ...)
+    \end{itemize}
+    
+    SOLL:
+    
+    \begin{itemize}
+        \item Systemgruppe auswählen
+        \item Paketgruppe auswählen
+        \item Update-Auswahl anpassen/bestätigen und zur Durchführung freigeben
+        \item Auftrag an Agents verteilen
+        \item Feedback der Agents anschliessend in Control-Center (in Progress, Erfolgreich, Fehlgeschlagen)
+    \end{itemize}
+    
+    \subsubsection{Berechtigungen}
+    
+    Rollen:
+    
+    \begin{itemize}
+        \item Admin: Updates freigeben
+        \item jeder: Logs/Reports einsehen (Read-Only)
+        \item ev weitere Rolle: Unkritische Updates freigeben
+    \end{itemize}
+    
+    \subsubsection{Sonstiges}
+    
+    \begin{itemize}
+        \item Information über empfohlenen System-Neustart aus apt in Control Center anzeigen. Info über benötigte Neustarts von Services nicht notwendig.
+        \item Gruppierung nach OS-Version (Ubuntu 12.04, 14.04, 16.04)
+        \item Abgrenzung: System-Reboot nicht durch unseren Agent
+        \item Optional/Später: Zeitliche Steuerung der Updates (Wartungsfenster)
+        \item Optional/Später: Informationen über installierte Pakete in Control Center verfügbar (Sinnvoll?)
+        \item Optional/Später: Dry-Run
+        \begin{itemize}
+            \item Prozentsatz oder bestimmte Anzahl von zufällig ausgewählten Systemen für Dry-Run angeben
+            \item Durchsicht der Logfiles (Output von Apt)
+            \item Anschliessend "scharfe" Durchführung mit selben Parametern (bedingt eventuell Speichern von Runs)
+        \end{itemize}
+        \item Name "UPD89" für die BA OK.
+    \end{itemize}
+    
+    \subsection*{Tasks bis zur nächsten Sitzung}
+    
+    \begin{enumerate}
+        \item nine frühzeitig über Infrastruktur-Bedarf informieren (z.B. für Testing)
+    \end{enumerate}
+
+
+\end{document}
