@@ -1,0 +1,85 @@
+\section{Use Cases}
+
+\includegraphics[width=\textwidth]{files/UseCases_small}
+
+\xxx[finish]
+
+\subsection{UC01: Agent deployen}
+
+Der Agent beinhaltet wird auf einem System ausgeliefert. Dabei werden Parameter zur Konfiguration des Agents bei der Installation mitgegeben.
+
+Technische Details:
+
+\begin{itemize}
+\item Das Paket wird als .deb via Puppet ausgeliefert
+\item Konfiguration des Agents enthält: Adresse des Control-Centers und das CA-Zertifikat
+\end{itemize}
+
+
+\subsection{UC02: Registration von Agent an Control Server}
+
+Ein Agent registriert sich beim Control-Center. Er stellt zudem sicher, dass das Control-Center ihn erreichen kann.
+
+Technische Details:
+
+\begin{itemize}
+\item Registration geschieht über die beim Deployment erhaltene Adresse und dem generierten Zertifikat
+\item Der Agent übermittelt seinen Fully Qualified Domain Name.
+\end{itemize}
+
+\subsection{UC03: Ausstehende Updates melden}
+
+Ein Agent aktualisiert die Paketliste. Er prüft, ob Updates anstehen und meldet diese Liste dem Control-Center. Gleichzeitig schickt er auch noch Hostinformationen, damit das Control-Center seine Informationen ggf. aktualisieren kann.
+
+Technische Details:
+
+\begin{itemize}
+\item Paketliste wird via apt-Schnittstelle aktualisiert
+\item Hostinformationen enthalten seine OS-Version sowie Hostnamen
+\end{itemize}
+
+\subsection{UC04: Update durchführen}
+
+Ein Agent erhält vom Control-Center einen Task mit einer Liste von vorzunehmenden System-Updates. Er prüft ob diese bei sich anstehen und führt diese durch. Das Empfangen der Updates bestätigt der an das Control-Center, wo der Status dieses Tasks auf "Queued" gesetzt.
+
+\subsection{UC05: Update auslösen}
+
+Das Control-Center hat eine Liste von ausstehenden Updates von einem oder mehreren Systemen erhalten. Diese zeigt es in einer Übersicht an. Ein User mit genügend hoher Berechtigungs-Stufe gibt eines oder mehrere dieser Updates frei. Das Control-Center erstellt daraus Tasks, welcher der bestätigt. Wenn bestätigt, schickt das Control-Center diese Tasks an die jeweiligen Systeme.
+
+\subsection{UC06: Statusreport anzeigen}
+
+Ein User lässt sich vom Control-Center eine Liste von Systemen und Updates anzeigen. Darauf ersichtlich ist der Zustand jedes Systems und Updates. Der User sieht, auf welchem System ein Update aussteht und welche Updates in welchem Zustand sind ("Pending", "Queued", "Failed", "Done").
+
+\xxx[stimmen die states noch?]
+
+\subsection{UC07: Berechtigungen verwalten}
+
+Ein Administrator kann für Systemgruppen und Paket-Gruppen Berechtigungs-Stufen setzen, so dass nur User mit dieser Stufe Aktionen auf diesen Gruppen vornehmen können.
+
+\subsection{UC08: System-Gruppen verwalten}
+
+Ein Administrator kann eine System-Gruppe bearbeiten, löschen oder erstellen. Dies beinhaltet auch das Entfernen oder Hinzufügen von Systemen sowie das Setzen von Berechtigungs-Stufen.
+
+\subsection{UC09: User verwalten}
+
+Ein Administrator kann neue User erstellen, bestehende User löschen oder deren Berechtigungs-Stufe ändern.
+
+\subsection{UC10: Regeln verwalten}
+
+Ein Administrator kann Regeln für System-Gruppen erstellen, ändern und entfernen. Diese Regeln greifen bei der Auswahl der Systeme und Pakete.
+
+\subsection{UC11: Paket-Gruppen verwalten}
+
+Ein Administrator kann neue Gruppen für Pakete erstellen, löschen oder bearbeiten. Dies beinhaltet auch das Entfernen oder Hinzufügen von Paketen sowie das Setzen von Berechtigungs-Stufen.
+
+\section{Abuse Cases}
+
+\includegraphics[width=\textwidth]{files/AbuseCases_small}
+
+\subsection{AC01: Agent imitieren}
+
+Angreifer gibt sich als Agent aus und meldet sich bei CC an. Gefährdung: DOS mit "Fake-Updates", erhöhte Last, etc.
+
+\subsection{AC02: Control-Center imitieren}
+
+Falsches Control-Center meldet Reboot-Befehl an Agent. Agent muss prüfen ob das spezifizierte Update wirklich einen Reboot erfordert.
