@@ -8,6 +8,7 @@
 
 Der Agent beinhaltet wird auf einem System ausgeliefert. Dabei werden Parameter zur Konfiguration des Agents bei der Installation mitgegeben.
 
+
 Technische Details:
 
 \begin{itemize}
@@ -19,6 +20,7 @@ Technische Details:
 \subsection{UC02: Registration von Agent an Control Server}
 
 Ein Agent registriert sich beim Control-Center. Er stellt zudem sicher, dass das Control-Center ihn erreichen kann.
+ 
 
 Technische Details:
 
@@ -30,6 +32,7 @@ Technische Details:
 \subsection{UC03: Ausstehende Updates melden}
 
 Ein Agent aktualisiert die Paketliste. Er prüft, ob Updates anstehen und meldet diese Liste dem Control-Center. Gleichzeitig schickt er auch noch Hostinformationen, damit das Control-Center seine Informationen ggf. aktualisieren kann.
+ 
 
 Technische Details:
 
@@ -48,9 +51,7 @@ Das Control-Center hat eine Liste von ausstehenden Updates von einem oder mehrer
 
 \subsection{UC06: Statusreport anzeigen}
 
-Ein User lässt sich vom Control-Center eine Liste von Systemen und Updates anzeigen. Darauf ersichtlich ist der Zustand jedes Systems und Updates. Der User sieht, auf welchem System ein Update aussteht und welche Updates in welchem Zustand sind ("Pending", "Queued", "Failed", "Done").
-
-\xxx[stimmen die states noch?]
+Ein User lässt sich vom Control-Center eine Liste von Systemen und Updates anzeigen. Darauf ersichtlich ist der Zustand jedes Systems und Updates. Der User sieht, auf welchem System ein Update aussteht und welche Updates in welchem Zustand sind.
 
 \subsection{UC07: Berechtigungen verwalten}
 
@@ -74,12 +75,14 @@ Ein Administrator kann neue Gruppen für Pakete erstellen, löschen oder bearbei
 
 \section{Abuse Cases}
 
-\includegraphics[width=\textwidth]{files/AbuseCases_small}
+\begin{center}
+    \includegraphics[width=0.75\textwidth]{files/AbuseCases_small}
+\end{center}
 
 \subsection{AC01: Agent imitieren}
 
-Angreifer gibt sich als Agent aus und meldet sich bei CC an. Gefährdung: DOS mit "Fake-Updates", erhöhte Last, etc.
+Ein Angreifer gibt sich als Agent aus und meldet sich bei CC an.
 
 \subsection{AC02: Control-Center imitieren}
 
-Falsches Control-Center meldet Reboot-Befehl an Agent. Agent muss prüfen ob das spezifizierte Update wirklich einen Reboot erfordert.
+Ein falsches Control-Center meldet sich beim Agent.
