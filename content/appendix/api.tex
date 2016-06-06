@@ -4,9 +4,14 @@ Source: https://redmine.upd89.org/redmine/projects/upd89/wiki/API
 
 \end{comment}
 
-\section{API}
+\chapter{API}
 
 Die beiden Komponenten \gls{agent} und \gls{controlcenter} kommunizieren über eine API.
+
+\xxx[ Mehr über API allgemein ]
+\xxx[ evtl. comments aus JSON entfernen ]
+\xxx[ definitiv mehr zum Unterschied hash/full! ]
+\xxx[ evtl. table bei A->CC entfernen ]
 
 \begin{figure}
   \centering
@@ -15,7 +20,7 @@ Die beiden Komponenten \gls{agent} und \gls{controlcenter} kommunizieren über e
   \label{fig:api_sequence_diagram}
 \end{figure}
 
-\subsection{Status-Codes}
+\section{Status-Codes}
 
 \begin{table}[H]
     \centering
@@ -33,7 +38,7 @@ Die beiden Komponenten \gls{agent} und \gls{controlcenter} kommunizieren über e
 \end{table}
 
 
-\subsection{Control Center}
+\section{Control Center}
 
 \begin{table}[H]
     \centering
@@ -51,7 +56,7 @@ Die beiden Komponenten \gls{agent} und \gls{controlcenter} kommunizieren über e
     \end{tabular}
 \end{table}
 
-\subsubsection{/register}
+\subsection{/register}
 
 \begin{minted}{json}
 {
@@ -65,7 +70,7 @@ Die beiden Komponenten \gls{agent} und \gls{controlcenter} kommunizieren über e
 \end{minted}
 
 
-Response:
+Antwort:
 
 \begin{minted}{json}
 {
@@ -76,76 +81,7 @@ Response:
 OK: System wurde erfolgreich registriert oder das System existiert bereits. Letzteres kann z.B. bei einer Neuinstallation des Systems vorkommen.
 ERROR: Parameter fehlt
 
-\subsubsection{/system/:urn/notify-hash}
-
-\begin{minted}{json}
-{
-  "name"            : String,  /*optional*/
-  "urn"             : String,  /*optional*/
-  "os"              : String,  /*optional*/
-  "address"         : String,  /*optional*/
-  "rebootRequired"  : Boolean, /*optional*/
-  "updCount"        : Integer,
-  "packageUpdates"  : [] Array of Strings /*can be empty*/
-}
-\end{minted}
-
-Hinweis: Stimmt der Update-Count mit der Grösse des PackageUpdate-Arrays überein, dann werden andere (nicht im Array enthaltene aber im CC vermerkte) Updates auf "Outdated" gesetzt! Wenn das CC bei einem API-Aufruf "countMismatch" liefert, sollte normalerweise dieser Fall eintreten, der Agent sollte also alle verfügbaren Updates schicken.
-
-
-Response:
-
-\begin{minted}{json}
-{
-  "status"        : "OK"|"ERROR"|"infoIncomplete"|"countMismatch",
-  "knownPackages" : [] Array of Strings /*optional unless status === infoIncomplete*/
-}
-\end{minted}
-
-\subsubsection{/system/:urn/notify}
-
-\begin{minted}{json}
-{
-  "name"                 : String, /*optional*/
-  "urn"                  : String, /*optional*/
-  "os"                   : String, /*optional, also covers the PkgVersion's Distribution*/
-  "address"              : String, /*optional*/
-  "rebootRequired"       : Boolean, /*optional*/
-  "updCount"             : Integer,
-  "packageUpdates"       : /*can be empty*/
-  [
-    {
-      "name"             : String,
-      "candidateVersion" :
-      {
-        "version"        : String,
-        "sha256"         : String,
-        "architecture"   : String,
-        "repository"     :
-        {
-          "archive"      : String,
-          "origin"       : String,
-          "component"    : String
-        }
-      },
-      "baseVersionHash"  : String /*Hash as reference to base version*/
-    }
-  ]
-}
-\end{minted}
-
-Hinweis: Stimmt der Update-Count mit der Grösse des PackageUpdate-Arrays überein, dann werden andere (nicht im Array enthaltene aber im CC vermerkte) Updates auf "Outdated" gesetzt! Wenn das CC bei einem API-Aufruf "countMismatch" liefert, sollte normalerweise dieser Fall eintreten, der Agent sollte also alle verfügbaren Updates schicken.
-
-
-Response:
-
-\begin{minted}{json}
-{
-  "status" : "OK"|"ERROR"|"countMismatch"|"pkgUnknown"
-}
-\end{minted}
-
-\subsubsection{/system/:urn/refresh-installed-hash}
+\subsection{/system/:urn/refresh-installed-hash}
 
 \begin{minted}{json}
 {
@@ -157,7 +93,7 @@ Response:
 Hinweis: Stimmt der Package-Count mit der Grösse des Package-Arrays überein, dann werden andere (nicht im Array enthaltene aber im CC vermerkte) Pakete auf "Outdated" gesetzt! Wenn das CC bei einem API-Aufruf "countMismatch" liefert, sollte normalerweise dieser Fall eintreten, der Agent sollte also alle installierten Pakete schicken.
 
 
-Response:
+Antwort:
 
 \begin{minted}{json}
 {
@@ -167,7 +103,7 @@ Response:
 \end{minted}
 
 
-\subsubsection{/system/:urn/refresh-installed}
+\subsection{/system/:urn/refresh-installed}
 
 \begin{minted}{json}
 {
@@ -212,7 +148,7 @@ Response:
 Hinweis: Stimmt der Package-Count mit der Grösse des Package-Arrays überein, dann werden andere (nicht im Array enthaltene aber im CC vermerkte) Pakete auf 'Outdated' gesetzt! Wenn das CC bei einem API-Aufruf 'countMismatch' liefert, sollte normalerweise dieser Fall eintreten, der Agent sollte also alle installierten Pakete schicken.
 
 
-Response:
+Antwort:
 
 \begin{minted}{json}
 {
@@ -220,7 +156,76 @@ Response:
 }
 \end{minted}
 
-\subsubsection{/task/:id/notify}
+\subsection{/system/:urn/notify-hash}
+
+\begin{minted}{json}
+{
+  "name"            : String,  /*optional*/
+  "urn"             : String,  /*optional*/
+  "os"              : String,  /*optional*/
+  "address"         : String,  /*optional*/
+  "rebootRequired"  : Boolean, /*optional*/
+  "updCount"        : Integer,
+  "packageUpdates"  : [] Array of Strings /*can be empty*/
+}
+\end{minted}
+
+Hinweis: Stimmt der Update-Count mit der Grösse des PackageUpdate-Arrays überein, dann werden andere (nicht im Array enthaltene aber im CC vermerkte) Updates auf "Outdated" gesetzt! Wenn das CC bei einem API-Aufruf "countMismatch" liefert, sollte normalerweise dieser Fall eintreten, der Agent sollte also alle verfügbaren Updates schicken.
+
+
+Antwort:
+
+\begin{minted}{json}
+{
+  "status"        : "OK"|"ERROR"|"infoIncomplete"|"countMismatch",
+  "knownPackages" : [] Array of Strings /*optional unless status === infoIncomplete*/
+}
+\end{minted}
+
+\subsection{/system/:urn/notify}
+
+\begin{minted}{json}
+{
+  "name"                 : String, /*optional*/
+  "urn"                  : String, /*optional*/
+  "os"                   : String, /*optional, also covers the PkgVersion's Distribution*/
+  "address"              : String, /*optional*/
+  "rebootRequired"       : Boolean, /*optional*/
+  "updCount"             : Integer,
+  "packageUpdates"       : /*can be empty*/
+  [
+    {
+      "name"             : String,
+      "candidateVersion" :
+      {
+        "version"        : String,
+        "sha256"         : String,
+        "architecture"   : String,
+        "repository"     :
+        {
+          "archive"      : String,
+          "origin"       : String,
+          "component"    : String
+        }
+      },
+      "baseVersionHash"  : String /*Hash as reference to base version*/
+    }
+  ]
+}
+\end{minted}
+
+Hinweis: Stimmt der Update-Count mit der Grösse des PackageUpdate-Arrays überein, dann werden andere (nicht im Array enthaltene aber im CC vermerkte) Updates auf "Outdated" gesetzt! Wenn das CC bei einem API-Aufruf "countMismatch" liefert, sollte normalerweise dieser Fall eintreten, der Agent sollte also alle verfügbaren Updates schicken.
+
+
+Antwort:
+
+\begin{minted}{json}
+{
+  "status" : "OK"|"ERROR"|"countMismatch"|"pkgUnknown"
+}
+\end{minted}
+
+\subsection{/task/:id/notify}
 
 \begin{minted}{json}
 {
@@ -230,7 +235,7 @@ Response:
 \end{minted}
 
 
-Response: 
+Antwort: 
 
 \begin{minted}{json}
 {
@@ -238,7 +243,7 @@ Response:
 }
 \end{minted}
 
-\subsection{Agent}
+\section{Agent}
 
 \begin{table}[H]
     \centering
@@ -251,13 +256,13 @@ Response:
     \end{tabular}
 \end{table}
 
-\subsubsection{/task}
+\subsection{/task}
 
 \begin{minted}{json}
 {
   "taskId"         : Number,
   "urn"            : String,
-  "packages"       : /*cannot be empty*/
+  "packages"       : 
   [
     {
       "pkgName"    : String,
@@ -267,8 +272,10 @@ Response:
 }
 \end{minted}
 
+Alle Parameter müssen gesetzt sein. Das Paket-Array darf nicht leer sein.
 
-Response:
+
+Antwort:
 
 \begin{minted}{json}
 {
