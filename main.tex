@@ -12,7 +12,10 @@
 \usepackage[subpreambles=false]{standalone}
 \usepackage{datetime}
 \usepackage{cclicenses}
+\usepackage{glossaries}
 \input{./macros}
+\makeglossaries
+\input{./content/glossary-terms}
 \input{./content/glossary-acronyms}
 \addbibresource{./bibliography/bibliography.bib}
 
@@ -97,6 +100,8 @@
 		\appendix
 		\import{content/appendix/}{appendix.tex}
 		% \import{content/examples/}{examples.tex}
+		\import{content/}{api.tex}
+
 		
 	\backmatter
 		\import{bibliography/}{bibliography.tex}
