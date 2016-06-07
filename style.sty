@@ -192,6 +192,7 @@
 \usepackage{enumitem}
 \setlist[enumerate]{label*=\arabic*.}
 \setlist[description]{leftmargin=0.5cm, labelindent=0.5cm}
+\setitemize{itemsep=0em}
 % ------------------------------------------------------------------------------
 
 
@@ -479,7 +480,7 @@ bindingoffset=5mm
 
 \newenvironment{pseudocode}[2][]{
 		\begin{tcbpseudocode}[#1]{#2}
-		\begin{algorithmic}	
+		\begin{algorithmic}
 	}{
 		\end{algorithmic}
 		\end{tcbpseudocode}
