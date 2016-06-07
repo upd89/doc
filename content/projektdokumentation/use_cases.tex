@@ -5,6 +5,7 @@
 \xxx[finish]
 
 \subsection{UC01: Agent deployen}
+\label{sec:uc_01}
 
 Der Agent beinhaltet wird auf einem System ausgeliefert. Dabei werden Parameter zur Konfiguration des Agents bei der Installation mitgegeben.
 
@@ -18,6 +19,7 @@ Technische Details:
 
 
 \subsection{UC02: Registration von Agent an Control Server}
+\label{sec:uc_02}
 
 Ein Agent registriert sich beim Control-Center. Er stellt zudem sicher, dass das Control-Center ihn erreichen kann.
  
@@ -30,6 +32,7 @@ Technische Details:
 \end{itemize}
 
 \subsection{UC03: Ausstehende Updates melden}
+\label{sec:uc_03}
 
 Ein Agent aktualisiert die Paketliste. Er prüft, ob Updates anstehen und meldet diese Liste dem Control-Center. Gleichzeitig schickt er auch noch Hostinformationen, damit das Control-Center seine Informationen ggf. aktualisieren kann.
  
@@ -42,34 +45,42 @@ Technische Details:
 \end{itemize}
 
 \subsection{UC04: Update durchführen}
+\label{sec:uc_04}
 
 Ein Agent erhält vom Control-Center einen Task mit einer Liste von vorzunehmenden System-Updates. Er prüft ob diese bei sich anstehen und führt diese durch. Das Empfangen der Updates bestätigt der an das Control-Center, wo der Status dieses Tasks auf "Queued" gesetzt.
 
 \subsection{UC05: Update auslösen}
+\label{sec:uc_05}
 
 Das Control-Center hat eine Liste von ausstehenden Updates von einem oder mehreren Systemen erhalten. Diese zeigt es in einer Übersicht an. Ein User mit genügend hoher Berechtigungs-Stufe gibt eines oder mehrere dieser Updates frei. Das Control-Center erstellt daraus Tasks, welcher der bestätigt. Wenn bestätigt, schickt das Control-Center diese Tasks an die jeweiligen Systeme.
 
 \subsection{UC06: Statusreport anzeigen}
+\label{sec:uc_06}
 
 Ein User lässt sich vom Control-Center eine Liste von Systemen und Updates anzeigen. Darauf ersichtlich ist der Zustand jedes Systems und Updates. Der User sieht, auf welchem System ein Update aussteht und welche Updates in welchem Zustand sind.
 
 \subsection{UC07: Berechtigungen verwalten}
+\label{sec:uc_07}
 
 Ein Administrator kann für Systemgruppen und Paket-Gruppen Berechtigungs-Stufen setzen, so dass nur User mit dieser Stufe Aktionen auf diesen Gruppen vornehmen können.
 
 \subsection{UC08: System-Gruppen verwalten}
+\label{sec:uc_08}
 
 Ein Administrator kann eine System-Gruppe bearbeiten, löschen oder erstellen. Dies beinhaltet auch das Entfernen oder Hinzufügen von Systemen sowie das Setzen von Berechtigungs-Stufen.
 
 \subsection{UC09: User verwalten}
+\label{sec:uc_09}
 
 Ein Administrator kann neue User erstellen, bestehende User löschen oder deren Berechtigungs-Stufe ändern.
 
 \subsection{UC10: Regeln verwalten}
+\label{sec:uc_10}
 
 Ein Administrator kann Regeln für System-Gruppen erstellen, ändern und entfernen. Diese Regeln greifen bei der Auswahl der Systeme und Pakete.
 
 \subsection{UC11: Paket-Gruppen verwalten}
+\label{sec:uc_11}
 
 Ein Administrator kann neue Gruppen für Pakete erstellen, löschen oder bearbeiten. Dies beinhaltet auch das Entfernen oder Hinzufügen von Paketen sowie das Setzen von Berechtigungs-Stufen.
 
@@ -80,9 +91,11 @@ Ein Administrator kann neue Gruppen für Pakete erstellen, löschen oder bearbei
 \end{center}
 
 \subsection{AC01: Agent imitieren}
+\label{auc:01}
 
 Ein Angreifer gibt sich als Agent aus und meldet sich bei CC an.
 
 \subsection{AC02: Control-Center imitieren}
+\label{auc:02}
 
 Ein falsches Control-Center meldet sich beim Agent.

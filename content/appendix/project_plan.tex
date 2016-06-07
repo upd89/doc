@@ -17,25 +17,25 @@ In der zehnwöchigen Construction-Phase findet die eigentliche Umsetzung auf Gru
     \label{phases}
     \begin{tabular}{| l | l | l | l |}
         \toprule
-        Woche & Phase/Iteration                 & Meilenstein & Tasks                                                                      \\
+        Woche & Phase/Iteration                 & Meilenstein & Tasks                                                     \\
         \midrule
-        1     & Inception                       & 1           & Projektauftrag schreiben, Infrastruktur bestellen                          \\
-        2     & Elaboration 1                   & 2           & Projektplan schreiben, Arbeitspakete bestimmen, Setup Projektinfrastruktur \\
-        3     & Elaboration 2                   &             & Risikoanalyse, Domainanalyse entwerfen, UseCase-Analyse                    \\
-        4     & Elaboration 3                   & 3           & UI und API entwerfen, Toolchain und Testumgebung bereitstellen             \\
-        5     & \multirow{2}{*}{Construction 1} &             & \multirow{2}{*}{Sprint 1}                                                  \\
-        6     &                                 & 4           &                                                                            \\
-        7     & \multirow{2}{*}{Construction 2} &             & \multirow{2}{*}{Sprint 2}                                                  \\
-        8     &                                 & 5           &                                                                            \\
-        9     & \multirow{2}{*}{Construction 3} &             & \multirow{2}{*}{Sprint 3}                                                  \\
-        10    &                                 & 6           &                                                                            \\
-        11    & \multirow{2}{*}{Construction 4} &             & \multirow{2}{*}{Sprint 4}                                                  \\
-        12    &                                 & 7           &                                                                            \\
-        13    & \multirow{2}{*}{Construction 5} &             & Sprint 5                                                                   \\
-        14    &                                 & 8           & Cleanup                                                                    \\
-        15    & Transition 1                    &             & Produkte-Dokumentation schreiben                                           \\
-        16    & Transition 2                    & 9           & Abschluss Dokumentation                                                    \\
-        17    & Transition 3                    &             & Vorbereitung Präsentation                                                  \\
+        1     & Inception                       & MS1         & Projektauftrag schreiben, Infrastruktur bestellen       \\
+        2     & Elaboration 1                   & MS2         & Projektplan, Arbeitspakete, Setup Projektinfrastruktur  \\
+        3     & Elaboration 2                   &             & Risikoanalyse, Domainanalyse entwerfen, UseCase-Analyse \\
+        4     & Elaboration 3                   & MS3         & UI und API entwerfen, Toolchain und Testumgebung        \\
+        5     & \multirow{2}{*}{Construction 1} &             & \multirow{2}{*}{Sprint 1}                               \\
+        6     &                                 & MS4         &                                                         \\
+        7     & \multirow{2}{*}{Construction 2} &             & \multirow{2}{*}{Sprint 2}                               \\
+        8     &                                 & MS5         &                                                         \\
+        9     & \multirow{2}{*}{Construction 3} &             & \multirow{2}{*}{Sprint 3}                               \\
+        10    &                                 & MS6         &                                                         \\
+        11    & \multirow{2}{*}{Construction 4} &             & \multirow{2}{*}{Sprint 4}                               \\
+        12    &                                 & MS7         &                                                         \\
+        13    & \multirow{2}{*}{Construction 5} &             & Sprint 5                                                \\
+        14    &                                 & MS8         & Cleanup                                                 \\
+        15    & Transition 1                    &             & Produkte-Dokumentation schreiben                        \\
+        16    & Transition 2                    & MS9         & Abschluss Dokumentation                                 \\
+        17    & Transition 3                    &             & Vorbereitung Präsentation                               \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -44,14 +44,13 @@ In der zehnwöchigen Construction-Phase findet die eigentliche Umsetzung auf Gru
 \section{Meilensteine}
 
 \begin{itemize}
-    \item MS1: 29.02.2016, Abgabe Aufgabenstellung
+    \item MS1: Abgabe Aufgabenstellung (29.02.2016)
     \item MS2: Entwurf Projektplan
     \item MS3: End of Elaboration
-    \item MS4: UC03 “Ausstehende Updates melden” umgesetzt (apt-Infos auslesen, übermitteln an CC, speichern)
+    \item MS4: \nameref{sec:uc_03} umgesetzt, apt-Infos auslesen, übermitteln an CC, speichern
     \item MS5: Statusupdates werden angezeigt, Agent ist ein Daemon inkl. Job-Queue und Schedule
-    \item MS6: UC05 “Updates auslösen” und UC04 “Update durchführen” umgesetzt
-	(Updates können freigegeben und an den Agent geschickt werden)
-    \item MS7: UC02 “Bei Control-Center registrieren”, UC07 “Berechtigungen verwalten” und UC09 “User verwalten” umgesetzt, sowie TLS implementiert
-    \item MS8: UC06 “Reports einsehen”, UC08 “System-Gruppen verwalten”, UC10 “Regeln verwalten” umgesetzt
-    \item MS9: Juni 2016: Abgabe Finale Version
+    \item MS6: \nameref{sec:uc_05} und \nameref{sec:uc_04} umgesetzt, Updates können freigegeben und an den Agent geschickt werden
+    \item MS7: \nameref{sec:uc_02}, \nameref{sec:uc_07} und \nameref{sec:uc_09} umgesetzt, sowie TLS implementiert
+    \item MS8: \nameref{sec:uc_06}, \nameref{sec:uc_08}, \nameref{sec:uc_10} umgesetzt
+    \item MS9: Abgabe Finale Version (17.05.2016)
 \end{itemize}
