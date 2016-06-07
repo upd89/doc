@@ -40,7 +40,7 @@ Es wurden nur für das Projekt relevante Risiken analysiert. Risiken wie "Krankh
 	\end{table}
 \end{landscape}
 
-\subsection{Kritische Risiken}
+\subsection*{Kritische Risiken}
 
 Die besonders kritischen Risiken werden hier kurz erläutert und genauer beschrieben.
 
@@ -90,7 +90,7 @@ Zu Testzwecken wurden von Nine.ch 10 Server gesponsert, welche  in 3 Gruppen ein
 Es werden sowohl die eigenen Notebooks als auch die von der HSR zur Verfügung gestellten Arbeitsplätze benutzt. Daneben sind zwei VMs der HSR im Einsatz; eine für Redmine und eine für Entwicklungen und Testing der Software. Der Source Code wird über Github verwaltet.
 Für Ruby und Rails wird angestrebt, eine möglichst aktuelle Version (Ruby 2.2 respektive Rails 4.2) zu unterstützen. Als Datenbank-System wird PostgreSQL eingesetzt. Javascript wird primär für kleinere Optimierungen und Erleichterungen eingesetzt. 
 
-\subsection{Projektmanagement}
+\subsection*{Projektmanagement}
 
 Um die Qualität der abgeschlossenen Tasks zu erhöhen und sicherzustellen wird das 'Vier-Augen-Prinzip' angewendet. Jeder Task muss, bevor dessen Status auf 'Erledigt' gesetzt wird, vom jeweils anderen Teammitglied grob kontrolliert und als akzeptabel eingestuft hat. Dazu gibt es unterschiedliche Bedingungen: Bei Unterstützungstasks (z.B. Dokumentation o. Ä.) wird, wo sinnvoll, eine Liste von Akzeptanzkriterien im Task selbst definiert; bei Umsetzungstasks muss der Code über Unit-Tests getestet und gelintet sein.
 
@@ -107,17 +107,17 @@ Wenn der Reviewer mit dem Resultat des Tasks nicht zufrieden ist oder noch Punkt
 
 \section{Qualitätsmanagement}
 
-\subsection{Stil}
+\subsection*{Stil}
 
 Um den Stil des Source-Codes einheitlich zu halten, wird der 'Ruby On Rails Style Guide'\footnote{\purl{https://github.com/bbatsov/rails-style-guide}} angewendet. Um diesen zu prüfen und sicherzustellen wird Rubocop\footnote{\purl{http://batsov.com/rubocop/}} eingesetzt.
 
-\subsection{Testing}
+\subsection*{Testing}
 
 Wo immer sinnvoll werden Unit-Tests für das Testen der Funktionalität verwendet. Es wird eine Sammlung von Unit-Tests entstehen, womit die Applikation automatisch getestet wird.
 
 Dabei wird nicht stur der Ansatz des Test-Driven Developments verfolgt, es sollen insbesondere kritische Komponenten ausgiebig getestet werden um die Nachhaltigkeit des Projekts sicher zu stellen.
 
-\subsection{Usability}
+\subsection*{Usability}
 
 Weil auch ein Fokus auf einfache Bedienbarkeit gelegt wird, werden Usability-Überlegungen zusammen mit dem Kunden besprochen und entsprechend umgesetzt.
 
