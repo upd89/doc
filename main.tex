@@ -14,6 +14,7 @@
 \usepackage{cclicenses}
 \usepackage{glossaries}
 \usepackage{minted}
+\usepackage{multirow}
 \input{./macros}
 \makeglossaries
 \input{./content/glossary-terms}
@@ -44,46 +45,16 @@
 \begin{document}
 	\frontmatter
 		\import{content/}{title.tex} 
+
 		\clearpage
-		%\import{content/}{history.tex}
-		%\clearpage
-
-
 		\import{content/}{abstract.tex}
+
+        \clearpage
+        \import{content/}{toc.tex}
+
 		\import{content/management-summary/}{management-summary.tex}
 		\import{content/}{aufgabenstellung.tex}
 
-		\clearpage
-		\phantomsection
-		\addcontentsline{toc}{chapter}{\contentsname}
-		\microtypesetup{protrusion=false}
-		\tableofcontents
-
-		\clearpage
-		\phantomsection
-		\addcontentsline{toc}{section}{\listfigurename}
-		\listoffigures
-		
-		%\clearpage
-		\phantomsection
-		\addcontentsline{toc}{section}{\listtablename}
-
-		\listoftables
-		
-		%\clearpage
-		\phantomsection
-		\addcontentsline{toc}{section}{Programmcodeverzeichnis}
-		\tcblistof[\section*]{minted}{Programmcodeverzeichnis}
-
-		%\clearpage
-		\phantomsection
-		\addcontentsline{toc}{section}{Liste der Entscheidungen}
-		\tcblistof[\section*]{decisions}{Liste der Entscheidungen}
-		
-		%\clearpage
-		% \phantomsection
-		% \addcontentsline{toc}{section}{Pseudocodeverzeichnis}
-		% \tcblistof[\section*]{pseudocode}{Pseudocodeverzeichnis}
 
 		\microtypesetup{protrusion=true}
 
