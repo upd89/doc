@@ -1,0 +1,53 @@
+\documentclass[class=scrbook,crop=false]{standalone}
+
+\input{./preamble}
+
+\begin{document}
+	
+    \section{Meeting Nine.ch, 3. Mai 2016}
+    
+    \begin{tabular}{ll}
+        \textbf{Datum} & 3.5.2016 \\
+        \textbf{Zeit} & 16:00 \textendash 17:00 Uhr \\
+        \textbf{Ort} & \acs{hsr} \\
+        \textbf{Anwesende} & \sasie \\ & \ubos \\ & \pchr
+    \end{tabular}
+    
+    \subsection*{Traktanden}
+    
+    \begin{itemize}
+        \item Abschluss Sprint 3
+        \item Planung Sprint 4
+        \item Aktuelle Fragen
+        \begin{itemize}
+            \item Löschen bei bestehenden Assoziationen verhindern
+        \end{itemize}
+    \end{itemize}
+
+		\subsection*{Fragen}
+    
+    \subsection*{Protokoll}
+    
+	\begin{itemize}
+        \item Demo: Tasks erstellen + an Agent senden
+        \item Sprint 3 im Verzug, aber Hauptziele erreicht
+        \item kein SQLite, sondern eigener Key-Value-Store: Wenig Abhängigkeiten sind nice
+        \item Resultat von Apt muss noch ausgelesen werden. Nine.ch benutzt apt-hook und parsed den Output
+        \item Sprint 4: Certificate, Security, etc.
+        \begin{itemize}
+            \item Device sei ein "Monster", sehr umfangreich. Besser: Sorcery
+            \item CanCanCan (NICHT CanCan) ist super (Tipp: load\textunderscore and\textunderscore authorize\textunderscore resource im Header verwenden für Automatische Implementation von Standard-Aktionen)
+            \item Responders-Gem anstatt den üblichen JSON/HTML-Renderings
+            \item eventuell auch Rolify
+            \item Tool für eigene CA: easy-rsa
+        \end{itemize}
+        \item Für Lösch-Hinweis bei bestehender Verbindung: Abfrage von record.destroy und entsprechende Nachricht anzeigen
+        \item Lasttests: jMeter
+        \item Unbedingt Controller-Actions testen. Bei Bedarf kann Phil von Nine.ch in Slack-Channel hinzugefügt werden
+        \item Server: CA-Check direkt von Apache handeln lassen --> zweiter vhost für API
+        \item Tipp: Controller vereinfachen. "load and authorize", "cancancan" -> kontroller verkürzen, responders -> vereinfachen
+        \item Nächstes Meeting 17.5.
+    \end{itemize}
+    
+
+\end{document}

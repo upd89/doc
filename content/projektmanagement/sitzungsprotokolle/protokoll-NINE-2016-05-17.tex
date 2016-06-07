@@ -1,0 +1,69 @@
+\documentclass[class=scrbook,crop=false]{standalone}
+
+\input{./preamble}
+
+\begin{document}
+	
+    \section{Meeting Nine.ch, 17. Mai 2016}
+    
+    \begin{tabular}{ll}
+        \textbf{Datum} & 17.5.2016 \\
+        \textbf{Zeit} & 16:00 \textendash 17:00 Uhr \\
+        \textbf{Ort} & \acs{hsr} \\
+        \textbf{Anwesende} & \sasie \\ & \rulrich \\ & \ubos \\ & \pchr
+    \end{tabular}
+    
+    \subsection*{Traktanden}
+    
+    \begin{itemize}
+        \item Abschluss Sprint 4
+        \begin{enumerate}
+            \item Kommunikation via TLS mit eigener CA
+            \item Automatisches Updaten
+            \item Permission via Cancancan
+            \item Login via Sorcery
+        \end{enumerate}
+        \item Planung Sprint 5
+        \begin{enumerate}
+            \item Reporting
+            \item Dashboard
+            \item Verbesserungen allgemein
+        \end{enumerate}
+    \end{itemize}
+
+	\subsection*{Fragen}
+	
+	\begin{itemize}
+        \item Dashboard: Technologien, Empfehlungen?
+        \begin{enumerate}
+            \item dashing
+            \item admin LTE
+        \end{enumerate}
+        \item Testing mit Sorcery?
+        \item Deliverables - fork? Paket?
+    \end{itemize}
+    
+    \subsection*{Protokoll}
+    
+	\begin{itemize}
+        \item Präsentation Frontend-Änderungen (Login, Permissions, System-/Package-Views, etc.)
+        \item Präsentation Update-Prozess mit Demo
+        \item Sprintziele erreicht
+        \item Sprint 5 i.O., keine Bemängelungen
+        \item Dashboard: kein Gem o.Ä. verwenden, mit eigener Lösung arbeiten da Daten bereits vorhanden sind
+        \item Testing mit Sorcery: Samuel wird nachschauen
+        \item Vorschlag für Akzeptanz-Testing mit Roland, wird angeschaut
+        \item Schön wäre, wenn Deploy von Agents ohne Zertifikat erfolgt und sich jeder Agent bei API-Endpunkt ohne Cert-Check meldet, wo ein User manuell bestätigt, dass das Cert dieses Agents signiert wird
+        \begin{enumerate}
+            \item wird abgeklärt
+        \end{enumerate}
+        \item Deployment:
+        \begin{enumerate}
+            \item Rails/CC wahrscheinlich einfach geforkt/geklont.
+            \item Agent am liebsten als Paket (siehe z.B. via launchpad) mit Abhängigkeiten direkt integriert
+            \item Definitiv benötigt: Benutzer- und Installationsanleitung CC und A
+        \end{enumerate}
+    \end{itemize}
+
+
+\end{document}

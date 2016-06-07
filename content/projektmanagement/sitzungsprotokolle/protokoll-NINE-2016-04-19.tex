@@ -1,0 +1,55 @@
+\documentclass[class=scrbook,crop=false]{standalone}
+
+\input{./preamble}
+
+\begin{document}
+	
+    \section{Meeting Nine.ch, 19. April 2016}
+    
+    \begin{tabular}{ll}
+        \textbf{Datum} & 19.4.2016 \\
+        \textbf{Zeit} & 16:00 \textendash 17:00 Uhr \\
+        \textbf{Ort} & \acs{hsr} \\
+        \textbf{Anwesende} & \sasie \\ & \rulrich \\ & \ubos \\ & \pchr
+    \end{tabular}
+    
+    \subsection*{Traktanden}
+    
+    \begin{itemize}
+        \item Zwischenpräsentation
+        \item Abschluss Sprint 2
+        \item Planung Sprint 3
+        \item Aktuelle Fragen
+        \begin{itemize}
+            \item Fragen zu Message-Bus-System
+            \item Anpassungen Domainmodel
+        \end{itemize}
+    \end{itemize}
+    
+    \subsection*{Protokoll}
+    
+	\begin{itemize}
+        \item TODO: Neues Domainmodel und Slides Zwischenpräsentation per Mail an Sam schicken
+        \item Gedanken zum Thema Message-Bus
+        \begin{itemize}
+            \item + Losgelöst
+            \item + Falls System down findet Auslieferung trotzdem/delayed statt
+            \item - Mehraufwand
+            \item - Komplexität
+            \item - Abhängigkeit
+            \item - Mehr Layer
+        \end{itemize}
+        \item Identifizierung von Paketen/Versionen anhand SHA256
+        \begin{itemize}
+            \item Eindeutigkeit ist genügend vorhanden
+            \item Hätte Ubuntu ein Problem bei Hash-Überschneidungen?
+            \item Gedanken zu Eindeutigkeit von SHA256 -> Doku
+        \end{itemize}
+        \item Abklären: Wie ist das Verhalten von apt, falls Abhängigkeiten nicht gegeben sind? werden Abhängigkeiten nachgeladen (unerwünscht!) oder wird mit Fehler abgebrochen?
+        \item Abklären: Wie ist das Verhalten von apt für Half-Installed Paketen (Fail im Postinstall)?
+        \item Frage ist nochmals aufgetaucht: Gibt es eine Blacklist, damit gewisse Updates nicht automatisch durchgeführt werden? -> durch Gruppenzuteilung geregelt
+        \item Nächster Termin: Di, 3. Mai 16:00 Uhr
+    \end{itemize}
+
+
+\end{document}
