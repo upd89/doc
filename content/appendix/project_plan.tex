@@ -1,0 +1,57 @@
+\chapter{Projektplan}
+
+Die Bachelorarbeit findet im Frühlingssemester 2016 statt und dauert 17 Wochen. Das Startdatum fällt auf den Semesterstart vom 22.02.2016, das Enddatum ist der 17.05.2016.
+
+Für jede Person wird mit einem Zeitbudget von 12 x 30 Stunden gerechnet. Insgesamt können im Projekt mit 720 Arbeitsstunden geplant werden. Dies beinhaltet sämtliche im Rahmen der Bachelorarbeit vorgenommenen Arbeiten, Kommunikation sowie Dokumentation.
+
+Das gesamte Projekt wird im Stil von RUP geführt und dementsprechend in die vier Phasen Inception, Elaboration, Construction und Transition aufgeteilt. In der Construction-Phase wird nach agiler Vorgehensweise gearbeitet, so dass der Auftraggeber die Schwerpunkte setzen und priorisieren kann.
+
+Es ist vorgesehen, dass die Inception-Phase eine Woche dauert. Danach findet die dreiwöchige Elaboration-Phase statt, in welcher die Konstruktionsphase geplant und der Grossteil der Anforderungen geklärt wird.
+In der zehnwöchigen Construction-Phase findet die eigentliche Umsetzung auf Grund der vorher erarbeiteten Rahmenbedingungen und Anforderungen statt. Im Anschluss folgt die Transition- oder Übergabe-Phase über drei Wochen, wo auch die Präsentation vorbereitet und die Dokumentation abgeschlossen wird.
+
+\section{Phasen/Iterationen}
+
+\begin{table}[H]
+    \centering
+    \caption{Phasen/Iterationen}
+    \label{phases}
+    \begin{tabular}{| l | l | l | l |}
+        \toprule
+        Woche & Phase/Iteration                 & Meilenstein & Tasks                                                                      \\
+        \midrule
+        1     & Inception                       & 1           & Projektauftrag schreiben, Infrastruktur bestellen                          \\
+        2     & Elaboration 1                   & 2           & Projektplan schreiben, Arbeitspakete bestimmen, Setup Projektinfrastruktur \\
+        3     & Elaboration 2                   &             & Risikoanalyse, Domainanalyse entwerfen, UseCase-Analyse                    \\
+        4     & Elaboration 3                   & 3           & UI und API entwerfen, Toolchain und Testumgebung bereitstellen             \\
+        5     & \multirow{2}{*}{Construction 1} &             & \multirow{2}{*}{Sprint 1}                                                  \\
+        6     &                                 & 4           &                                                                            \\
+        7     & \multirow{2}{*}{Construction 2} &             & \multirow{2}{*}{Sprint 2}                                                  \\
+        8     &                                 & 5           &                                                                            \\
+        9     & \multirow{2}{*}{Construction 3} &             & \multirow{2}{*}{Sprint 3}                                                  \\
+        10    &                                 & 6           &                                                                            \\
+        11    & \multirow{2}{*}{Construction 4} &             & \multirow{2}{*}{Sprint 4}                                                  \\
+        12    &                                 & 7           &                                                                            \\
+        13    & \multirow{2}{*}{Construction 5} &             & Sprint 5                                                                   \\
+        14    &                                 & 8           & Cleanup                                                                    \\
+        15    & Transition 1                    &             & Produkte-Dokumentation schreiben                                           \\
+        16    & Transition 2                    & 9           & Abschluss Dokumentation                                                    \\
+        17    & Transition 3                    &             & Vorbereitung Präsentation                                                  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\section{Meilensteine}
+
+\begin{itemize}
+    \item MS1: 29.02.2016, Abgabe Aufgabenstellung
+    \item MS2: Entwurf Projektplan
+    \item MS3: End of Elaboration
+    \item MS4: UC03 “Ausstehende Updates melden” umgesetzt (apt-Infos auslesen, übermitteln an CC, speichern)
+    \item MS5: Statusupdates werden angezeigt, Agent ist ein Daemon inkl. Job-Queue und Schedule
+    \item MS6: UC05 “Updates auslösen” und UC04 “Update durchführen” umgesetzt
+	(Updates können freigegeben und an den Agent geschickt werden)
+    \item MS7: UC02 “Bei Control-Center registrieren”, UC07 “Berechtigungen verwalten” und UC09 “User verwalten” umgesetzt, sowie TLS implementiert
+    \item MS8: UC06 “Reports einsehen”, UC08 “System-Gruppen verwalten”, UC10 “Regeln verwalten” umgesetzt
+    \item MS9: Juni 2016: Abgabe Finale Version
+\end{itemize}
