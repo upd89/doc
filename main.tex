@@ -58,16 +58,15 @@
 		\microtypesetup{protrusion=true}
 
 	\mainmatter
+		\addcontentsline{toc}{part}{Technischer Bericht}
 		\import{content/technischer-bericht/}{technischer-bericht.tex}
-		\import{content/projektdokumentation/}{projektdokumentation.tex}
 		\import{content/projektmanagement/}{projektmanagement.tex}
-		\import{content/softwaredokumentation/}{softwaredokumentation.tex}
 	
-		% Appendix
-		\cleardoublepage
-		\phantomsection
-		\addcontentsline{toc}{part}{\appendixname}
-		\appendix
+	% Appendix
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{part}{\appendixname}
+	\appendix
 		\import{content/appendix/}{appendix.tex}
 		% \import{content/examples/}{examples.tex}
 

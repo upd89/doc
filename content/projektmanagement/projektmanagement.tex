@@ -1,13 +1,13 @@
 % label prefix for this part: pm
-\part{Projektmanagement}
 
-\chapter{Vorgehensmodell}
+\chapter{Projektmanagement}
+\section{Vorgehensmodell}
 
 Das gesamte Projekt wird im Stil von RUP geführt und dementsprechend in die vier Phasen Inception, Elaboration, Construction und Transition aufgeteilt. In der Construction-Phase wird nach agiler Vorgehensweise gearbeitet, so dass der Auftraggeber die Schwerpunkte setzen und priorisieren kann.
 
 \xxx[Grafik?]
 
-\chapter{Rollen und Verantwortlichkeiten}
+\section{Rollen und Verantwortlichkeiten}
 
 An diesem Projekt arbeiten die beiden unten aufgeführten Informatik-Studenten. Aufgrund der entsprechenden Stärken und beruflichen Orientierungen übernimmt Philipp Christen die Verantwortung über das Frontend, Ueli Bosshard übernimmt die Verantwortung über das Backend und die Kommunikation mit apt.
 
@@ -21,7 +21,7 @@ An diesem Projekt arbeiten die beiden unten aufgeführten Informatik-Studenten. 
     Stärken: Frontend, UX\\
 \end{tabular}
 
-\chapter{Risiken}\label{sec:risiken}
+\section{Risiken}\label{sec:risiken}
 
 Um die potentiellen Risiken während des Projekts zu sammeln, wurde eine  Risiko-Checkliste verwendet. Für jedes Risiko wurde ein zusätzlicher Aufwand in Stunden geschätzt, welcher anfallen würde wenn das Risiko eintritt. Multipliziert mit der geschätzten Eintrittswahrscheinlichkeit ergab dies einen gewichteten Mehraufwand. Dieser wurde in 5 Kategorien (sehr gering bis sehr schwer) eingestuft.
 
@@ -40,7 +40,7 @@ Es wurden nur für das Projekt relevante Risiken analysiert. Risiken wie "Krankh
 	\end{table}
 \end{landscape}
 
-\section{Kritische Risiken}
+\subsection{Kritische Risiken}
 
 Die besonders kritischen Risiken werden hier kurz erläutert und genauer beschrieben.
 
@@ -72,11 +72,9 @@ Die besonders kritischen Risiken werden hier kurz erläutert und genauer beschri
 {Es soll früh abgegrenzt werden, was genau zum Projektumfang gehört, welche Use-Cases und NFAs gelten und welche Features implementiert werden. Dies soll vom Auftraggeber bestätigt werden. Regelmässige Meetings mit Statusbesprechung und Planung der nächsten Wochen sollen unterschiedliche Vorstellungen verhindern und alle Parteien am Entstehungsprozess beteiligen lassen. Falls trotzdem Unzufriedenheit auftreten sollte, muss dies zusammen mit dem Betreuer genauer angeschaut werden.}
 
 
-\chapter{Infrastruktur}
+\section{Infrastruktur}
 
 Da es sich um ein Open-Source-Projekt handelt, wurde der Quellcode veröffentlicht. Bereits während der Entwicklung war er jederzeit auf Github\footnote{\purl{https://github.com/upd89/}} einsehbar.
-
-
 
 \xxx[similar chart would be sweet]
 
@@ -87,10 +85,12 @@ Da es sich um ein Open-Source-Projekt handelt, wurde der Quellcode veröffentlic
 	\label{fig:pm:entwicklungsumgebung}
 \end{figure}
 
+Zu Testzwecken wurden von Nine.ch 10 Server gesponsert, welche  in 3 Gruppen eingeteilt wurden: Dev, Test, Demo. Jede Gruppe enthält ein Control-Center sowie 2-3 Agent-Systeme. Die Dev-Systeme dienen zum aktiven Entwickeln am Frontend sowie zum Testen von neuen Features. Auf den Test-Systemen wurden nur stabile Versionen des Control-Centers installiert und dienten mehrheitlich zum Testen der Kommunikation mit den Agents. Auf den Systemen der Gruppe Demo wurden nur getestete Versionen aufgespielt und dienten als Demonstrationszweck für die Industriepartner und Betreuer.
+
 Es werden sowohl die eigenen Notebooks als auch die von der HSR zur Verfügung gestellten Arbeitsplätze benutzt. Daneben sind zwei VMs der HSR im Einsatz; eine für Redmine und eine für Entwicklungen und Testing der Software. Der Source Code wird über Github verwaltet.
 Für Ruby und Rails wird angestrebt, eine möglichst aktuelle Version (Ruby 2.2 respektive Rails 4.2) zu unterstützen. Als Datenbank-System wird PostgreSQL eingesetzt. Javascript wird primär für kleinere Optimierungen und Erleichterungen eingesetzt. 
 
-\section{Projektmanagement}
+\subsection{Projektmanagement}
 
 Um die Qualität der abgeschlossenen Tasks zu erhöhen und sicherzustellen wird das 'Vier-Augen-Prinzip' angewendet. Jeder Task muss, bevor dessen Status auf 'Erledigt' gesetzt wird, vom jeweils anderen Teammitglied grob kontrolliert und als akzeptabel eingestuft hat. Dazu gibt es unterschiedliche Bedingungen: Bei Unterstützungstasks (z.B. Dokumentation o. Ä.) wird, wo sinnvoll, eine Liste von Akzeptanzkriterien im Task selbst definiert; bei Umsetzungstasks muss der Code über Unit-Tests getestet und gelintet sein.
 
@@ -105,19 +105,19 @@ Der normale Workflow eines Tasks in Redmine sieht deshalb folgendermassen aus:
 
 Wenn der Reviewer mit dem Resultat des Tasks nicht zufrieden ist oder noch Punkte oder Fragen offen sind, wird der entsprechende Task wieder an den ursprünglichen Bearbeiter zurückgewiesen und in den Status 'In Bearbeitung' gesetzt. Das Feedback dazu kann mündlich oder via Kommentar-Funktion erfolgen.
 
-\chapter{Qualitätsmanagement}
+\section{Qualitätsmanagement}
 
-\section{Stil}
+\subsection{Stil}
 
 Um den Stil des Source-Codes einheitlich zu halten, wird der 'Ruby On Rails Style Guide'\footnote{\purl{https://github.com/bbatsov/rails-style-guide}} angewendet. Um diesen zu prüfen und sicherzustellen wird Rubocop\footnote{\purl{http://batsov.com/rubocop/}} eingesetzt.
 
-\section{Testing}
+\subsection{Testing}
 
 Wo immer sinnvoll werden Unit-Tests für das Testen der Funktionalität verwendet. Es wird eine Sammlung von Unit-Tests entstehen, womit die Applikation automatisch getestet wird.
 
 Dabei wird nicht stur der Ansatz des Test-Driven Developments verfolgt, es sollen insbesondere kritische Komponenten ausgiebig getestet werden um die Nachhaltigkeit des Projekts sicher zu stellen.
 
-\section{Usability}
+\subsection{Usability}
 
 Weil auch ein Fokus auf einfache Bedienbarkeit gelegt wird, werden Usability-Überlegungen zusammen mit dem Kunden besprochen und entsprechend umgesetzt.
 

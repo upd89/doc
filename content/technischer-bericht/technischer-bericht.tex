@@ -33,7 +33,7 @@ Persönlicher Bericht der Studierenden zu ihren Erfahrungen bei der Arbeit. Bei
 \end{comment}
 
 
-\part{Technischer Bericht}\label{part:tb}
+\part*{Technischer Bericht}\label{part:tb}
 \xxx[Abgabe „Technischer Bericht“ (ca. 5 Seiten) mindestens mit folgenden Inhaltselementen:
 – Ausgangslage und Problembeschreibung (Beschreibung ob Fokus Lösungserstellung oder Machbarkeitsanalyse)
 – Lösungskonzept
@@ -44,22 +44,9 @@ Im Technischen Bericht sind formelle Elemente besonders wichtig (z.B. Bildunters
 das Referenzieren der Bilder im Text).]
 \glsresetall
 
-\chapter{Ausgangslage}
-\xxx[Ausgangslage (Kontext) und Problembeschreibung bzw. -analyse (mit Beschreibung der
-Problemtyps, also ob Fokus Lösungserstellung oder Machbarkeitsanalyse). Anforderungen spezifiziert:
-Funktionale Anforderungen z.B. als Use Cases (short) oder User Stories beschrieben, alle relevanten Nichtfunktionalen Anforderungen (NFA) und Qualitätsattribute abgedeckt und überprüfbar beschrieben.]
-
-\subimport{}{aufgabenstellung.tex}
-
-\chapter{Lösungskonzept}
-\xxx
-
-\chapter{Umsetzung}
-\xxx[(Implementierung) Architektur und Design beschrieben: Mit begründeten Architekturentscheidungen, mit Diskussion, wie Qualitätsattribute sichergestellt wurden (welche Qualität wurde erreicht?), mit Dokumentation, welche Experimente/Tests durchgeführt wurden und welche Lösungsoptionen aufgrund der Ergebnisse dieser Experimente/Tests
-verworfen wurden (was ging schief?)]
-
-\chapter{Ergebnis}
-\xxx[Installationsanleitung vorhanden (inklusive verwendete Entwicklungsumgebung und Werkzeuge), Test-Logs dokumentiert (bei Systemen mit User Interfaces: Dokumentation der Usability Tests)]
-
-\chapter{Ausblick}
-\xxx
+\subimport{}{anforderungen.tex}
+\subimport{}{use_cases.tex}
+\subimport{}{analyse.tex}
+\subimport{}{umsetzung.tex}
+\subimport{}{ergebnis.tex}
+\subimport{}{ausblick.tex}

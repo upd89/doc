@@ -20,7 +20,7 @@ Die beiden Komponenten \gls{agent} und \gls{controlcenter} kommunizieren über e
   \label{fig:api_sequence_diagram}
 \end{figure}
 
-\section{Status-Codes}
+\section*{Status-Codes}
 
 \begin{table}[H]
     \centering
@@ -38,7 +38,7 @@ Die beiden Komponenten \gls{agent} und \gls{controlcenter} kommunizieren über e
 \end{table}
 
 
-\section{Control Center}
+\section*{Control Center}
 
 \begin{table}[H]
     \centering
@@ -56,7 +56,7 @@ Die beiden Komponenten \gls{agent} und \gls{controlcenter} kommunizieren über e
     \end{tabular}
 \end{table}
 
-\subsection{/register}
+\subsection*{/register}
 
 \begin{minted}{json}
 {
@@ -81,7 +81,7 @@ Antwort:
 OK: System wurde erfolgreich registriert oder das System existiert bereits. Letzteres kann z.B. bei einer Neuinstallation des Systems vorkommen.
 ERROR: Parameter fehlt
 
-\subsection{/system/:urn/refresh-installed-hash}
+\subsection*{/system/:urn/refresh-installed-hash}
 
 \begin{minted}{json}
 {
@@ -103,7 +103,7 @@ Antwort:
 \end{minted}
 
 
-\subsection{/system/:urn/refresh-installed}
+\subsection*{/system/:urn/refresh-installed}
 
 \begin{minted}{json}
 {
@@ -156,7 +156,7 @@ Antwort:
 }
 \end{minted}
 
-\subsection{/system/:urn/notify-hash}
+\subsection*{/system/:urn/notify-hash}
 
 \begin{minted}{json}
 {
@@ -182,7 +182,7 @@ Antwort:
 }
 \end{minted}
 
-\subsection{/system/:urn/notify}
+\subsection*{/system/:urn/notify}
 
 \begin{minted}{json}
 {
@@ -225,7 +225,7 @@ Antwort:
 }
 \end{minted}
 
-\subsection{/task/:id/notify}
+\subsection*{/task/:id/notify}
 
 \begin{minted}{json}
 {
@@ -243,7 +243,7 @@ Antwort:
 }
 \end{minted}
 
-\section{Agent}
+\section*{Agent}
 
 \begin{table}[H]
     \centering
@@ -256,7 +256,7 @@ Antwort:
     \end{tabular}
 \end{table}
 
-\subsection{/task}
+\subsection*{/task}
 
 \begin{minted}{json}
 {
