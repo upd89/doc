@@ -40,6 +40,13 @@ Nine.ch betreibt über 1500 Linux-Serversysteme mit unterschiedlichen Konfigurat
 
 Dies hat mehrere Nachteile: Es gibt keine zuverlässigen Feedback-Mechanismen, es verursacht jede Woche mehrere Stunden Aufwand und resultiert im schlimmsten Fall in einer Verzögerung von mehreren Tagen bis zur Installation.
 
+\begin{figure}
+  \centering
+    \includegraphics[width=0.7\textwidth]{upd89-overview-before}
+  \caption{Ausgangslage: Ein Mitarbeiter aktualisiert jedes System einzeln}
+  \label{fig:overview-before}
+\end{figure}
+
 \section*{Vorgehen und Technologien}
 
 Der Kunde gab vor, dass auf jedem Server ein Agent laufen muss, der ausstehende Updates an ein Kontrollcenter meldet, welches mit Ruby on Rails und PostgreSQL umgesetzt wird. So kann das System leicht in die bestehende Umgebung eingebunden und weiterentwickelt werden. 
@@ -49,7 +56,7 @@ Auf dem Agent wird eine Python-Bibliothek zur Anbindung an die Debian-Paketverwa
 \begin{figure}
   \centering
     \includegraphics[width=0.7\textwidth]{upd89-overview}
-  \caption{Die Lösung ersetzt nicht den Paket-Manager der Distribution, sondern ermöglicht das zentrale Updatemanagement einer grossen Anzahl von Servern.}
+  \caption{Die Lösung ermöglicht das zentrale Updatemanagement einer grossen Anzahl von Servern.}
   \label{fig:overview}
 \end{figure}
 
