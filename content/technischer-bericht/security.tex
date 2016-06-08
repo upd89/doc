@@ -1,6 +1,30 @@
-\section{Security}
-
-\xxx[hier am richtigen Platz?]
+\section{Sicherheit}
 
 In der Analyse der Anforderungen festgestellt, dass auf die Sicherheit besonderes Augenmerk gelegt werden muss. Insbesondere die festgestellten Abuse Cases mussten berücksichtigt werden.
+
+\subsection{Übersicht}
+
+Im Fokus steht eine vertrauenswürdige Verbindung zwischen allen Teilnehmern des Systems. Namentlich sind das die Agents, das Control Center, sowie der Administrator, der per Browser auf die Administrationsoberfläche zugreift.
+
+\begin{center}
+    \includegraphics[width=0.75\textwidth]{files/upd89-security-overview}
+\end{center}
+
+\xxx[caption!]
+
+Jeder Teilnehmer muss sich sicher sein, dass er mit dem korrekten Gegenüber kommuniziert.
+
+1: Der Agent überprüft das Zertifikat des Control Centers, damit er weiss, dass er den Auftrag ausführen darf, den er auf diesem Weg bekommt. Ausserdem stellt er sicher, dass er Statusinformationen an das korrekte Gegenüber abliefert.
+
+2: Das Control Center seinerseits stellt ebenfalls mit dem Zertifikat des Agents fest, ob er dem Gegenüber vertrauen kann und die gelieferten Informationen für ihn relevant und korrekt sind.
+
+3: Der Administrator kann anhand des Zertifikats des Servers feststellen, ob er mit dem korrekten Control Center verbunden ist.
+
+4: Das Control Center vertraut dem Administrator anhand des eingegebenen Passworts.
+
+\subsection{API Security}
+
+Um die Kommunikation zwischen Agent und Control Center abzusichern, setzen wir eine eigene Zertifizierungsstelle (CA) ein. Im Grunde kann die CA mit Openssl \footnote{Openssl-Webseite: \purl{https://www.openssl.org/}} erstellt werden. Als Unterstützung haben wir easy-rsa \footnote{easy-rsa-Webseite: \purl{https://openvpn.net/easyrsa.html}} verwendet, um die benötigten Zertifikate mit wenig Aufwand zu generien.
+
+
 
