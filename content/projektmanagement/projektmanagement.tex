@@ -20,9 +20,9 @@ An diesem Projekt arbeiten die beiden unten aufgeführten Informatik-Studenten. 
 
 \begin{tabular}{ | l | l | }
     \hline
-    \includegraphics[width=0.5\textwidth,keepaspectratio]{fig/ubos}
+    \includegraphics[width=0.3\textwidth,keepaspectratio]{fig/ubos}
 	&
-	\includegraphics[width=0.5\textwidth,keepaspectratio]{fig/pchr} \\
+	\includegraphics[width=0.3\textwidth,keepaspectratio]{fig/pchr} \\
     Ueli Bosshard & Philipp Christen \\
     Stärken: Systemtechnik, OS, Netzwerk, DB
     &
@@ -83,9 +83,10 @@ Die besonders kritischen Risiken werden hier kurz erläutert und genauer beschri
 
 \section{Infrastruktur}
 
-Da es sich um ein Open-Source-Projekt handelt, wurde der Quellcode veröffentlicht. Bereits während der Entwicklung war er jederzeit auf Github\footnote{\purl{https://github.com/upd89/}} einsehbar.
+Da es sich um ein Open-Source-Projekt handelt, wurde der Quellcode komplett veröffentlicht. Bereits während der Entwicklung war er jederzeit auf Github\footnote{\purl{https://github.com/upd89/}} einsehbar.
 
-\xxx[similar chart would be sweet]
+Entwickelt wurde primär mit VIM\footnote{\purl{http://www.vim.org/}}, Atom\footnote{\purl{https://atom.io}} oder RubyMine\footnote{\purl{
+https://www.jetbrains.com/ruby}}. Bei jedem Commit nach GitHub checkte Travis-CI\footnote{\purl{https://travis-ci.org/}} den neuesten Stand aus und führte alle Unit-Tests durch. Das Resultat wurde einerseits via Email an die Entwickler geschickt, aber auch auf GitHub sowie auf RedMine\footnote{\purl{https://www.redmine.org/}} angezeigt.
 
 \begin{figure}[H]
 	\centering
@@ -107,7 +108,7 @@ Der normale Workflow eines Tasks in Redmine sieht deshalb folgendermassen aus:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[]{fig/task_workflow}
+	\includegraphics[width=0.5\linewidth]{fig/task_workflow}
 	\caption{Workflow eines Tasks}
 	\label{fig:pm:workflow}
 \end{figure}
