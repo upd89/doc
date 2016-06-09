@@ -2,7 +2,7 @@
 
 In der Analyse der Anforderungen festgestellt, dass auf die Sicherheit besonderes Augenmerk gelegt werden muss. Insbesondere die festgestellten Abuse Cases mussten berücksichtigt werden.
 
-\subsection{Übersicht}
+\subsection*{Übersicht}
 
 Im Fokus steht eine vertrauenswürdige Verbindung zwischen allen Teilnehmern des Systems. Namentlich sind das die Agents, das Control Center, sowie der Administrator, der per Browser auf die Administrationsoberfläche zugreift.
 
@@ -22,15 +22,24 @@ Jeder Teilnehmer muss sich sicher sein, dass er mit dem korrekten Gegenüber kom
 
 4: Das Control Center vertraut dem Administrator anhand des eingegebenen Passworts.
 
-\subsection{API Security}
+\subsection*{API Security}
 
 Um die Kommunikation zwischen Agent und Control Center abzusichern, setzen wir eine eigene Zertifizierungsstelle (CA) ein. Im Grunde kann die CA mit Openssl \footnote{Openssl-Webseite: \purl{https://www.openssl.org/}} erstellt werden. Als Unterstützung haben wir easy-rsa \footnote{easy-rsa-Webseite: \purl{https://openvpn.net/easyrsa.html}} verwendet, um die benötigten Zertifikate mit wenig Aufwand zu generien.
+
+\subsubsection*{Erzeugen der Zertifikate}
+Das Konzept einer Zertifizierungsstelle (CA) sieht wie folgt aus: Die Zertifizierungsstelle unterschreibt den eigenen öffentlichen Schlüssel (pub) und generiert daraus das öffenliche CA-Zertifikat (CA-crt). Anschliessend unterschreibt die CA die öffentlichen Schlüssel der Teilnehmer, in unserem Fall das Control Center und die Agents.
 
 \begin{center}
     \includegraphics[width=0.60\textwidth]{files/upd89-ca-signing}
 \end{center}
 
 \xxx[caption!]
+
+\clearpage
+\subsubsection*{Sichere Verbindung}
+
+Die Teilnehmer sind im Besitz des CA-Zertifikats, welches als Vertrauensanker dient, können so die Zertifikate ihrer Kommunikationspartner überprüfen und so eine sichere Verbindung gewährleisten.
+
 
 \begin{center}
     \includegraphics[width=0.70\textwidth]{files/upd89-secure-communication}
