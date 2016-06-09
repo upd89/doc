@@ -4,7 +4,9 @@ Sowohl durch den Industriepartner als auch durch das Team selbst kamen verschied
 
 \section{'Workflow'}
 
-Ein Wunsch der Industriepartner war es, den momentanen Arbeitsablauf abbilden zu können
+Ein Wunsch der Industriepartner war es, den momentanen Arbeitsablauf abbilden zu können. Ein Beispiel ist, dass zuerst die 'unkritischen' Pakete auf den 'unkritischen' Systemen installiert werden müssen, bevor dort 'kritische' Pakete installiert werden können.
+
+Dies wurde im 'Workflow'-Feature als Vorschlag präsentiert (Bild \ref{fig:ausblick:workflow}). Hier gibt es eine definierbare Reihenfolge von Arbeitsschritten, welche nacheinander durchgeführt werden müssen. Diese Arbeitsschritte könnten manuell festgelegt und bearbeitet sowie sortiert werden (Siehe Bild \ref{fig:ausblick:workflow_crud} für den Edit-Modus).
 
 
 \xxx[ Workflow-Feature ]
@@ -23,9 +25,14 @@ Ein Wunsch der Industriepartner war es, den momentanen Arbeitsablauf abbilden zu
 	\label{fig:ausblick:workflow_crud}
 \end{figure}
 
-\xxx[ Separater API-Endpunkt für einfachere Registrierung ]
+\xxx[ Separater API-Endpunkt für einfachere Registrierung, wie Puppet ]
 
-\xxx[ Dry-Run ]
+\section{Dry-Run}
+
+In \gls{apt} existiert das Feature 'dry-run', womit ein Updatevorgang simuliert\footnote{es werden keine Updates installiert, siehe auch \purl{http://linux.die.net/man/8/apt-get}} werden kann. Dies könnte auch als Feature im \gls{controlcenter} implementiert werden, indem vor dem Versenden eines Tasks zuerst eine Simulation durchgeführt werden könnte, um zu sehen, welche Pakete Abhängigkeiten nach sich ziehen oder fehlschlagen würden.
+
+\section{Message-Queue}
+
 
 \xxx[ Message-Queue, z.B. RabbitMQ ]
 

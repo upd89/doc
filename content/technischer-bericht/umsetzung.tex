@@ -1,30 +1,13 @@
+\begin{comment}
+(Implementierung) Architektur und Design beschrieben: Mit begründeten Architekturentscheidungen, mit Diskussion, wie Qualitätsattribute sichergestellt wurden (welche Qualität wurde erreicht?), mit Dokumentation, welche Experimente/Tests durchgeführt wurden und welche Lösungsoptionen aufgrund der Ergebnisse dieser Experimente/Tests
+verworfen wurden (was ging schief?)
+\end{comment}
+
 \chapter{Umsetzung}
 
-\xxx[(Implementierung) Architektur und Design beschrieben: Mit begründeten Architekturentscheidungen, mit Diskussion, wie Qualitätsattribute sichergestellt wurden (welche Qualität wurde erreicht?), mit Dokumentation, welche Experimente/Tests durchgeführt wurden und welche Lösungsoptionen aufgrund der Ergebnisse dieser Experimente/Tests
-verworfen wurden (was ging schief?)]
-
-\section{Architektur}
-
-\xxx[Mit begründeten Architekturentscheidungen, Mit Diskussion, wie Q-Attribute sichergestellt wurden (welche Qualität wurde erreicht?), Mit Dokumentation, welche Tests durchgeführt wurden, welche Lösungsoptionen wurde aufgrund von Tests/Experimenten verworfen.]
-
-\subsection*{Control Center}
-
-Das \gls{controlcenter} wurde mit Ruby on Rails umgesetzt. Rails ist ein \gls{mvc}-Framework, wodurch grundsätzliche Entscheidungen zur Architektur bereits vorweggenommen wurden.
-
-Das \gls{mvc}-Pattern teilt Applikationen in drei Teile, welche jeweils verschiedene Aufgaben und Verantwortungen haben. Ziel ist, dass die Wiederverwendbarkeit und Trennbarkeit der Komponenten gewährleistet wird.
-
-Ruby on Rails bildet das Pattern bereits in der Dokumentenstruktur ab. Im /app befinden sich Ordner für Controllers, Models und Views.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\linewidth]{files/mvc_structure}
-	\caption{MVC-Pattern}
-	\label{fig:tec:mvc}
-\end{figure}
-
-\subsection*{Agent}
-
 \xxx
+
+\subimport{}{architecture.tex}
 
 \clearpage
 \subimport{}{security.tex}

@@ -6,11 +6,12 @@ In der Analyse der Anforderungen festgestellt, dass auf die Sicherheit besondere
 
 Im Fokus steht eine vertrauenswürdige Verbindung zwischen allen Teilnehmern des Systems. Namentlich sind das die Agents, das Control Center, sowie der Administrator, der per Browser auf die Administrationsoberfläche zugreift.
 
-\begin{center}
+\begin{figure}
+  \centering
     \includegraphics[width=0.75\textwidth]{files/upd89-security-overview}
-\end{center}
-
-\xxx[caption!]
+  \caption{Übersicht Verbindungssicherheit}
+  \label{fig:sec-overview}
+\end{figure}
 
 Jeder Teilnehmer muss sich sicher sein, dass er mit dem korrekten Gegenüber kommuniziert.
 
@@ -29,11 +30,12 @@ Um die Kommunikation zwischen Agent und Control Center abzusichern, setzen wir e
 \subsubsection*{Erzeugen der Zertifikate}
 Das Konzept einer Zertifizierungsstelle (CA) sieht wie folgt aus: Die Zertifizierungsstelle unterschreibt den eigenen öffentlichen Schlüssel (pub) und generiert daraus das öffenliche CA-Zertifikat (CA-crt). Anschliessend unterschreibt die CA die öffentlichen Schlüssel der Teilnehmer, in unserem Fall das Control Center und die Agents.
 
-\begin{center}
+\begin{figure}
+  \centering
     \includegraphics[width=0.60\textwidth]{files/upd89-ca-signing}
-\end{center}
-
-\xxx[caption!]
+  \caption{Erzeugen von Zertifikaten mittels Signieren}
+  \label{fig:sec-signin}
+\end{figure}
 
 \clearpage
 \subsubsection*{Sichere Verbindung}
@@ -41,9 +43,9 @@ Das Konzept einer Zertifizierungsstelle (CA) sieht wie folgt aus: Die Zertifizie
 Die Teilnehmer sind im Besitz des CA-Zertifikats, welches als Vertrauensanker dient, können so die Zertifikate ihrer Kommunikationspartner überprüfen und so eine sichere Verbindung gewährleisten.
 
 
-\begin{center}
+\begin{figure}
+  \centering
     \includegraphics[width=0.70\textwidth]{files/upd89-secure-communication}
-\end{center}
-
-\xxx[caption!]
-
+  \caption{Vertrauenswürdige Verbindung aufgrund Vertrauensanker}
+  \label{fig:sec-connection}
+\end{figure}
