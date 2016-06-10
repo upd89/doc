@@ -32,14 +32,14 @@ Auf diese Weise ist es sehr einfach, ganzen Benutzergruppen die Rechte für mehr
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{files/mockups/permission_1}
-	\caption{Rechtesystem}
+	\caption{Rechtesystem mit verschiedenen Einstellungen}
 	\label{fig:design:permission_1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{files/mockups/permission_2}
-	\caption{Rechtesystem (Alternative)}
+	\caption{Rechtesystem als Tabelle mit Icons}
 	\label{fig:design:permission_2}
 \end{figure}
 
@@ -71,7 +71,7 @@ Neben den spezifischen Ansichten für je alle Pakete oder Systeme mit entspreche
 
 \subsection*{User Interface}
 
-Die Oberflächen halten sich mehrheitlich an die Mockups aus der Planung, einige Details wurden aber aufgrund von Input durch die Industriepartner oder durch 'Hallway-Testing'\footnote{Test mit zufällig ausgewählten Personen, ob ein Feature in der Benutzeroberfläche wie gedacht funktioniert.} abgeändert.
+Die Oberflächen halten sich mehrheitlich an die Mockups aus der Planung, einige Details wurden aber aufgrund von Input durch die Industriepartner oder durch 'Hallway-Testing'\footnote{Test mit zufällig ausgewählten Personen, ob ein Feature in der Benutzeroberfläche wie gedacht funktioniert. Siehe auch \purl{http://www.joelonsoftware.com/articles/fog0000000043.html}} abgeändert.
 
 \begin{figure}[H]
 	\centering
@@ -80,10 +80,24 @@ Die Oberflächen halten sich mehrheitlich an die Mockups aus der Planung, einige
 	\label{fig:design:dashboard}
 \end{figure}
 
-\subsection*{Logo, Icon, Schriftart}
-Das Logo wurde in Squarespace Logo Generator\footnote{\purl{https://www.squarespace.com/logo/}} erstellt mit dem Icon 'Nodes'\footnote{\purl{https://thenounproject.com/search/?q=nodes+by+gregor&i=138240}} von Gregor Črešnar. Die Schriftart für 'UPD89' ist Montserrat\footnote{\purl{https://www.fontsquirrel.com/fonts/montserrat}} von Julieta Ulanovsky.
+\subsubsection*{Javascript}
 
-Das Icon wurde ge
+Obwohl das \gls{controlcenter} in Ruby on Rails umgesetzt wurde, spielte Javascript eine wichtige Rolle. Ohne Javascript verursacht fast jede Aktion durch den Benutzer und jede Änderung am Inhalt ein Nachladen der Seite, was je nach Inhalt und Verbindungsqualität langsam und ablenkend sein kann. 
+
+Mit Javascript können Interaktionen des Benutzers bereits im Browser des Benutzers abgefangen und darauf reagiert werden, ohne den Umweg über den Server zu machen. Bei Bedarf kann der Javascript-Code aber auch Teilinhalte nachladen, ohne dass die momentane Seite verlassen werden muss. In der Paket- und System-Ansicht (Bild \ref{fig:design:js_example}) beispielsweise wird über \gls{ajax} beim Filtern von Paketen und Systemen oder auf die entsprechenden Gruppen oder beim Sortieren  der Tabellen jeweils nur der Inhalt der Tabelle neu geladen. Ein Klick auf den Pfeil neben einem Paket lädt ebenfalls via \gls{ajax} die betroffenen Systeme für die System-Tabelle auf der rechten Seite nach. Zudem wird die Schaltfläche zum Ausführen der Updates dynamisch aktiviert oder deaktiviert, je nach Auswahl von Paketen und Systemen.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{files/combo_view}
+	\caption{Beispiel für Javascript-Erweiterungen des Rails-Frontends}
+	\label{fig:design:js_example}
+\end{figure}
+
+\subsection*{Logo, Icon, Schriftart}
+
+Das Logo wurde im Squarespace Logo Generator\footnote{\purl{https://www.squarespace.com/logo/}} erstellt mit dem Icon 'Nodes'\footnote{\purl{https://thenounproject.com/search/?q=nodes+by+gregor\&i=138240}} von Gregor Črešnar. Die Schriftart für 'UPD89' ist Montserrat\footnote{\purl{https://www.fontsquirrel.com/fonts/montserrat}} von Julieta Ulanovsky.
+
+Das Icon wurde als Symbol für die zentrale Verwaltung und die Kommunikation mit den einzelnen Servern gewählt. Es kann Bei Bedarf durch das Ersetzen einer einzelnen Bilddatei durch ein beliebiges Logo angepasst werden.
 
 \subsection*{Farben}
 
@@ -106,8 +120,6 @@ Die selbst definierten Farben wurden in einer separaten \gls{scss}-Datei definie
 \end{figure}
 
 Ein besonderes Augenmerk wurde auf die farbliche Kennzeichnung der Systeme und Pakete gelegt. Besonders in der kombinierten Ansicht, wo es Filtermöglichkeiten zu Systemen und zu Paketen gibt, ist es mit einer farblichen Unterscheidung einfacher zu sehen, was welche Entitätsgruppe betrifft. Diese Farben wurden auch ins Menu und ins Dashboard weitergezogen; in der ganzen Applikation sind Infos und Einstellungen, welche zu Systemen relevant sind, generell im 'System-Blau', solche für Pakete im 'Paket-Grün' (Beispiel im Bild \ref{fig:design:sys_pkg_colors}).
-
-\xxx[ref zu combo-view?]
 
 \begin{figure}[H]
 	\centering

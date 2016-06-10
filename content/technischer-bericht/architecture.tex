@@ -4,7 +4,7 @@ Mit begründeten Architekturentscheidungen, Mit Diskussion, wie Q-Attribute sich
 
 \section{Architektur}
 
-\xxx
+\xxx[MVC etwas besser/tiefer erklären]
 
 \subsection*{Control Center}
 
@@ -12,15 +12,53 @@ Das \gls{controlcenter} wurde mit Ruby on Rails umgesetzt. Rails ist ein \gls{mv
 
 Das \gls{mvc}-Pattern teilt Applikationen in drei Teile, welche jeweils verschiedene Aufgaben und Verantwortungen haben. Ziel ist, dass die Wiederverwendbarkeit und Trennbarkeit der Komponenten gewährleistet wird.
 
-Ruby on Rails bildet das Pattern bereits in der Dokumentenstruktur ab. Im /app befinden sich Ordner für Controllers, Models und Views.
+Ruby on Rails bildet das Pattern bereits in der Dokumentenstruktur ab. Im Verzeichnis /app befinden sich Ordner für Controllers, Models und Views.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{files/mvc_structure}
-	\caption{MVC-Pattern}
+	\caption{MVC-Pattern in Rails-Umgebung}
 	\label{fig:tec:mvc}
 \end{figure}
+
+Als Rails-Version wurde 4.2 gewählt, obwohl Rails 5 im Mai 2016 als Release Candidate erschienen wäre\footnote{\purl{http://weblog.rubyonrails.org/2016/5/6/this-week-in-rails-railsconf-recap-rails-5-0-rc-1-is-out/}} und Features wie z.B. WebSockets beinhaltet hätte. Es wurde aber gegen den Gebrauch der neuen Version entschieden, da sie zum Zeitpunkt der Evaluation noch nicht aus dem Beta-Stadium heraus war und die Kompatibilität mit verschiedenen Ruby-Gems nicht immer gewährleistet ist.
+
+\xxx[source richtig zitieren!]
+\xxx[eventuell Decision-Block?]
+
+\subsubsection*{Gems}
+
+Rails ist ein Gem für Ruby. Gems sind Pakete für den Paketmanager von Ruby (RubyGems), womit für eine Ruby-Applikation vorgefertigte Bibliotheken und weitere Applikationen eingebunden werden können.
+
+Unter anderem wurden bei \gls{upd89} folgende Gems verwendet:
+
+\begin{labeling}{font\textunderscore awesome\textunderscore rails}
+    \item [sass-rails] Kompiliert Sass- und Scss-Files nach CSS
+    \item [coffee-rails] Ermöglicht das Benutzen von Coffeescript\footnote{\purl{http://coffeescript.org/}}
+    \item [jquery-rails] jQuery wird für DOM-Manipulationen und \gls{ajax} benutzt
+    \item [rspec-rails] Testing-Framework für Rails
+    \item [factory\textunderscore girl\textunderscore rails] Stellt Fixtures für Unit-Testing zur Verfügung
+    \item [rubocop] Prüft den Stil des Codes gemäss den Ruby Code-Guidelines
+    \item [faker] Ermöglicht einfaches 'Faken' von Daten für Unit-Testing
+    \item [better\textunderscore errors] Hilfreich bei der Entwicklung anstelle der standardmässig eher unspektakulären Fehlermeldungen
+    \item [rake] 'Software-Management Task Tool', hilft beim Ausführen von Tasks wie z.B. dem Erstellen von Default-Daten für die Datenbank
+    \item [font\textunderscore awesome\textunderscore rails] Bindet die Icons von FontAwesome ein
+    \item [will\textunderscore paginate] Ermöglicht \gls{pagination} von ActiveRecord-Einträgen
+    \item [sucker\textunderscore punch] Asynchrone Hintergrund-Aufträge, wird für das Senden von Tasks an die \glspl{agent} benötigt
+    \item [faraday] Bibliothek für HTTP-Zugriffe mit HTTPS-Support
+    \item [sorcery] Benutzer-Authentifizierung und Login-Funktionalität
+    \item [filterrific] Unterstützung für Filter und Sortiermöglichkeiten
+    \item [cancancan] Berechtigungen auf Aktions-Ebene (\gls{crud})
+\end{labeling}
+
+\subsubsection*{Active Record}
+
+\xxx[https://en.wikipedia.org/wiki/Active\textunderscore record\textunderscore pattern]
 
 \subsection*{Agent}
 
 \xxx
+
+\subsection*{API}
+
+\xxx[Nicht details, aber evtl. sequenzdiagramm und so]

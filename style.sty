@@ -141,6 +141,8 @@
 \usepackage{xcolor}
 
 \definecolor{paragraphTitle}{HTML}{4A00F3}
+\definecolor{orange}{HTML}{F47421}
+
 % -----------------------------------------------------------------------------
 
 
@@ -325,6 +327,9 @@ bindingoffset=5mm
 \tcbuselibrary{minted}
 \definecolor{codebggray}{rgb}{0.95,0.95,0.95}
 
+% Deaktiviert rote Box um Fehler in Syntax:
+\AtBeginEnvironment{minted}{%
+  \renewcommand{\fcolorbox}[4][]{#4}}
 
 \newtcblisting[auto counter,number within=chapter,list inside=minted]{srclst}[3][]{%
 	beamer,
