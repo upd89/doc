@@ -63,14 +63,23 @@ Nach anfänglicher Überlegung wurde gegen ein grosses Javascript-Framework wie 
 \xxx
 
 \subsection*{API}
+\label{sec:architecture:api}
 
 \gls{agent} und \gls{controlcenter} kommunizieren miteinander über eine \gls{api}. Dies wurde aus folgenden Gründen beschlossen:
 
 \begin{itemize}
-    \item einfache Erweiterbarkeit: Momentan werden nur Ubuntu-Server (mit \gls{apt}) unterstützt). Die \gls{api} ist agnostisch gegenüber dem Betriebssystem und kann theoretisch auch andere Paketmanager unterstützen
+    \item einfache Erweiterbarkeit: Momentan werden nur Ubuntu-Server (mit \gls{apt}) unterstützt. Die \gls{api} ist agnostisch gegenüber dem Betriebssystem und kann theoretisch auch andere Paketmanager unterstützen
     \item lose Kopplung: Die Komponenten \gls{agent} und \gls{controlcenter} funktionieren als eigenständige Applikationen und sind nicht voneinander abhängig.
     \item bereit für Middleware: durch die Trennung der beiden Haupt-Komponenten bedeutet das Einführen einer Middleware, wie z.B. einer Message Queue (siehe auch Kapitel \ref{sec:ausblick:message_queue}) keinen grossen Aufwand.
 \end{itemize}
+
+Die API selbst ist unkompliziert und zielt darauf ab, dem Entwickler eines Agenten Arbeit abzunehmen sowie die Logik im Control Center zu behalten.
+
+Um den Netzwerkverkehr in Grenzen zu halten, wurde darauf verzichtet, bei jedem Aufruf alle Informationen zu einem Paket mitzuschicken, sondern es wird hauptsächlich mit dem Hash des Paketes gearbeitet. Sollte das \gls{controlcenter} einen Hash nicht kennen, wird dies dem Agent mitgeteilt und die vollen Paketinformationen werden nachgereicht.
+
+Zudem wird mit Deltas gearbeitet, das heisst, dass der Agent jeweils nur neue Informationen wie etwa neue anstehende Updates versendet. Das Control Center prüft jeweils, ob die Anzahl der gesamthaft vorhandenen Updates noch übereinstimmt mit dem Kontrollwert, welcher ebenfalls durch den Agenten übermittelt wird. Stimmen die Werte nicht überein, ist eine Diskrepanz vorhanden und der Agent muss die gesamten Informationen erneut übermitteln, da eventuell ein Update auf einem anderen Weg installiert wurde. Allerdings kann hier wieder mit der Liste der Hashes gearbeitet werden, womit sich die Last auf dem Netzwerk in Grenzen hält.
+
+Die API ist Bestandteil des Control Centers, da die meisten Calls vom Agent zum Control Center hin verlaufen. Aber auch in der Gegenrichtung existiert eine (kleine) API. Somit kann auch das Control Center dem Agent Tasks ausliefern. Weitere API-Endpunkte auf Agent-Seite sind durchaus denkbar, aber nicht Bestandteil dieser Arbeit (Siehe auch Kapitel \ref{sec:ausblick:scheduled_tasks}).
 
 \begin{figure}
   \centering
@@ -78,5 +87,3 @@ Nach anfänglicher Überlegung wurde gegen ein grosses Javascript-Framework wie 
   \caption{Sequenzdiagramm bezüglich API-Aufrufe}
   \label{fig:api_sequence_diagram}
 \end{figure}
-
-\xxx[Nicht details, aber evtl. sequenzdiagramm und so]

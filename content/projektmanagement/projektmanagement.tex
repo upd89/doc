@@ -18,17 +18,27 @@ An diesem Projekt arbeiten die beiden unten aufgeführten Informatik-Studenten. 
 
 \xxx[captions in tables]
 
-\begin{tabular}{ | l | l | }
+\begin{tabularx}{\textwidth}{| X | X | }
     \hline
-    \includegraphics[width=0.3\textwidth,keepaspectratio]{fig/ubos}
+    \begin{minipage}{.5\textwidth}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth,keepaspectratio]{fig/ubos}
+        \end{figure}
+    \end{minipage}
 	&
-	\includegraphics[width=0.3\textwidth,keepaspectratio]{fig/pchr} \\
+	\begin{minipage}{.5\textwidth}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth,keepaspectratio]{fig/pchr}
+        \end{figure}
+    \end{minipage} \\
     Ueli Bosshard & Philipp Christen \\
     Stärken: Systemtechnik, OS, Netzwerk, DB
     &
     Stärken: Frontend, UX \\
     \hline
-\end{tabular}
+\end{tabularx}
 
 \section{Risiken}\label{sec:risiken}
 
@@ -67,7 +77,7 @@ Die besonders kritischen Risiken werden hier kurz erläutert und genauer beschri
 
 
 \projectrisk{R01}{Regelwerk zwischen Updates und Systemen zu komplex}
-{Es war von Beginn an nicht klar, wie genau das Regelwerk genau aussehen soll, welches die Kombinationen von Systemen und Updates einschränken soll. Im schlimmsten Fall können es beliebig tiefe Abhängigkeiten sein, welche über mehrere Gruppen hinweg geprüft werden müssen.}
+{Es war von Beginn an nicht klar, wie das Regelwerk genau aussehen soll, welches die Kombinationen von Systemen und Updates einschränt. Im schlimmsten Fall können es beliebig tiefe Abhängigkeiten sein, welche über mehrere Gruppen hinweg geprüft werden müssen.}
 {In der Elaborations-Phase sollte so gut wie möglich geklärt werden, in welcher Form das Regelwerk entstehen soll. Sobald sich herausstellt, dass die gewählte Tiefe der Umsetzung zu viel Aufwand verursacht, wird mit dem Auftraggeber entschieden, ob die Anforderung gegebenfalls eingegrenzt werden kann.}
 
 
