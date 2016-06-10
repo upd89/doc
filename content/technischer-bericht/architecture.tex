@@ -21,10 +21,9 @@ Ruby on Rails bildet das Pattern bereits in der Dokumentenstruktur ab. Im Verzei
 	\label{fig:tec:mvc}
 \end{figure}
 
-Als Rails-Version wurde 4.2 gewählt, obwohl Rails 5 im Mai 2016 als Release Candidate erschienen wäre\footnote{\purl{http://weblog.rubyonrails.org/2016/5/6/this-week-in-rails-railsconf-recap-rails-5-0-rc-1-is-out/}} und Features wie z.B. WebSockets beinhaltet hätte. Es wurde aber gegen den Gebrauch der neuen Version entschieden, da sie zum Zeitpunkt der Evaluation noch nicht aus dem Beta-Stadium heraus war und die Kompatibilität mit verschiedenen Ruby-Gems nicht immer gewährleistet ist.
-
-\xxx[source richtig zitieren!]
-\xxx[eventuell Decision-Block?]
+\begin{decision}{Rails-Version}
+Als Rails-Version wurde 4.2 gewählt, obwohl Rails 5 im Mai 2016 als Release Candidate erschienen wäre\footnote{Quelle: \purl{http://weblog.rubyonrails.org/2016/5/6/this-week-in-rails-railsconf-recap-rails-5-0-rc-1-is-out/}} und Features wie z.B. WebSockets beinhaltet hätte. Es wurde aber gegen den Gebrauch der neuen Version entschieden, da sie zum Zeitpunkt der Evaluation noch nicht aus dem Beta-Stadium heraus war und die Kompatibilität mit verschiedenen Ruby-Gems nicht immer gewährleistet ist.
+\end{decision}
 
 \subsubsection*{Gems}
 
@@ -51,6 +50,10 @@ Unter anderem wurden bei \gls{upd89} folgende Gems verwendet:
     \item [cancancan] Berechtigungen auf Aktions-Ebene (\gls{crud})
 \end{labeling}
 
+\begin{decision}{Javascript-Framework}
+Nach anfänglicher Überlegung wurde gegen ein grosses Javascript-Framework wie AngularJS entschieden. Obwohl bereits Erfahrungen mit AngularJS\footnote{\purl{https://angularjs.org/}} im Team vorhanden sind, wurde es als zu mächtig eingestuft. Rails sollte nicht nur als Backend benutzt werden, sondern auch gleich für die Views zuständig sein. Die Industriepartner teilten die Meinung. 
+\end{decision}
+
 \subsubsection*{Active Record}
 
 \xxx[https://en.wikipedia.org/wiki/Active\textunderscore record\textunderscore pattern]
@@ -60,5 +63,20 @@ Unter anderem wurden bei \gls{upd89} folgende Gems verwendet:
 \xxx
 
 \subsection*{API}
+
+\gls{agent} und \gls{controlcenter} kommunizieren miteinander über eine \gls{api}. Dies wurde aus folgenden Gründen beschlossen:
+
+\begin{itemize}
+    \item einfache Erweiterbarkeit: Momentan werden nur Ubuntu-Server (mit \gls{apt}) unterstützt). Die \gls{api} ist agnostisch gegenüber dem Betriebssystem und kann theoretisch auch andere Paketmanager unterstützen
+    \item lose Kopplung: Die Komponenten \gls{agent} und \gls{controlcenter} funktionieren als eigenständige Applikationen und sind nicht voneinander abhängig.
+    \item bereit für Middleware: durch die Trennung der beiden Haupt-Komponenten bedeutet das Einführen einer Middleware, wie z.B. einer Message Queue (siehe auch Kapitel \ref{sec:ausblick:message_queue}) keinen grossen Aufwand.
+\end{itemize}
+
+\begin{figure}
+  \centering
+    \includegraphics[width=\textwidth]{files/API_Calls}
+  \caption{Sequenzdiagramm bezüglich API-Aufrufe}
+  \label{fig:api_sequence_diagram}
+\end{figure}
 
 \xxx[Nicht details, aber evtl. sequenzdiagramm und so]
