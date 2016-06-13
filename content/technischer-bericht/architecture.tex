@@ -62,6 +62,16 @@ Nach anfänglicher Überlegung wurde gegen ein grosses Javascript-Framework wie 
 
 \xxx
 
+Folgende externe Abhängigkeiten existieren:
+
+\begin{labeling}{configparser}
+    \item [apt] Für den Zugriff auf \gls{apt}
+    \item [daemonize] Um den Agent als \gls{daemon} laufen zu lassen
+    \item [configparser]
+    \item [bottle]\footnote{\purl{http://bottlepy.org/docs/dev/index.html}} Minimalistisches Web-Framework, um vom Control Center angesprochen zu werden
+    \item [shelve] Für persistente Datenspeicherung (insbesondere, welche Updates bereits geschickt wurden)
+\end{labeling}
+
 \subsection*{API}
 \label{sec:architecture:api}
 
@@ -87,3 +97,20 @@ Die API ist Bestandteil des Control Centers, da die meisten Calls vom Agent zum 
   \caption{Sequenzdiagramm bezüglich API-Aufrufe}
   \label{fig:api_sequence_diagram}
 \end{figure}
+
+\subsubsection*{Ablauf}
+
+Der typische Ablauf einer 'Unterhaltung' zwischen Agent und Control Center läuft folgendermassen ab (Grafisch dargestellt in Bild \ref{fig:api_sequence_diagram}):
+
+\begin{enumerate}
+    \item Registrierung: Nach dem Deployment und Start des Agents nimmt dieser Kontakt mit dem Control Center auf und registriert sich. Dazu übermittelt er seine Eckdaten wie Name, Betriebssystem und Adresse.
+    \item Installierte Pakete (Hashes): Damit das Inventar beim Control Center stimmt, schickt der Agent all seine momentan installierten Pakete. Dies umfasst nicht die anstehenden Updates. Zuerst werden nur die Hash-Werte der einzelnen Paketversionen geschickt, für den Fall dass dem Control Center bereits einige oder alle Hashes bekannt sind.
+    \item Installierte Pakete (Komplett): Sollte das Control Center nicht alle gesendeten Hashes kennen, schickt der Agent die vollen Informationen.
+    \item Updates (Hashes): In regelmässigen Abständen prüft der Agent über \gls{apt}, ob Updates anstehen. Ist das der Fall, übermittelt er diese (wieder zuerst nur die Hashes) an das Control Center.
+    \item Updates (Komplett): Wenn Hashes unbekannt sind, meldet das Control Center dies und der Agent schickt erneut die kompletten Angaben zu den Updates.
+    \item Auftrag: Sobald ein Benutzer auf dem Control Center einen Job mit einem Task für dieses System erstellt, wird dieser Task an den entsprechenden Agenten geschickt. Der Agent erhält die Version und Namen der Pakete, welche aktualisiert werden sollen, sowie eine Task-Nummer, mit welcher er den Task auf dem Control Center referenzieren kann.
+    \item Feedback: Der Agent versucht, das Update über \gls{apt} auszuführen. Die Ausgaben von apt werden gesammelt und zusammen mit dem erreichten Ergebnis (Erfolgreich oder Fehlgeschlagen) zurück an das Control Center geschickt. Damit dieses weiss, um welchen Task es geht, verweist der Agent auf die vorhin erhaltene Task-Nummer.
+\end{enumerate}
+
+\xxx[ was sind die zeitlichen Abstände? Alle 10 minuten? ]
+\xxx[ auf grafik: auch antworten beim opt einzeichnen? ]

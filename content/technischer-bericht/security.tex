@@ -1,4 +1,5 @@
 \section{Sicherheit}
+\label{sec:security}
 
 In der Analyse der Anforderungen festgestellt, dass auf die Sicherheit besonderes Augenmerk gelegt werden muss. Insbesondere die festgestellten Abuse Cases (Siehe \ref{sec:abuse_cases}) mussten berücksichtigt werden.
 
@@ -24,7 +25,7 @@ Jeder Teilnehmer muss sich sicher sein, dass er mit dem korrekten Gegenüber kom
 
 \subsection*{API Security}
 
-Um die Kommunikation zwischen Agent und Control Center abzusichern, setzen wir eine eigene Zertifizierungsstelle (CA) ein. Im Grunde kann die CA mit Openssl \footnote{Openssl-Webseite: \purl{https://www.openssl.org/}} erstellt werden. Als Unterstützung haben wir easy-rsa \footnote{easy-rsa-Webseite: \purl{https://openvpn.net/easyrsa.html}} verwendet, um die benötigten Zertifikate mit wenig Aufwand zu generien.
+Um die Kommunikation zwischen Agent und Control Center abzusichern, wird eine eigene Zertifizierungsstelle (CA) eingesetzt. Im Grunde kann die CA mit Openssl \footnote{Openssl-Webseite: \purl{https://www.openssl.org/}} erstellt werden. Als Unterstützung wird easy-rsa \footnote{easy-rsa-Webseite: \purl{https://openvpn.net/easyrsa.html}} verwendet, um die benötigten Zertifikate mit wenig Aufwand zu generien.
 
 \xxx[CA als Glossar-Term]
 

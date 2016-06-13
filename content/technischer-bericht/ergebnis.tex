@@ -27,16 +27,24 @@ Ideen für Schlussfolgerung:
 \end{comment}
 
 \chapter{Ergebnis}
-\xxx
 
-\xxx[Erwähnen dass Regelwerk-Feature abgelehnt wurde]
+Im Rahmen der Bachelorarbeit wurde eine Softwarelösung mit zentraler Web-Komponente und verteilten Agenten entwickelt. Die Web-Applikation kann auf den gängigen Browsern gut dargestellt werden\footnote{Getestet auf Firefox 47 und Chrome 51} und kann unter normalen Bedingungen mit den Agenten kommunizieren.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{files/mockups/rules}
-	\caption{Verworfenes Regelwerk-Feature}
-	\label{fig:ergebnis:rules}
-\end{figure}
+Die Anforderungen aus dem Projektauftrag (siehe \ref{sec:anforderung:aufgabenstellung}) wurden umgesetzt.
+
+\begin{itemize}
+    \item Die Applikation kann über den Web-Browser erreicht werden.
+    \item Anstehende Updates können auf den verbundenen Systemen eingesehen werden
+    \item Es kann pro System eine Übersicht der ausgeführten Tasks eingesehen werden
+    \item Pro System läuft ein Agent und die Kommunikation mit dem Control Center verläuft verschlüsselt.
+    \item Meldungen von {apt} werden weitergereicht und bei Fehlschlagen eimes Updates wird dieses besonders gekennzeichnet. Benötigte Updates werden dem Control Center ebenfalls mitgeteilt.
+    \item Die kürzlich durchgeführten Aktivitäten aller User ist einfach einsehbar und es kann pro Job ein Kommentar vom Auslöser hinzugefügt werden.
+\end{itemize}
+
+\xxx[Was ist mit den Empfehlungen bei Neustart etc.?]
+\xxx[korrekter und konsistenter Datenstand?]
+
+Die Software wurde als Open-Source-Lösung mit der MIT-Lizenz (siehe auch Kapitel \ref{sec:license}) entwickelt und unterstützt mindestens die Ubuntu-Versionen 12.04, 14.04 und 16.04. Als Programmiersprachen wurden hauptsächlich Ruby und Python verwendet, als Datenbank kommt PostgreSQL zum Einsatz.
 
 \section{Schlussfolgerung}
 \xxx
@@ -45,6 +53,7 @@ Ideen für Schlussfolgerung:
 \xxx[Anhang/Github-Dingens zusammenfassen und übersetzen (Vorbedingungen nur kurz erwähnen, z.B. CA oder direkte Verbindung benötigt von A zu CC)]
 
 \subsection*{Control Center}
+
 
 
 \subsection*{Agent}
