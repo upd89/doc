@@ -33,12 +33,14 @@ Im Rahmen der Bachelorarbeit wurde eine Softwarelösung mit zentraler Web-Kompon
 
 Die Anforderungen aus dem Projektauftrag (siehe \ref{sec:anforderung:aufgabenstellung}) wurden umgesetzt.
 
+\xxx[Verweis auf Nummerierung in Aufgabenstellung]
+
 \begin{itemize}
     \item Die Applikation kann über den Web-Browser erreicht werden.
     \item Anstehende Updates können auf den verbundenen Systemen eingesehen werden
     \item Es kann pro System eine Übersicht der ausgeführten Tasks eingesehen werden
     \item Pro System läuft ein Agent und die Kommunikation mit dem Control Center verläuft verschlüsselt.
-    \item Meldungen von {apt} werden weitergereicht und bei Fehlschlagen eimes Updates wird dieses besonders gekennzeichnet. Benötigte Updates werden dem Control Center ebenfalls mitgeteilt.
+    \item Meldungen von \gls{apt} werden weitergereicht und bei Fehlschlagen eimes Updates wird dieses besonders gekennzeichnet. Benötigte Updates werden dem Control Center ebenfalls mitgeteilt.
     \item Die kürzlich durchgeführten Aktivitäten aller User ist einfach einsehbar und es kann pro Job ein Kommentar vom Auslöser hinzugefügt werden.
 \end{itemize}
 
@@ -50,6 +52,11 @@ Die Software wurde als Open-Source-Lösung mit der MIT-Lizenz (siehe auch Kapite
 \section{Schlussfolgerung}
 \label{conclusion}
 
+\gls{upd89} ist grafisch nicht so detailreich ausgearbeitet wie kommerzielle Produkte wie etwa \hyperref[sec:analysis:competition:landscape]{Landscape} und besitzt nicht so viele Features wie grössere Open-Source-Produkte wie \hyperref[sec:analysis:competition:spacewalk]{Spacewalk}. Im Vergleich mit anderen verfügbaren Produkten konzentriert sich die Applikation auf die Kernfunktionen, das Aktualisieren von Ubuntu-Systemen. Dies wurde erreicht und funktioniert stabil.
+
+Die Vorgabe, dass Rails benutzt werden sollte, war einerseits ein kleiner Nachteil, da praktisch noch kein Know-How im Team vorhanden war; andererseits war es auch ein Vorteil, da Rails bei der Entwicklung viel Arbeit abnahm. Bei einer Durchführung ohne Rails hätte ein anderes Web-Applikations-Framework verwendet werden müssen, wo das Know-How ebenfalls nicht grösser gewesen wäre.
+
+Dass einige Features nicht umgesetzt werden konnten (primär das \hyperref[sec:ausblick:regelwerk]{Regelwerk} und weitere Features im Kapitel \hyperref[sec:ausblick]{Ausblick}) ist schade, aber nicht tragisch. Auch dass die Projektpartner interessiert am Projektverlauf waren und eigene Ideen einbrachten, zeugt von einer prinzipiell guten Idee. Ob das Projekt von der Open-Source-Gemeinde angenommen und benutzt wird, bleibt abzuwarten.
 
 \xxx
 

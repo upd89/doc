@@ -14,8 +14,7 @@ Funktionale Anforderungen z.B. als Use Cases (short) oder User Stories beschrieb
 \end{comment}
 
 \section{Ausgangslage}
-Die Aufgabenstellung fordert die Entwicklung einer spezifischen Software, womit sich diese Bachelorarbeit auf die Lösungserstellung fokussiert. Im folgenden sind die Anforderungen als User Stories und in den Nicht Funktionalen Anforderungen beschieben und werden im folgenden Kapitel analysiert.
-\xxx[]
+Die Aufgabenstellung fordert die Entwicklung einer spezifischen Software, womit sich diese Bachelorarbeit auf die Lösungserstellung fokussiert. Im Folgenden sind die Anforderungen als User Stories und in den Nicht-Funktionalen Anforderungen beschrieben und werden im darauffolgenden Kapitel analysiert.
 
 \section{User Stories}\label{sec:pd:user-stories}
 
@@ -39,17 +38,19 @@ Die Aufgabenstellung fordert die Entwicklung einer spezifischen Software, womit 
     \item Als Benutzer möchte ich Systeme und Pakete nach verschiedenen Kriterien filtern und sortieren können, damit ich mein gesuchtes Ziel schnell erreiche.
 \end{enumerate}
 
-
+\clearpage
 \section{Nicht-funktionale Anforderungen}
 %(Rahmenbedingungen, evtl. Verweis auf 1.3)
-
-\xxx[Alle NFA/Qualitätsattribute abgedeckt und testbar beschrieben]
+\begin{comment}
+Alle NFA/Qualitätsattribute abgedeckt und testbar beschrieben
+\end{comment}
 
 \subsection*{Technologien}
 
 Anforderungen an die Technologie gehen primär aus der Aufgabenstellung hervor:
 
 \begin{itemize}
+    \item Bedienung über den Web-Browser
     \item Ruby als Haupt-Programmiersprache
     \item Rails als Web-Applikations-Framework
     \item Ubuntu als unterstütztes Betriebssystem zur Verwaltung mit den Versionen 12.04 und 14.04\footnote{Ubuntu 16.04 war zu Beginn des Projektes noch nicht erschienen}
@@ -57,11 +58,23 @@ Anforderungen an die Technologie gehen primär aus der Aufgabenstellung hervor:
 
 Weitere Frameworks, z.B. auf Javascript-Ebene, oder Bibliotheken werden dem Entwicklerteam überlassen.
 
-\subsection*{Qualität}
-
-Zusammen mit dem Industriepartner wurden folgende Nicht-funktionale Anforderungen notiert:
+\subsection*{Sicherheit und Nachvollziehbarkeit}
+Anforderungen an die Sicherheit und Nachvollziebarkeit gehen ebenfalls aus der Aufgabenstellung hervor:
 
 \begin{itemize}
-\item Zuverlässigkeit: Nine.ch betreibt über 1500 Server. Diese müssen alle gleichzeitig mit dem Control Center in Verbindung stehen können.
+\item Kommunikation zwischen Agents und Managementsystem erfolgt verschlüsselt
+\item Es wird ein Logging darüber geführt, wer welches Update freigegeben hat
+\end{itemize}
+
+\subsection*{Qualität}
+
+Zusammen mit dem Industriepartner wurden folgende Nicht-funktionale Anforderungen in Bezug auf die Qualität notiert:
+
+\begin{itemize}
+\item Zuverlässigkeit: \gls{nine} betreibt über 1500 Server. Diese müssen alle vom Control Center gesteuert werden können.
 \item Bedienbarkeit: Ein Benutzer mit durchschnittlichen Domänenkentnissen sollte in der Lage sein, die Applikation zu bedienen.
 \end{itemize}
+
+\subsection*{Open-Source}
+
+Die umgesetzte Softwarelösung soll mit einer Open-Source-Lizenz veröffentlicht werden, so dass neue Features oder Verbesserungen beliebig implementiert werden können.
