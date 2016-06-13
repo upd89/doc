@@ -13,7 +13,7 @@ In diesem Kapitel werden die Anforderungen an die Software in Form von Use-Cases
 \subsection*{UC01: Agent deployen}
 \label{sec:uc_01}
 
-Der Agent beinhaltet wird auf einem System ausgeliefert. Dabei werden Parameter zur Konfiguration des Agents bei der Installation mitgegeben.
+Der Agent wird auf einem System ausgeliefert. Dabei werden Parameter zur Konfiguration des Agents bei der Installation mitgegeben.
 
 
 Technische Details:
@@ -27,20 +27,19 @@ Technische Details:
 \subsection*{UC02: Registration von Agent an Control Server}
 \label{sec:uc_02}
 
-Ein Agent registriert sich beim Control-Center. Er stellt zudem sicher, dass das Control-Center ihn erreichen kann.
- 
-\xxx[stimmt das noch?]
+Ein Agent registriert sich beim Control-Center.
+
 Technische Details:
 
 \begin{itemize}
     \item Registration geschieht über die beim Deployment erhaltene Adresse und dem generierten Zertifikat
-    \item Der Agent übermittelt seinen Fully Qualified Domain Name.
+    \item Der Agent übermittelt seinen Fully Qualified Domain Name
 \end{itemize}
 
 \subsection*{UC03: Ausstehende Updates melden}
 \label{sec:uc_03}
 
-Ein Agent aktualisiert die Paketliste. Er prüft, ob Updates anstehen und meldet diese Liste dem Control-Center. Gleichzeitig schickt er auch noch Hostinformationen, damit das Control-Center seine Informationen ggf. aktualisieren kann.
+Ein Agent aktualisiert die Paketliste. Er prüft, ob Updates anstehen und meldet diese Liste dem Control-Center. Gleichzeitig sendet er auch noch Hostinformationen, damit das Control-Center seine Informationen ggf. aktualisieren kann.
  
 
 Technische Details:
@@ -53,12 +52,12 @@ Technische Details:
 \subsection*{UC04: Update durchführen}
 \label{sec:uc_04}
 
-Ein Agent erhält vom Control-Center einen Task mit einer Liste von vorzunehmenden System-Updates. Er prüft ob diese bei sich anstehen und führt diese durch. Das Empfangen der Updates bestätigt der an das Control-Center, wo der Status dieses Tasks auf "Queued" gesetzt.
+Ein Agent erhält vom Control-Center einen Task mit einer Liste von vorzunehmenden System-Updates. Er prüft, ob diese bei sich anstehen und führt diese durch. Das Empfangen der Updates bestätigt er an das Control-Center, wo der Status dieses Tasks auf "Queued" gesetzt wird.
 
 \subsection*{UC05: Update auslösen}
 \label{sec:uc_05}
 
-Das Control-Center hat eine Liste von ausstehenden Updates von einem oder mehreren Systemen erhalten. Diese zeigt es in einer Übersicht an. Ein User mit genügend hoher Berechtigungs-Stufe gibt eines oder mehrere dieser Updates frei. Das Control-Center erstellt daraus Tasks, welcher der bestätigt. Wenn bestätigt, schickt das Control-Center diese Tasks an die jeweiligen Systeme.
+Das Control-Center hat eine Liste von ausstehenden Updates von einem oder mehreren Systemen erhalten. Diese zeigt es in einer Übersicht an. Ein User mit entsprechender Berechtigungs-Stufe gibt eines oder mehrere dieser Updates frei. Das Control-Center erstellt daraus Tasks, welche der User freigeben kann. Falls die Tasks freigegeben werden, schickt das Control-Center diese Tasks an die jeweiligen Systeme.
 
 \subsection*{UC06: Statusreport anzeigen}
 \label{sec:uc_06}
