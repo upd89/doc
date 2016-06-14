@@ -54,25 +54,34 @@ Nach anfänglicher Überlegung wurde gegen ein grosses Javascript-Framework wie 
 
 \subsubsection*{Active Record}
 
-'Ein Objekt, welches einen Eintrag in einer Datenbank-Tabelle umfasst, den Datenbankzugriff kapselt und Domain Logic zu den Daten hinzufügt.'
-\xxx[Source: PoEAA p160]
+'Ein Objekt, welches einen Eintrag in einer Datenbank-Tabelle umfasst, den Datenbankzugriff kapselt und Domain Logic zu den Daten hinzufügt.' \cite{poeaa}
 Das Active-Record-Pattern wird von Ruby on Rails standardmässig eingesetzt. Ein 'Active Record' nimmt in Rails die Rolle des Models ein ('das M in \gls{mvc}'\footnote{\purl{http://guides.rubyonrails.org/active\textunderscore record\textunderscore basics.html}}) und repräsentiert den Layer im System, welcher für die Business Logic zuständig ist.
 
-\xxx[source: Martin Fowler: Patterns of enterprise application architecture. Addison-Wesley, 2003, ISBN 978-0-321-12742-6.]
-
-\cite{agilemanifesto}
-
 \subsection*{Agent} \label{sec:architecture:agent}
-
-\xxx[Kapitel Agent ausbauen, kurze einführung, ]
+Der upd89-agent wurde in Python umgesetzt. Um die Übersichtlichkeit und Wartbarkeit zu gewährleisten, wurde der Code zu einem grossen Teil in Klassen und Libraries unterteilt.
 
 \subsubsection*{Klassen}
+Die Klassen orientieren sich an dem Klassenmodell (Abbildung \ref{fig:tec:agentclasses}) des Control Centers, da sie hauptsächlich dazu dienen, die Daten zu erfassen und serialisiert an das Control Center zu schicken.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{files/agent-classes}
 	\caption{Klassenübersicht für Agent}
 	\label{fig:tec:agentclasses}
 \end{figure}
+
+\subsubsection*{Eigene Libraries}
+\begin{labeling}{httpsclientauthconnection.py}
+    \item [bottletlsdaemon.py] https://pypi.python.org/pypi/BottleDaemon/0.1.2
+    \item [configloader.py] Liest Werte aus einer angegebenen Konfigurationsdatei.
+    \item [httpsclientauthconnection.py] Stellt sicher, dass Verbindung mit einem Clientzertifikat abgesichert ist und dass die Gegenstelle mit einem spezifischen CA-Zertifikat unterschrieben wurde.
+    \item [log.py] Loggt bei Bedarf auf den Bildschirm oder in eine Datei.
+    \item [mission.py] Koordiniert die Abläufe für eine spezifische Aufgabe.
+    \item [persist.py] Abstrahiert die persistente Speicherung von Daten. Im Hintergrund wird shelve benutzt.
+    \item [pkg.py] Abstrahiert die Zugriffe auf den Paketmanager.
+    \item [sysinfo.py] Liefert Informationen zum System, zum Beispiel Hostname, IP-Adresse oder Distribution.
+    \item [upstream.py] Konvertiert Informationen in eine JSON-Objekt und ermittelt die Ziel-URL.
+\end{labeling}
 
 \subsubsection*{Abhängigkeiten}
 
@@ -86,7 +95,7 @@ Folgende externe Abhängigkeiten existieren:
     \item [shelve] Für persistente Datenspeicherung (insbesondere, welche Updates bereits geschickt wurden)
 \end{labeling}
 
-\subsubsection*{Abhängigkeiten}
+\subsubsection*{Paketierung}
 
 Es wurde ein Python-Paket\footnote{Verfügbar auf \purl{https://pypi.python.org/pypi/upd89}} erstellt, welches über \gls{pip} installiert werden kann.
 
