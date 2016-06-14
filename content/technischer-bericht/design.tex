@@ -4,16 +4,16 @@ Vor dem Umsetzen dieser Arbeit war der Vorgang zum Aktualisieren der Systeme seh
 
 \subsection*{Mockups} \label{design:mockups}
 
-Als Diskussionsgrundlage und Vorlage für die Umsetzung wurden ca. 30 verschiedene \glspl{mockup} mit Balsamiq\footnote{\purl{https://balsamiq.com/products/mockups/}} umgesetzt. Die wichtigsten werden hier kurz porträtiert.
+Als Diskussionsgrundlage und Vorlage für die Umsetzung wurden ca. 30 verschiedene \glspl{mockup} mit Balsamiq\footnote{\purl{https://balsamiq.com/products/mockups/}} umgesetzt. Die Wichtigsten werden hier kurz porträtiert.
 
 \subsubsection*{Gruppierungen}
 
-Gemäss Use-Cases 08 und 11 (siehe \ref{sec:uc_08} und \ref{sec:uc_11}) können Systeme und Pakete einer (oder mehreren für Pakete) beliebigen Gruppe zugeordnet werden. In den Entwürfen zu den entsprechenden Views wurde zusätzlich zu den umgesetzten Funktionalitäten noch eine automatische Zuweisungs-Regel konzeptioniert. Auf Bild \ref{fig:design:group_systems_mockup} zu sehen ist die Gruppe 'Test-Group', welcher alle neu registrierten Systeme mit 'test' im Namen automatisch zugewiesen werden. Dieses Feature wurde aber aufgrund von anderen Prioritäten nicht umgesetzt.
+Gemäss Use-Cases 08 und 11 (siehe \ref{sec:uc_08} und \ref{sec:uc_11}) können Systeme und Pakete einer (oder mehreren für Pakete) beliebigen Gruppe zugeordnet werden. In den Entwürfen zu den entsprechenden Views wurde zusätzlich zu den umgesetzten Funktionalitäten noch eine automatische Zuweisungs-Regel konzeptioniert. Auf Bild \ref{fig:design:group_systems_mockup} ist die Gruppe 'Test-Group' zu sehen, welcher alle neu registrierten Systeme mit 'test' im Namen automatisch zugewiesen werden. Dieses Feature wurde aber aufgrund von anderen Prioritäten nicht umgesetzt.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{files/mockups/group_systems}
-	\caption{Detail-Ansicht der System-Gruppe 'test-group'}
+	\caption{Detail-Ansicht der Systemgruppe 'test-group'}
 	\label{fig:design:group_systems_mockup}
 \end{figure}
 
@@ -23,7 +23,7 @@ Für den Use-Case 07 (siehe \ref{sec:uc_07}) wurden drei verschiedene Vorgehensw
 
 Eine Alternative sah weiterhin die Verwaltung der Rechte pro User vor, aber in einer tabellarischen Form mit simplen Ja/Nein-Berechtigungen für verschiedene Aktionen (Bild \ref{fig:design:permission_2}). Hier wurde auch zwischen 'normalen' und 'kritischen' Updates unterschieden, also nur mit zwei Paketgruppen. Der Vorteil war die einfache Bedienung und die klare Darstellung der Berechtigungen. Aufgrund der gewünschten beliebigen Anzahl Paketgruppen wurde diese Alternative aber ebenfalls verworfen.
 
-Schlussendlich hat sich eine Rollen- und Stufen-basierte Rechteverwaltung durchgesetzt. Jeder Benutzer wird einer Rolle zugeteilt, welche eine bestimmte Berechtigungsstufe besitzt. Ob ein Benutzer nun ein Paket auf einem System aktualisieren darf, hängt von der benötigten Berechtigungsstufe der Gruppen des Paketes und des Systems ab.
+Schlussendlich hat sich eine Rollen- und Stufen-basierte Rechteverwaltung durchgesetzt. Jeder Benutzer wird einer Rolle zugeteilt, welche eine bestimmte Berechtigungsstufe besitzt. Ob ein Benutzer nun ein Paket auf einem System aktualisieren darf, hängt von der Gruppenzugehörigkeit des Paketes und des Systems ab.
 
 Auf diese Weise ist es sehr einfach, ganzen Benutzergruppen die Rechte für mehrere Systeme oder Pakete auf einmal zu entziehen oder zu verteilen, was bei den alternativen Vorschlägen mindestens eine Einstellung pro User erfordert hätte.
 
@@ -43,11 +43,11 @@ Auf diese Weise ist es sehr einfach, ganzen Benutzergruppen die Rechte für mehr
 
 \subsubsection*{Dashboard}
 
-Eine Art Übersichtsseite war von Beginn an geplant und auch durch den Industriepartner begrüsst. Bei einer grösseren Anzahl von Systemen ist es oft einfacher, eine vereinfachte Zusammenfassung als eine detaillierte Auflistung aller einzelnen Systeme zu lesen. Dies und relevante Aktionen bei Auftreten von bestimmten Situationen anzubieten, war das Ziel des Dashboards (Bild \ref{fig:design:dashboard_mockup}).
+Eine Art Übersichtsseite war von Beginn an geplant und auch durch den Industriepartner begrüsst. Bei einer grösseren Anzahl von Systemen ist es oft einfacher, eine vereinfachte Zusammenfassung als eine detaillierte Auflistung aller einzelnen Systeme zu lesen. Dies, sowie relevante Aktionen bei Auftreten von bestimmten Situationen anzubieten, war das Ziel des Dashboards (Bild \ref{fig:design:dashboard_mockup}).
 
 Einerseits sollte sichtbar sein, wieviele Systeme verfügbar sind, auf welchen Systemen Updates anstehen oder wo gerade Installationen durchgeführt werden. Andererseits sollten auch die letzten Aktivitäten und deren Ergebnis sichtbar sein, um schnell zu sehen, wo Probleme entstanden sind und wodurch diese ausgelöst worden sein könnten.
 
-Da das Feature zur automatischen Zuweisung von neu registrierten Systemen und noch unbekannten Paketen in Gruppen verworfen wurde, musste dies nun manuell erledigt werden. Dazu wurde eine Auflistung dieser Systeme und Pakete auf dem Dashboard konzipiert, wo sie auch gleich in Gruppen eingeteilt werden konnten. 
+Da das Feature zur automatischen Zuweisung von neu registrierten Systemen und noch unbekannten Paketen in Gruppen verworfen wurde, musste dies nun manuell erledigt werden. Dazu wurde eine Auflistung dieser Systeme und Pakete auf dem Dashboard konzipiert, wo sie auch gleich in Gruppen eingeteilt werden können. 
 
 \begin{figure}[H]
 	\centering

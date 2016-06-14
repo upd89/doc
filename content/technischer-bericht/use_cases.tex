@@ -2,13 +2,14 @@
 
 In diesem Kapitel werden die Anforderungen an die Software in Form von Use-Cases (Anwendungsfällen) dokumentiert. Die Use-Cases wurden aufgrund des Auftrages und weiteren Besprechungen mit dem Industriepartner definiert. Abbildung \ref{fig:usecases} zeigt eine Übersicht über die Use-Cases für den Agent sowie das Control Center.
 
-
 \begin{figure}
   \centering
     \includegraphics[width=0.9\textwidth]{files/UseCases_small}
   \caption{Übersicht der Use Cases}
   \label{fig:usecases}
 \end{figure}
+
+\xxx[System-Gruppen und Paket-Gruppen in Systemgruppen und Paketgruppen ändern]
 
 \subsection*{UC01: Agent deployen}
 \label{sec:uc_01}
@@ -62,14 +63,14 @@ Das Control-Center hat eine Liste von ausstehenden Updates von einem oder mehrer
 \subsection*{UC06: Statusreport anzeigen}
 \label{sec:uc_06}
 
-Ein User lässt sich vom Control-Center eine Liste von Systemen und Updates anzeigen. Darauf ersichtlich ist der Zustand jedes Systems und Updates. Der User sieht, auf welchem System ein Update aussteht und welche Updates in welchem Zustand sind.
+Ein User lässt sich vom Control-Center eine Liste von Systemen und Updates anzeigen. Darauf ersichtlich ist der Zustand jedes Systems und Updates. Der User sieht Updates und in welchem Zustand sie sich befinden.
 
 \subsection*{UC07: Berechtigungen verwalten}
 \label{sec:uc_07}
 
-Ein Administrator kann für Systemgruppen und Paket-Gruppen Berechtigungs-Stufen setzen, so dass nur User mit dieser Stufe Aktionen auf diesen Gruppen vornehmen können.
+Ein Administrator kann für Systemgruppen und Paketgruppen Berechtigungs-Stufen setzen, so dass nur User mit dieser Stufe Aktionen auf diesen Gruppen vornehmen können.
 
-\subsection*{UC08: System-Gruppen verwalten}
+\subsection*{UC08: Systemgruppen verwalten}
 \label{sec:uc_08}
 
 Ein Administrator kann eine System-Gruppe bearbeiten, löschen oder erstellen. Dies beinhaltet auch das Entfernen oder Hinzufügen von Systemen sowie das Setzen von Berechtigungs-Stufen.
@@ -82,9 +83,9 @@ Ein Administrator kann neue User erstellen, bestehende User löschen oder deren 
 \subsection*{UC10: Regeln verwalten}
 \label{sec:uc_10}
 
-Ein Administrator kann Regeln für System-Gruppen erstellen, ändern und entfernen. Diese Regeln greifen bei der Auswahl der Systeme und Pakete.
+Ein Administrator kann Regeln für Systemgruppen erstellen, ändern und entfernen. Diese Regeln greifen bei der Auswahl der Systeme und Pakete.
 
-\subsection*{UC11: Paket-Gruppen verwalten}
+\subsection*{UC11: Paketgruppen verwalten}
 \label{sec:uc_11}
 
 Ein Administrator kann neue Gruppen für Pakete erstellen, löschen oder bearbeiten. Dies beinhaltet auch das Entfernen oder Hinzufügen von Paketen sowie das Setzen von Berechtigungs-Stufen.

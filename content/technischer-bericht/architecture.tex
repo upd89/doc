@@ -2,6 +2,8 @@
 Mit begründeten Architekturentscheidungen, Mit Diskussion, wie Q-Attribute sichergestellt wurden (welche Qualität wurde erreicht?), Mit Dokumentation, welche Tests durchgeführt wurden, welche Lösungsoptionen wurde aufgrund von Tests/Experimenten verworfen.
 \end{comment}
 
+
+
 \section{Architektur}
 
 \subsection*{Control Center}
@@ -54,6 +56,41 @@ Unter anderem wurden bei \gls{upd89} folgende Gems verwendet:
 Nach anfänglicher Überlegung wurde gegen ein grosses Javascript-Framework wie AngularJS entschieden. Obwohl bereits Erfahrungen mit AngularJS\footnote{\purl{https://angularjs.org/}} im Team vorhanden sind, wurde es als zu mächtig eingestuft. Rails sollte nicht nur als Backend benutzt werden, sondern auch gleich für die Views zuständig sein. Die Industriepartner teilten die Meinung. 
 \end{decision}
 
+\subsubsection*{BackgroundTask}
+
+Das Senden der Tasks an die einzelnen Agents wird asynchron ausgeführt. Dazu wird das Gem 'sucker\textunderscore punch' verwendet. Nachdem der Benutzer den Job mit den zu versendenden Tasks bestätigt, wird pro betroffenem System ein Hintergrund-Task ('BackgroundTask') gestartet. Dieser versucht eine HTTPS-Verbindung mit dem Webserver auf dem Agent aufzubauen und als Paylod die Task-Daten mitzuschicken. Falls die Verbindung nicht aufgebaut werden konnte, ruft sich der Hintergrund-Task mit einer Verzögerung erneut auf, bis die maximale Anzahl Versuche erreicht wurde.
+
+Die Verzögerung zwischen den Versuchen sowie die maximale Anzahl Versuche kann vom Benutzer konfiguriert werden.
+
+Der Hintergrund-Task enthält eine Referenz auf den Task über dessen ID, so dass der Task nach Fehlschlagen oder erfolgreichem Übermitteln auf den entsprechenden Zustand gesetzt werden kann.
+
+\subsubsection*{DataMutationService}
+
+Der API-Controller, welcher von den Agents bei Benutzung der API aufgerufen wird, leitet die Anfragen an den DatenMutationService weiter. Dieser Service ist verantwortlich für das Anlegen und Mutieren von bestehenden Objekten. Operationen, bei welchen nur ein neuer Eintrag angelegt werden muss, wenn noch keiner mit diesen Parametern existiert, werden von den entsprechenden Models selbst behandelt. 
+
+\subsubsection*{Berechtigungen}
+
+Um zu prüfen, ob ein Benutzer eine Aktion ausführen darf oder nicht, wird 'cancancan' als Hilfs-Bibliothek verwendet. In der Klasse 'Ability' wird für jede Aktion von jedem gewünschten Controller definiert, welche Voraussetzungen erfüllt werden müssen damit sie ausgeführt werden kann. Auf diese Art ist das Verantwortung über das Verwalten der Berechtigungen an einem einzelnen Ort konzentriert und nicht in jedem einzelnen Controller verteilt.
+
+Ob ein Benutzer beispielsweise einen User bearbeiten darf, hängt davon ab ob die Rolle des ausführenden Benutzers das Flag 'is\textunderscore user\textunderscore manager' gesetzt hat:
+
+\begin{srclst}[label=lst:arch:ability]{ruby}{Klasse Ability - Nur UserManager dürfen User erstellen/ändern}
+can :read, User
+can [ :create, :update ], User do
+  user.role.is_user_manager
+end
+\end{srclst}
+
+Das Prüfen der Berechtigung erfolgt nach dem folgenden Schema:
+
+\begin{srclst}[label=lst:arch:ability-check]{ruby}{Kontrolle ob Aktion ausgeführt werden darf}
+if can? :update, user
+    # is allowed
+else
+    # is not allowed
+end
+\end{srclst}
+
 \clearpage
 \subsection*{Agent} \label{sec:architecture:agent}
 Der upd89-agent wurde in Python umgesetzt. Um die Übersichtlichkeit und Wartbarkeit zu gewährleisten, wurde der Code zu einem grossen Teil in Klassen und Libraries unterteilt.
@@ -69,6 +106,7 @@ Die Klassen orientieren sich an dem Klassenmodell (Abbildung \ref{fig:tec:agentc
 \end{figure}
 
 \subsubsection*{Eigene Libraries}
+
 \begin{labeling}{httpsclientauthconnection.py}
     \item [bottletlsdaemon.py] Lässt ein Webserver als Daemon im Hintergrund und setzt die Anforderungen an die HTTPS-Verbindung sicher. Wurde inspiriert durch das Python-Module BottleDaemon\footnote{\purl{https://pypi.python.org/pypi/BottleDaemon/0.1.2}}.
     \item [configloader.py] Liest Werte aus einer angegebenen Konfigurationsdatei.
@@ -98,16 +136,19 @@ Folgende Abhängigkeiten auf externe Python-Module existieren:
 Es wurde ein Python-Paket\footnote{Verfügbar auf \purl{https://pypi.python.org/pypi/upd89}} erstellt, welches über \gls{pip} installiert werden kann.
 
 \clearpage
-\subsection*{API}
-\label{sec:architecture:api}
+\subsection*{API} \label{sec:architecture:api}
 
-\gls{agent} und \gls{controlcenter} kommunizieren miteinander über eine \gls{api}. Dies wurde aus folgenden Gründen beschlossen:
+\gls{agent} und \gls{controlcenter} kommunizieren miteinander direkt über eine \gls{api}. Dies wurde aus folgenden Gründen beschlossen:
 
 \begin{itemize}
-    \item einfache Erweiterbarkeit: Momentan werden nur Ubuntu-Server (mit \gls{apt}) unterstützt. Die \gls{api} ist agnostisch gegenüber dem Betriebssystem und kann theoretisch auch andere Paketmanager unterstützen
+    \item einfache Erweiterbarkeit: Momentan werden nur Ubuntu-Server (mit \gls{apt}) unterstützt. Die \gls{api} ist agnostisch gegenüber dem Betriebssystem und kann theoretisch auch andere Paketmanager unterstützen.
     \item lose Kopplung: Die Komponenten \gls{agent} und \gls{controlcenter} funktionieren als eigenständige Applikationen und sind nicht voneinander abhängig.
     \item bereit für Middleware: durch die Trennung der beiden Haupt-Komponenten bedeutet das Einführen einer Middleware, wie z.B. einer Message Queue (siehe auch Kapitel \ref{sec:ausblick:message_queue}) keinen grossen Aufwand.
 \end{itemize}
+
+\xxx[Decision, warum nicht Message queue]
+\ref{sec:ausblick:message_queue}
+
 
 Die API selbst ist unkompliziert und zielt darauf ab, dem Entwickler eines Agenten Arbeit abzunehmen sowie die Logik im Control Center zu behalten.
 
@@ -118,6 +159,7 @@ Zudem wird mit Deltas gearbeitet, das heisst, dass der Agent jeweils nur neue In
 Die API ist Bestandteil des Control Centers, da die meisten Calls vom Agent zum Control Center hin verlaufen. Aber auch in der Gegenrichtung existiert eine (kleine) API. Somit kann auch das Control Center dem Agent Tasks ausliefern. Weitere API-Endpunkte auf Agent-Seite sind durchaus denkbar, aber nicht Bestandteil dieser Arbeit (Siehe auch Kapitel \ref{sec:ausblick:scheduled_tasks}).
 
 \clearpage
+
 \begin{figure}
   \centering
     \includegraphics[width=\textwidth]{files/API_Calls}

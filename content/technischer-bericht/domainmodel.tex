@@ -1,6 +1,6 @@
 \section{Domäne}
 
-Das nachfolgende Domänen-Modell (Abbildung \ref{fig:domainmodel}) zeigt alle nötigen Attribute für Umsetzung der Applikation. Es beinhaltet die angelieferten Daten von den Agenten (grün), die konfigurierbaren Daten, wie beispielsweise Benutzer, Rollen und Gruppenzugehörigkeiten (rot) und ausserdem die Informationen, welche für die Auftragsverwaltung benötigt werden (gelb).
+Das nachfolgende Domänen-Modell (Abbildung \ref{fig:domainmodel}) zeigt alle nötigen Attribute für die Umsetzung der Applikation. Es beinhaltet die angelieferten Daten von den Agenten (grün), die konfigurierbaren Daten, wie beispielsweise Benutzer, Rollen und Gruppenzugehörigkeiten (rot) und ausserdem die Informationen, welche für die Auftragsverwaltung benötigt werden (gelb).
 
 \begin{figure}
   \centering
@@ -72,6 +72,6 @@ Eine Rlole definiert, zu welcher Gruppe ein Benutzer gehört und welche Rechte d
 
 \subsubsection{PermissionLevel} \label{sec:domain:permission_level}
 
-Paket-Gruppen, System-Gruppen sowie Rollen besitzen alle ein PermissionLevel. Diese Zahl bestimmt, ob ein Benutzer mit einer bestimmten Rolle das Recht besitzt, Systeme oder Pakete in spezifischen Gruppen zu bearbeiten und zu aktualisieren. Dazu muss das PermissionLevel der Rolle des Benutzers höher sein als das benötigte PermissionLevel der Gruppe des Systems.
+Paketgruppen, Systemgruppen sowie Rollen besitzen alle ein PermissionLevel. Diese Zahl bestimmt, ob ein Benutzer mit einer bestimmten Rolle das Recht besitzt, Systeme oder Pakete in spezifischen Gruppen zu bearbeiten und zu aktualisieren. Dazu muss das PermissionLevel der Rolle des Benutzers höher sein als das benötigte PermissionLevel der Gruppe des Systems.
 
 Bei Paketen, welche in mehreren Gruppen sein können (über ein \textbf{GroupAssignment}), gilt das höchste PermissionLevel.

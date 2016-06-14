@@ -26,8 +26,7 @@ Dies wurde im 'Workflow'-Feature als Vorschlag präsentiert (Bild \ref{fig:ausbl
 
 In \gls{apt} existiert das Feature 'dry-run', womit ein Updatevorgang simuliert\footnote{es werden keine Updates installiert, siehe auch \purl{http://linux.die.net/man/8/apt-get}} werden kann. Dies könnte auch als Feature im \gls{controlcenter} implementiert werden, indem vor dem Versenden eines Tasks zuerst eine Simulation durchgeführt werden könnte, um zu sehen, welche Pakete Abhängigkeiten nach sich ziehen oder fehlschlagen würden.
 
-\section{Message-Queue}
-\label{sec:ausblick:message_queue}
+\section{Message-Queue} \label{sec:ausblick:message_queue}
 
 Mehrmals kam das Thema einer Message Queue auf. Die umgesetzt Lösung lässt das Control Center mit den Agenten einzeln kommunizieren. Ein Nachteil diese Vorgehens ist, dass jeder Agent für sich dafür sorgen muss, dass die Informationen beim Control Center ankommen. Auf der anderen Seite muss das Control Center dafür sorgen, dass genügend Threads vorhanden sind, die eingehende Verbindungen von den Agents verarbeiten.
 
@@ -35,8 +34,7 @@ Mit einer Message Queue könnte das Control Center die Informationen nacheinande
 
 Die Nachteile einer Message Queue sollten aber nicht unterschätzt werden. Jeder Agent würde eine eigene Queue benötigen, welche die Aufträge für ihn vorhält. Jeder der Agents wären ohne Unterbruch mit der Queue verbunden, im Fall von \gls{nine} also 1500 Stück. Ausserdem bringt dieses Messaging-System eine neue Abhängigkeit mit sich. 
 
-\section{Automatische Gruppen-Zuweisung}
-\label{sec:ausblick:auto_group_assignment}
+\section{Automatische Gruppen-Zuweisung} \label{sec:ausblick:auto_group_assignment}
 
 Ein optionaler Punkt aus der Aufgabenstellung (Kapitel \ref{sec:anforderung:aufgabenstellung}) waren Vorschläge der Applikation für System oder Pakate bezüglich der Gruppenzuteilung. Aufgrund von einfachen Regeln wie z.B. dem Namen oder einer IP-Range bei Systemen oder der 'Section'\footnote{Datenfeld bei apt-Paketen} bei Paketen könnten Vorschläge gemacht werden, zu welchen Gruppen etwas gehört.
 
@@ -49,16 +47,11 @@ In den Mockups wurde ein solches Feature bereits in groben Zügen angedacht (sie
     \label{fig:ergebnis:group_systems_detail}
 \end{figure}
 
-\section{Einfachere Registrierung}
-\label{sec:ausblick:simple_registration}
+\section{Einfachere Registrierung} \label{sec:ausblick:simple_registration}
 
-Bei der aktuellen Lösung muss das signierte Zertifikat beim Deployment vom Agenten mit ausgeliefert werden (siehe auch Kapitel \ref{sec:security}). Einfacher wäre es, wenn der Agent beim ersten Kontakt mit dem Control Center sich sein Zertifikat signieren lässt.
+Bei der aktuellen Lösung muss eine eigene \gls{ca} eingerichtet werden und das signierte Zertifikat beim Deployment vom Agenten mit ausgeliefert werden (siehe auch Kapitel \ref{sec:security}). Einfacher wäre es, wenn der Agent beim ersten Kontakt mit dem Control Center sich sein Zertifikat signieren lässt. Inspiriert ist der Ansatz durch Puppet, bei welchem sich die Agents beim puppet-master ein Zertifikat ausstellen lassen, siehe \footnote{\purl{http://www.masterzen.fr/2010/11/14/puppet-ssl-explained/}}, \footnote{\purl{https://docs.puppet.com/background/ssl/}} und \footnote{\purl{https://docs.puppet.com/puppet/4.5/reference/ssl\textunderscore autosign.html}}.
 
-\xxx[ Separater API-Endpunkt für einfachere Registrierung, wie Puppet ]
-\xxx[ korrekt? ]
-
-\section{Geplante Tasks}
-\label{sec:ausblick:scheduled_tasks}
+\section{Geplante Tasks} \label{sec:ausblick:scheduled_tasks}
 
 Ein zu Beginn vorgesehenes aber aufgrund von anderen Prioritäten verworfenes Feature war die Möglichkeit, Tasks auf einen gewissen Zeitpunkt hin zu planen. Der Benutzer kann ein Datum und eine Uhrzeit eingeben, welche dann mit dem Task an den Agent übermittelt wird. Dieser plant die Ausführung selbst ein und meldet sich nach Abschluss des Tasks wieder beim Control Center.
 
@@ -66,8 +59,7 @@ Dies hätte auch die Möglichkeit ergeben, einen geplanten Task wieder abbrechen
 
 Ein Grund gegen dieses Feature war der Wunsch des Industriepartners, dass alle Tasks manuell durch einen Menschen ausgelöst werden müssen. Dies reduziert auch potentielle Probleme mit der Applikation, da Fehler zeitnah und nicht erst bei der Ausführung des Tasks auftauchen würden.
 
-\section{Regelwerk}
-\label{sec:ausblick:regelwerk}
+\section{Regelwerk} \label{sec:ausblick:regelwerk}
 
 Ein Feature, welches oft diskutiert aber schlussendlich nicht umgesetzt wurde, ist das Regelwerk. Dahinter steckt ein Mechanismus, welcher Abhängigkeiten innerhalb von verschiedenen System- und Paketgruppen generiert und kontrolliert. Ein Beispiel für eine solche Abhängigkeit ist etwa, dass nicht alle 'High-Availability'-Systeme auf einmal aktualisiert werden dürfen, da so möglicherweise kurze Ausfälle entstehen könnten. 
 
