@@ -4,7 +4,7 @@
 
 Für Unit-Tests wurde im Control Center RSpec\footnote{\purl{http://rspec.info/}} benutzt. Die Tests wurden lokal manuell sowie durch Travis-CI (siehe auch Kapitel \ref{sec:pm:infrastructure}) automatisch nach einem Commit ausgeführt.
 
-Die Unit-Tests decken vor allem Modelle und Controllers ab. Dazu wurden folgende Hilfs-Bibliotheken verwendet:
+Die Unit-Tests decken vor allem die API, aber auch Modelle und Controllers ab. Dazu wurden folgende Hilfs-Bibliotheken verwendet:
 
 \begin{labeling}{factory\textunderscore girl\textunderscore rails}
     \item [rspec-rails] Erweitert das bei Rails enthaltene Testing-Framework, so dass RSpec-Tests ausgeführt werden können\footnote{\purl{https://github.com/rspec/rspec-rails}}
@@ -12,6 +12,8 @@ Die Unit-Tests decken vor allem Modelle und Controllers ab. Dazu wurden folgende
     \item [faker] Liefert bei Bedarf realistische Test-Daten wie z.B. Namen, Email-Adressen, IP-Adressen, etc.\footnote{\purl{https://github.com/stympy/faker}}
     \item [guard-rspec] Führt Unit-Tests automatisch wieder aus, wenn eine Änderung daran festgestellt wurde\footnote{\purl{https://github.com/guard/guard-rspec}}
 \end{labeling}
+
+Die Benutzerauthentisierung bereitete häufig Probleme, da die Dokumentation des Gems nicht auf dem neuesten Stand war.
 
 \subsection*{System-Tests}
 
@@ -41,4 +43,8 @@ Gemäss Projektplan (siehe Anhang \ref{appendix:project_plan}) wurden verschiede
 
 In unregelmässigen Abständen wurden Hallway-Tests unternommen. Dazu werden verfügbare, zufällige Personen in Reichweite dazu benutzt, neue Features und Interfaces zu testen. Es reichen bereits wenige Testpersonen, um  einen Grossteil der Usability-Probleme zu finden \cite{nielsenhallway}.
 
+Im der Construction-Phase wurden zusätzlich noch Usability-Tests vorgenommen, wobei Personen mit mindestens durchschnittlichem Domänenwissen (über Systemadministration und Linux-Systeme) ausgewählt wurden. Die Resultate flossen direkt in die Entwicklung ein, blieben aber meist im grafischen Bereich.
 
+Die Ergebnisse der Tests befinden sich im Anhang (Kapitel \ref{appendix:test_protocols}).
+
+Zusätzlich wurde nach jedem Sprint eine Demonstration für die Projektpartner durchgeführt. Hier wurden ebenfalls wertvolle Erkenntnisse über die Bedienbarkeit der Applikation gefunden.

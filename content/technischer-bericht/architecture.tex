@@ -57,6 +57,7 @@ Nach anfänglicher Überlegung wurde gegen ein grosses Javascript-Framework wie 
 'Ein Objekt, welches einen Eintrag in einer Datenbank-Tabelle umfasst, den Datenbankzugriff kapselt und Domain Logic zu den Daten hinzufügt.' \cite{poeaa}
 Das Active-Record-Pattern wird von Ruby on Rails standardmässig eingesetzt. Ein 'Active Record' nimmt in Rails die Rolle des Models ein ('das M in \gls{mvc}'\footnote{\purl{http://guides.rubyonrails.org/active\textunderscore record\textunderscore basics.html}}) und repräsentiert den Layer im System, welcher für die Business Logic zuständig ist.
 
+\clearpage
 \subsection*{Agent} \label{sec:architecture:agent}
 Der upd89-agent wurde in Python umgesetzt. Um die Übersichtlichkeit und Wartbarkeit zu gewährleisten, wurde der Code zu einem grossen Teil in Klassen und Libraries unterteilt.
 
@@ -72,7 +73,7 @@ Die Klassen orientieren sich an dem Klassenmodell (Abbildung \ref{fig:tec:agentc
 
 \subsubsection*{Eigene Libraries}
 \begin{labeling}{httpsclientauthconnection.py}
-    \item [bottletlsdaemon.py] https://pypi.python.org/pypi/BottleDaemon/0.1.2
+    \item [bottletlsdaemon.py] Lässt ein Webserver als Daemon im Hintergrund und setzt die Anforderungen an die HTTPS-Verbindung sicher. Wurde inspiriert durch das Python-Module BottleDaemon\footnote{\purl{https://pypi.python.org/pypi/BottleDaemon/0.1.2}}.
     \item [configloader.py] Liest Werte aus einer angegebenen Konfigurationsdatei.
     \item [httpsclientauthconnection.py] Stellt sicher, dass Verbindung mit einem Clientzertifikat abgesichert ist und dass die Gegenstelle mit einem spezifischen CA-Zertifikat unterschrieben wurde.
     \item [log.py] Loggt bei Bedarf auf den Bildschirm oder in eine Datei.
@@ -80,25 +81,26 @@ Die Klassen orientieren sich an dem Klassenmodell (Abbildung \ref{fig:tec:agentc
     \item [persist.py] Abstrahiert die persistente Speicherung von Daten. Im Hintergrund wird shelve benutzt.
     \item [pkg.py] Abstrahiert die Zugriffe auf den Paketmanager.
     \item [sysinfo.py] Liefert Informationen zum System, zum Beispiel Hostname, IP-Adresse oder Distribution.
-    \item [upstream.py] Konvertiert Informationen in eine JSON-Objekt und ermittelt die Ziel-URL.
+    \item [upstream.py] Konvertiert Informationen in ein JSON-Objekt und ermittelt die Ziel-URL.
 \end{labeling}
 
 \subsubsection*{Abhängigkeiten}
 
-Folgende externe Abhängigkeiten existieren:
+Folgende Abhängigkeiten auf externe Python-Module existieren:
 
-\begin{labeling}{configparser}
-    \item [apt] Für den Zugriff auf \gls{apt}
-    \item [daemonize] Um den Agent als \gls{daemon} laufen zu lassen
-    \item [configparser]
-    \item [bottle]\footnote{\purl{http://bottlepy.org/docs/dev/index.html}} Minimalistisches Web-Framework, um vom Control Center angesprochen zu werden
-    \item [shelve] Für persistente Datenspeicherung (insbesondere, welche Updates bereits geschickt wurden)
+\begin{labeling}{httpsclientauthconnection.py}
+    \item [apt\footnotemark]\footnotetext{\purl{https://apt.alioth.debian.org/python-apt-doc/}} Für den Zugriff auf Debian-Packetmanager "\gls{apt}".
+    \item [daemonize\footnotemark]\footnotetext{\purl{https://pypi.python.org/pypi/daemonize}} Um den Agent als \gls{daemon} zu starten.
+    \item [configparser\footnotemark]\footnotetext{\purl{https://pypi.python.org/pypi/configparser}} Liest Werte aus einer Konfigurationsdatei.
+    \item [bottle\footnotemark]\footnotetext{\purl{http://bottlepy.org/docs/dev/index.html}} Minimalistisches Web-Framework, um vom Control Center angesprochen zu werden.
+    \item [shelve\footnotemark]\footnotetext{\purl{https://docs.python.org/2/library/shelve.html}} Für persistente Datenspeicherung.
 \end{labeling}
 
 \subsubsection*{Paketierung}
 
 Es wurde ein Python-Paket\footnote{Verfügbar auf \purl{https://pypi.python.org/pypi/upd89}} erstellt, welches über \gls{pip} installiert werden kann.
 
+\clearpage
 \subsection*{API}
 \label{sec:architecture:api}
 
