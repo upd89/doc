@@ -1,0 +1,44 @@
+\section{Testing} \label{sec:umsetzung:testing}
+
+\subsection*{Unit-Tests}
+
+Für Unit-Tests wurde im Control Center RSpec\footnote{\purl{http://rspec.info/}} benutzt. Die Tests wurden lokal manuell sowie durch Travis-CI (siehe auch Kapitel \ref{sec:pm:infrastructure}) automatisch nach einem Commit ausgeführt.
+
+Die Unit-Tests decken vor allem Modelle und Controllers ab. Dazu wurden folgende Hilfs-Bibliotheken verwendet:
+
+\begin{labeling}{factory\textunderscore girl\textunderscore rails}
+    \item [rspec-rails] Erweitert das bei Rails enthaltene Testing-Framework, so dass RSpec-Tests ausgeführt werden können\footnote{\purl{https://github.com/rspec/rspec-rails}}
+    \item [factory\textunderscore girl\textunderscore rails] FactoryGirl vereinfacht das Erstellen von Fixtures\footnote{\purl{https://github.com/thoughtbot/factory\textunderscore girl\textunderscore rails}}
+    \item [faker] Liefert bei Bedarf realistische Test-Daten wie z.B. Namen, Email-Adressen, IP-Adressen, etc.\footnote{\purl{https://github.com/stympy/faker}}
+    \item [guard-rspec] Führt Unit-Tests automatisch wieder aus, wenn eine Änderung daran festgestellt wurde\footnote{\purl{https://github.com/guard/guard-rspec}}
+\end{labeling}
+
+\subsection*{System-Tests}
+
+Gemäss Projektplan (siehe Anhang \ref{appendix:project_plan}) wurden verschiedene Meilensteine definiert. Die Meilensteine ab der Construction-Phase umfassten auch das Erfüllen von Use-Cases. Nach dem Erreichen dieser Meilensteine wurde jeweils ein manueller System-Test durchgeführt und die Use-Cases getestet (Resultate in Tabelle \ref{fig:testing:system_tests}).
+
+\begin{table}[H]
+    \centering
+    \caption{System-Tests}
+    \label{fig:testing:system_tests}
+    \begin{tabular}{cccccc|l}
+        MS4 & MS5 & MS6 & MS7 & MS8 & MS9 & Use-Case                         \\ \hline
+            &     &     &     &     & \checkmark   & \hyperref[sec:uc_01]{UC01: Agent Deployen}             \\
+            &     &     & \checkmark   & \checkmark   & \checkmark   & \hyperref[sec:uc_02]{UC02: Bei CC registrieren}        \\
+        \checkmark   & \checkmark   & \checkmark   & \checkmark   & \checkmark   & \checkmark   & \hyperref[sec:uc_03]{UC03: Ausstehende Updates melden} \\
+            &     & \checkmark   & \checkmark   & \checkmark   & \checkmark   & \hyperref[sec:uc_04]{UC04: Update durchführen}         \\
+            &     & \checkmark   & \checkmark   & \checkmark   & \checkmark   & \hyperref[sec:uc_05]{UC05: Updates auslösen}           \\
+            &     &     &     & \checkmark   & \checkmark   & \hyperref[sec:uc_06]{UC06: Reports einsehen}           \\
+            &     &     & \checkmark   & \checkmark   & \checkmark   & \hyperref[sec:uc_07]{UC07: Berechtigungen verwalten}   \\
+            &     &     &     & \checkmark   & \checkmark   & \hyperref[sec:uc_08]{UC08: System-Gruppen verwalten}   \\
+            &     &     & \checkmark   & \checkmark   & \checkmark   & \hyperref[sec:uc_09]{UC09: User verwalten}             \\
+            &     &     &     & \checkmark   & \checkmark   & \hyperref[sec:uc_10]{UC10: Regeln verwalten}           \\
+            &     & \checkmark   & \checkmark   & \checkmark   & \checkmark   & \hyperref[sec:uc_11]{UC11: Paket-Gruppen verwalten}   
+    \end{tabular}
+\end{table}
+
+\subsection*{Usability-Tests}
+
+In unregelmässigen Abständen wurden Hallway-Tests unternommen. Dazu werden verfügbare, zufällige Personen in Reichweite dazu benutzt, neue Features und Interfaces zu testen. Es reichen bereits wenige Testpersonen, um  einen Grossteil der Usability-Probleme zu finden (\cite{nielsenhallway})
+
+

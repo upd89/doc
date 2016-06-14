@@ -13,7 +13,7 @@ Das nachfolgende Domänen-Modell (Abbildung \ref{fig:domainmodel}) zeigt alle n�
 
 \subsubsection{System}
 
-Ein System repräsentiert einen einzelnen Server, auf welchem die Updates verwaltet werden sollen. Relevante Daten über die Systeme werden erfasst respektive beim Registrieren durch den Agent mitgeteilt.
+Ein System repräsentiert einen einzelnen Server, auf welchem die Updates verwaltet werden sollen. Relevante Daten über die Systeme werden erfasst, respektive beim Registrieren durch den Agent mitgeteilt.
 
 \subsubsection{Package}
 
@@ -21,17 +21,28 @@ Ein Package ist ein einzelnes Applikationspaket, welches vom Paketmanager (hier 
 
 \subsubsection{PackageVersion}
 
-Eine Paket-Version ist eine verfügbare Version eines bestimmten Paketes auf einem spezifischen Repository/einer Distribution. Eine spezifische Paket-Version kann eine Base-Version sein, das bedeutet, dass 
-
-\xxx[finish]
+Eine Paket-Version ist eine verfügbare Version eines bestimmten Paketes auf einem spezifischen Repository/einer Distribution. Eine spezifische Paket-Version kann eine Base-Version sein. Das bedeutet, dass diese Paket-Version zusammen mit der Distribution ausgeliefert wurde. Eine Paket-Version, welche keine Base-Version ist, kann aber einen Verweis auf eine frühere Version des selben Pakets besitzen, welche wiederum eine Base-Version ist.
 
 \subsubsection{ConcretePackageVersion}
 
-Eine Paket-Version kann mit einem System in Verbindung gebracht werden, zum Beispiel indem der Agent eine bestimmte Paket-Version als ausstehendes Update meldet. Diese Verbindung ist eine konkrete Paket-Version und zeigt, welchen Zustand diese Version auf diesem Paket hat: Installiert, veraltet, ausstehend, fehlgeschlagen oder in Auftrag gegeben.
+Eine Paket-Version kann mit einem System in Verbindung gebracht werden, zum Beispiel indem der Agent eine bestimmte Paket-Version als ausstehendes Update meldet. Diese Verbindung ist eine konkrete Paket-Version und zeigt, welchen Zustand diese Version auf diesem Paket hat (definiert durch einen \textbf{ConcretePackageState}):
+
+\begin{itemize}
+    \item Installiert
+    \item Veraltet
+    \item Ausstehend
+    \item Fehlgeschlagen
+    \item In Auftrag gegeben
+\end{itemize}
+
 
 \subsubsection{Distribution}
 
-Eine Distribution, oft auch "Distro" genannt, ist ein Betriebssystem basierend auf dem Linux-Kernel. Beispiele: Debian, Suse oder Ubuntu. Diese werden wiederum in spezifische Distros unterteilt, etwa bei Ubuntu auf Ubuntu 12.04 precise, 14.04 trusty oder 16.04 xenial. 
+Eine Distribution, oft auch 'Distro' genannt, ist ein Betriebssystem basierend auf dem Linux-Kernel. Beispiele: Debian, Suse oder Ubuntu. Diese werden wiederum in spezifische Distros unterteilt, etwa bei Ubuntu auf Ubuntu 12.04 precise, 14.04 trusty oder 16.04 xenial.
+
+\subsubsection{Repository}
+
+Ein Repository ist eine Sammlung von Paketen, primär für eine bestimmte Distribution.
 
 \subsubsection{Job}
 
@@ -39,7 +50,7 @@ Ein Job wird dann erstellt, wenn ein Benutzer einen Auftrag erteilt. Pro betroff
 
 \subsubsection{Task}
 
-Ein Task enthält alle konkreten Aufträge für ein spezifisches System, welche von einem User in einem Durchgang erfasst wurden. Ein Task kann sich in den folgenden Zuständen befinden:
+Ein Task enthält alle konkreten Aufträge für ein spezifisches System, welche von einem User in einem Durchgang erfasst wurden. Ein Task kann sich in den folgenden Zuständen (\textbf{TaskState}) befinden:
 
 \begin{itemize}
     \item Erledigt 
@@ -48,3 +59,19 @@ Ein Task enthält alle konkreten Aufträge für ein spezifisches System, welche 
     \item In Bearbeitung
     \item Nicht zugestellt
 \end{itemize}
+
+Ein Task kann eine \textbf{TaskExecution} beinhalten, welche bei der Rückmeldung vom Agent mitgeliefert wird. Sie enthält lediglich die Ausgabe von \gls{apt}, welches vom Agenten direkt weitergeschickt wird.
+
+\subsubsection{User}
+
+Ein User ist ein Benutzer, welcher sich über seine Email-Adresse und sein Passwort identifiziert und einen Namen und eine Rolle (\textbf{Role}) besitzt.
+
+\subsubsection{Role}
+
+Eine Rlole definiert, zu welcher Gruppe ein Benutzer gehört und welche Rechte dieser besitzt. Einerseits wird definiert, ob eine Rolle andere Benutzer bearbeiten kann, andererseits wird einer Rolle ein \textbf{PermissionLevel} zugewiesen.
+
+\subsubsection{PermissionLevel} \label{sec:domain:permission_level}
+
+Paket-Gruppen, System-Gruppen sowie Rollen besitzen alle ein PermissionLevel. Diese Zahl bestimmt, ob ein Benutzer mit einer bestimmten Rolle das Recht besitzt, Systeme oder Pakete in spezifischen Gruppen zu bearbeiten und zu aktualisieren. Dazu muss das PermissionLevel der Rolle des Benutzers höher sein als das benötigte PermissionLevel der Gruppe des Systems.
+
+Bei Paketen, welche in mehreren Gruppen sein können (über ein \textbf{GroupAssignment}), gilt das höchste PermissionLevel.

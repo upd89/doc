@@ -8,16 +8,16 @@ Mit begründeten Architekturentscheidungen, Mit Diskussion, wie Q-Attribute sich
 
 Das \gls{controlcenter} wurde mit Ruby on Rails umgesetzt. Rails ist ein \gls{mvc}-Framework, wodurch grundsätzliche Entscheidungen zur Architektur bereits vorweggenommen wurden.
 
-Das \gls{mvc}-Pattern teilt Applikationen in drei Teile, welche jeweils verschiedene Aufgaben und Verantwortungen haben. Ziel ist, dass die Wiederverwendbarkeit und Trennbarkeit der Komponenten gewährleistet wird.
-
-Ruby on Rails bildet das Pattern bereits in der Dokumentenstruktur ab. Im Verzeichnis /app befinden sich Ordner für Controllers, Models und Views.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{files/mvc_structure}
 	\caption{MVC-Pattern in Rails-Umgebung}
 	\label{fig:tec:mvc}
 \end{figure}
+
+Das \gls{mvc}-Pattern teilt Applikationen in drei Teile, welche jeweils verschiedene Aufgaben und Verantwortungen haben. Ziel ist, dass die Wiederverwendbarkeit und Trennbarkeit der Komponenten gewährleistet wird.
+
+Ruby on Rails bildet das Pattern bereits in der Dokumentenstruktur ab. Im Verzeichnis /app befinden sich Ordner für Controllers, Models und Views.
 
 \begin{decision}{Rails-Version}
 Als Rails-Version wurde 4.2 gewählt, obwohl Rails 5 im Mai 2016 als Release Candidate erschienen wäre\footnote{Quelle: \purl{http://weblog.rubyonrails.org/2016/5/6/this-week-in-rails-railsconf-recap-rails-5-0-rc-1-is-out/}} und Features wie z.B. WebSockets beinhaltet hätte. Es wurde aber gegen den Gebrauch der neuen Version entschieden, da sie zum Zeitpunkt der Evaluation noch nicht aus dem Beta-Stadium heraus war und die Kompatibilität mit verschiedenen Ruby-Gems nicht immer gewährleistet ist.
@@ -60,9 +60,21 @@ Das Active-Record-Pattern wird von Ruby on Rails standardmässig eingesetzt. Ein
 
 \xxx[source: Martin Fowler: Patterns of enterprise application architecture. Addison-Wesley, 2003, ISBN 978-0-321-12742-6.]
 
-\subsection*{Agent}
+\cite{agilemanifesto}
 
-\xxx
+\subsection*{Agent} \label{sec:architecture:agent}
+
+\xxx[Kapitel Agent ausbauen, kurze einführung, ]
+
+\subsubsection*{Klassen}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{files/agent-classes}
+	\caption{Klassenübersicht für Agent}
+	\label{fig:tec:agentclasses}
+\end{figure}
+
+\subsubsection*{Abhängigkeiten}
 
 Folgende externe Abhängigkeiten existieren:
 
@@ -73,6 +85,10 @@ Folgende externe Abhängigkeiten existieren:
     \item [bottle]\footnote{\purl{http://bottlepy.org/docs/dev/index.html}} Minimalistisches Web-Framework, um vom Control Center angesprochen zu werden
     \item [shelve] Für persistente Datenspeicherung (insbesondere, welche Updates bereits geschickt wurden)
 \end{labeling}
+
+\subsubsection*{Abhängigkeiten}
+
+Es wurde ein Python-Paket\footnote{Verfügbar auf \purl{https://pypi.python.org/pypi/upd89}} erstellt, welches über \gls{pip} installiert werden kann.
 
 \subsection*{API}
 \label{sec:architecture:api}
@@ -93,6 +109,7 @@ Zudem wird mit Deltas gearbeitet, das heisst, dass der Agent jeweils nur neue In
 
 Die API ist Bestandteil des Control Centers, da die meisten Calls vom Agent zum Control Center hin verlaufen. Aber auch in der Gegenrichtung existiert eine (kleine) API. Somit kann auch das Control Center dem Agent Tasks ausliefern. Weitere API-Endpunkte auf Agent-Seite sind durchaus denkbar, aber nicht Bestandteil dieser Arbeit (Siehe auch Kapitel \ref{sec:ausblick:scheduled_tasks}).
 
+\clearpage
 \begin{figure}
   \centering
     \includegraphics[width=\textwidth]{files/API_Calls}
@@ -106,7 +123,7 @@ Der typische Ablauf einer 'Unterhaltung' zwischen Agent und Control Center läuf
 
 \begin{enumerate}
     \item Registrierung: Nach dem Deployment und Start des Agents nimmt dieser Kontakt mit dem Control Center auf und registriert sich. Dazu übermittelt er seine Eckdaten wie Name, Betriebssystem und Adresse.
-    \item Installierte Pakete (Hashes): Damit das Inventar beim Control Center stimmt, schickt der Agent all seine momentan installierten Pakete. Dies umfasst nicht die anstehenden Updates. Zuerst werden nur die Hash-Werte der einzelnen Paketversionen geschickt, für den Fall dass dem Control Center bereits einige oder alle Hashes bekannt sind.
+    \item Installierte Pakete (Hashes): Damit das Inventar beim Control Center stimmt, schickt der Agent all seine momentan installierten Pakete. Dies umfasst nicht die anstehenden Updates. Zuerst werden nur die Hash-Werte der einzelnen Paketversionen geschickt, für den Fall, dass dem Control Center bereits einige oder alle Hashes bekannt sind.
     \item Installierte Pakete (Komplett): Sollte das Control Center nicht alle gesendeten Hashes kennen, schickt der Agent die vollen Informationen.
     \item Updates (Hashes): In regelmässigen Abständen prüft der Agent über \gls{apt}, ob Updates anstehen. Ist das der Fall, übermittelt er diese (wieder zuerst nur die Hashes) an das Control Center.
     \item Updates (Komplett): Wenn Hashes unbekannt sind, meldet das Control Center dies und der Agent schickt erneut die kompletten Angaben zu den Updates.
@@ -114,5 +131,4 @@ Der typische Ablauf einer 'Unterhaltung' zwischen Agent und Control Center läuf
     \item Feedback: Der Agent versucht, das Update über \gls{apt} auszuführen. Die Ausgaben von apt werden gesammelt und zusammen mit dem erreichten Ergebnis (Erfolgreich oder Fehlgeschlagen) zurück an das Control Center geschickt. Damit dieses weiss, um welchen Task es geht, verweist der Agent auf die vorhin erhaltene Task-Nummer.
 \end{enumerate}
 
-\xxx[ was sind die zeitlichen Abstände? Alle 10 minuten? ]
-\xxx[ auf grafik: auch antworten beim opt einzeichnen? ]
+Punkte 2 oder 3 werden alle 2 Stunden ausgeführt, Punkte 4 und 5 alle 10 Minuten.

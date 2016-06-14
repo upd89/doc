@@ -31,23 +31,29 @@ Ideen für Schlussfolgerung:
 
 Im Rahmen der Bachelorarbeit wurde eine Softwarelösung mit zentraler Web-Komponente und verteilten Agenten entwickelt. Die Web-Applikation kann auf den gängigen Browsern gut dargestellt werden\footnote{Getestet auf Firefox 47 und Chrome 51} und kann unter normalen Bedingungen mit den Agenten kommunizieren.
 
-Die Anforderungen aus dem Projektauftrag (siehe \ref{sec:anforderung:aufgabenstellung}) wurden umgesetzt.
+Die Anforderungen aus dem Projektauftrag (siehe Kapitel \ref{sec:anforderung:aufgabenstellung} bezüglich Nummerierung) wurden umgesetzt:
 
-\xxx[Verweis auf Nummerierung in Aufgabenstellung]
-
-\begin{itemize}
+\begin{enumerate}[noitemsep]
     \item Die Applikation kann über den Web-Browser erreicht werden.
-    \item Anstehende Updates können auf den verbundenen Systemen eingesehen werden
-    \item Es kann pro System eine Übersicht der ausgeführten Tasks eingesehen werden
-    \item Pro System läuft ein Agent und die Kommunikation mit dem Control Center verläuft verschlüsselt.
-    \item Meldungen von \gls{apt} werden weitergereicht und bei Fehlschlagen eimes Updates wird dieses besonders gekennzeichnet. Benötigte Updates werden dem Control Center ebenfalls mitgeteilt.
+    \item Anstehende Updates können auf den verbundenen Systemen eingesehen werden.
+    \item Es kann pro System eine Übersicht der ausgeführten Tasks eingesehen werden, worin die durchgeführten Updates enthalten sind.
+    \item Pro System läuft ein Agent, welcher mit dem Control Center kommuniziert.
+    \item Die Kommunikation mit dem Control Center verläuft verschlüsselt bei richtiger Konfiguration.
+    \item Meldungen von \gls{apt} werden weitergereicht und bei Fehlschlagen eines Updates wird dieses besonders gekennzeichnet. Wird ein Neustart benötigt, wird das dem Control Center ebenfalls mitgeteilt.
     \item Die kürzlich durchgeführten Aktivitäten aller User ist einfach einsehbar und es kann pro Job ein Kommentar vom Auslöser hinzugefügt werden.
-\end{itemize}
+    \item [9.] Die Bedienbarkeit wurde durch Usability-Tests bestätigt.
+    \item [10.] Die Software wurde als Open-Source-Lösung mit der MIT-Lizenz (siehe auch Kapitel \ref{sec:license}) entwickelt.
+    \item [11.] Sie unterstützt mindestens die Ubuntu-Versionen 12.04, 14.04 und 16.04.
+    \item [12.] Als Programmiersprachen wurden hauptsächlich Ruby und Python verwendet.
+    \item [13.] Als Datenbank kommt PostgreSQL zum Einsatz.
+    \item [14.] Es wurde ein Python-Paket\footnote{Siehe Kapitel \ref{sec:architecture:agent}} erstellt, welches auch mit Puppet verteilt werden kann.
+\end{enumerate}
 
-\xxx[Was ist mit den Empfehlungen bei Neustart etc.?]
-\xxx[korrekter und konsistenter Datenstand?]
+Punkt 8 konnte nicht im vorgesehenen Detailgrad erarbeitet werden. Die durchgeführten Tests zeigten keine Probleme bezüglich der Zuverlässigkeit. Insbesondere das Verhalten bei vielen parallelen Zugriffen wurde nicht spezifisch getestet. Auf der Seite des Control Centers kann mit der maximaler Anzahl Threads in Passenger das Problem entschärft werden.
 
-Die Software wurde als Open-Source-Lösung mit der MIT-Lizenz (siehe auch Kapitel \ref{sec:license}) entwickelt und unterstützt mindestens die Ubuntu-Versionen 12.04, 14.04 und 16.04. Als Programmiersprachen wurden hauptsächlich Ruby und Python verwendet, als Datenbank kommt PostgreSQL zum Einsatz.
+\xxx[mehr?]
+
+Der optionale Punkt 15 wurde nicht erreicht. Systeme und Pakete müssen manuell an Gruppen zugewiesen werden. Es wurden jedoch Vorschläge und Mockups dazu erstellt, siehe Kapitel Ausblick (\ref{sec:ausblick:auto_group_assignment}).
 
 \section{Schlussfolgerung}
 \label{conclusion}
@@ -62,6 +68,7 @@ Dass einige Features nicht umgesetzt werden konnten (primär das \hyperref[sec:a
 
 \section{Softwaredokumentation}
 \label{documentation}
+
 
 \xxx[Anhang/Github-Dingens zusammenfassen und übersetzen (Vorbedingungen nur kurz erwähnen, z.B. CA oder direkte Verbindung benötigt von A zu CC)]
 

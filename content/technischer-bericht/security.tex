@@ -25,12 +25,10 @@ Jeder Teilnehmer muss sich sicher sein, dass er mit dem korrekten Gegenüber kom
 
 \subsection*{API Security}
 
-Um die Kommunikation zwischen Agent und Control Center abzusichern, wird eine eigene Zertifizierungsstelle (CA) eingesetzt. Im Grunde kann die CA mit Openssl \footnote{Openssl-Webseite: \purl{https://www.openssl.org/}} erstellt werden. Als Unterstützung wird easy-rsa \footnote{easy-rsa-Webseite: \purl{https://openvpn.net/easyrsa.html}} verwendet, um die benötigten Zertifikate mit wenig Aufwand zu generien.
-
-\xxx[CA als Glossar-Term]
+Um die Kommunikation zwischen Agent und Control Center abzusichern, wird eine eigene \gls{ca} eingesetzt. Im Grunde kann die \gls{ca} mit Openssl \footnote{Openssl-Webseite: \purl{https://www.openssl.org/}} erstellt werden. Als Unterstützung wird easy-rsa \footnote{easy-rsa-Webseite: \purl{https://openvpn.net/easyrsa.html}} verwendet, um die benötigten Zertifikate mit wenig Aufwand zu generien.
 
 \subsubsection*{Erzeugen der Zertifikate}
-Das Konzept einer Zertifizierungsstelle (CA) sieht wie folgt aus: Die Zertifizierungsstelle unterschreibt den eigenen öffentlichen Schlüssel (pub) und generiert daraus das öffenliche CA-Zertifikat (CA-crt). Anschliessend unterschreibt die CA die öffentlichen Schlüssel der Teilnehmer, in unserem Fall das Control Center und die Agents.
+Das Konzept einer Zertifizierungsstelle (\gls{ca}) sieht wie folgt aus: Die \gls{ca} unterschreibt den eigenen öffentlichen Schlüssel (pub) und generiert daraus das öffenliche CA-Zertifikat (CA-crt). Anschliessend unterschreibt die \gls{ca} die öffentlichen Schlüssel der Teilnehmer, in unserem Fall das Control Center und die Agents.
 
 \begin{figure}
   \centering
@@ -42,7 +40,7 @@ Das Konzept einer Zertifizierungsstelle (CA) sieht wie folgt aus: Die Zertifizie
 \clearpage
 \subsubsection*{Sichere Verbindung}
 
-Die Teilnehmer sind im Besitz des CA-Zertifikats, welches als Vertrauensanker dient, können so die Zertifikate ihrer Kommunikationspartner überprüfen und so eine sichere Verbindung gewährleisten.
+Die Teilnehmer sind im Besitz des \gls{ca}-Zertifikats, welches als Vertrauensanker dient, können so die Zertifikate ihrer Kommunikationspartner überprüfen und so eine sichere Verbindung gewährleisten.
 
 \xxx[higher resolution]
 

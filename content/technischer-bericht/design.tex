@@ -2,15 +2,13 @@
 
 Vor dem Umsetzen dieser Arbeit war der Vorgang zum Aktualisieren der Systeme sehr konsolenlastig. Daher war ein Ziel der Arbeit, die Applikation benutzerfreundlich und intuitiv zu gestalten. Dies wurde mit einer engen Zusammenarbeit mit den Industriepartnern sowie mit eigenen Tests und Versuchen erzielt.
 
-\xxx
-
 \subsection*{Mockups} \label{design:mockups}
 
 Als Diskussionsgrundlage und Vorlage für die Umsetzung wurden ca. 30 verschiedene \glspl{mockup} mit Balsamiq\footnote{\purl{https://balsamiq.com/products/mockups/}} umgesetzt. Die wichtigsten werden hier kurz porträtiert.
 
 \subsubsection*{Gruppierungen}
 
-Gemäss Use-Cases 08 und 11 (siehe \ref{sec:uc_08} und \ref{sec:uc_11}) können Systeme und Pakete einer (oder mehreren für Pakete) beliebien Gruppe zugeordnet werden. In den Entwürfen zu den entsprechenden Views wurde zusätzlich zu den umgesetzten Funktionalitäten noch eine automatische Zuweisungs-Regel konzeptioniert. Auf Bild \ref{fig:design:group_systems_mockup} zu sehen ist die Gruppe 'Test-Group', welcher alle neu registrierten Systeme mit 'test' im Namen automatisch zugewiesen werden. Dieses Feature wurde aber aufgrund von anderen Prioritäten nicht umgesetzt.
+Gemäss Use-Cases 08 und 11 (siehe \ref{sec:uc_08} und \ref{sec:uc_11}) können Systeme und Pakete einer (oder mehreren für Pakete) beliebigen Gruppe zugeordnet werden. In den Entwürfen zu den entsprechenden Views wurde zusätzlich zu den umgesetzten Funktionalitäten noch eine automatische Zuweisungs-Regel konzeptioniert. Auf Bild \ref{fig:design:group_systems_mockup} zu sehen ist die Gruppe 'Test-Group', welcher alle neu registrierten Systeme mit 'test' im Namen automatisch zugewiesen werden. Dieses Feature wurde aber aufgrund von anderen Prioritäten nicht umgesetzt.
 
 \begin{figure}[H]
 	\centering
@@ -19,13 +17,13 @@ Gemäss Use-Cases 08 und 11 (siehe \ref{sec:uc_08} und \ref{sec:uc_11}) können 
 	\label{fig:design:group_systems_mockup}
 \end{figure}
 
-\subsubsection*{Berechtigungen}
+\subsubsection*{Berechtigungen} \label{sec:design:permissions}
 
 Für den Use-Case 07 (siehe \ref{sec:uc_07}) wurden drei verschiedene Vorgehensweisen konzipiert. Die erste (Bild \ref{fig:design:permission_1}) sah vor, dass pro User die Einstellungen für jedes System, jede Art (Gruppe) von Anwendungen und sogar unterscheidend zwischen grossen oder kleinen Versionssprüngen vorgenommen werden kann. Dies wurde aber verworfen, da der Administrationsaufwand bei Änderungen zu gross gewesen wäre. Zudem kann nicht garantiert werden, dass 'grosse' Versionssprünge korrekt erkannt werden.
 
-Eine Alternative sah weiterhin die Verwaltung der Rechte pro User vor, aber in einer tabellarischen Form mit simplen Ja/Nein-Berechtingen für verschiedene Aktionen (Bild \ref{fig:design:permission_2}). Hier wurde auch zwischen 'normalen' und 'kritischen' Updates unterschieden, also nur mit zwei Paketgruppen. Der Vorteil war die einfache Bedienung und die klare Darstellung der Berechtigungen. Aufgrund der gewünschten beliebigen Anzahl Paketgruppen wurde diese Alternative aber ebenfalls verworfen.
+Eine Alternative sah weiterhin die Verwaltung der Rechte pro User vor, aber in einer tabellarischen Form mit simplen Ja/Nein-Berechtigungen für verschiedene Aktionen (Bild \ref{fig:design:permission_2}). Hier wurde auch zwischen 'normalen' und 'kritischen' Updates unterschieden, also nur mit zwei Paketgruppen. Der Vorteil war die einfache Bedienung und die klare Darstellung der Berechtigungen. Aufgrund der gewünschten beliebigen Anzahl Paketgruppen wurde diese Alternative aber ebenfalls verworfen.
 
-Schlussendlich hat sich eine Rollen- und stufenbasierte Rechteverwaltung durchgesetzt. Jeder Benutzer wird einer Rolle zugeteilt, welche eine bestimmte Berechtigungsstufe besitzt. Ob ein Benutzer nun ein Paket auf einem System aktualisieren darf, hängt von der benötigten Berechtigungsstufe der Gruppen des Paketes und des Systems ab.
+Schlussendlich hat sich eine Rollen- und stufen-basierte Rechteverwaltung durchgesetzt. Jeder Benutzer wird einer Rolle zugeteilt, welche eine bestimmte Berechtigungsstufe besitzt. Ob ein Benutzer nun ein Paket auf einem System aktualisieren darf, hängt von der benötigten Berechtigungsstufe der Gruppen des Paketes und des Systems ab.
 
 Auf diese Weise ist es sehr einfach, ganzen Benutzergruppen die Rechte für mehrere Systeme oder Pakete auf einmal zu entziehen oder zu verteilen, was bei den alternativen Vorschlägen mindestens eine Einstellung pro User gewesen wäre.
 
@@ -71,7 +69,7 @@ Neben den spezifischen Ansichten für je alle Pakete oder Systeme mit entspreche
 
 \subsection*{User Interface}
 
-Die Oberflächen halten sich mehrheitlich an die Mockups aus der Planung, einige Details wurden aber aufgrund von Input durch die Industriepartner oder durch 'Hallway-Testing'\footnote{Test mit zufällig ausgewählten Personen, ob ein Feature in der Benutzeroberfläche wie gedacht funktioniert. Siehe auch \purl{http://www.joelonsoftware.com/articles/fog0000000043.html}} abgeändert.
+Die Oberflächen halten sich mehrheitlich an die Mockups aus der Planung, einige Details wurden aber aufgrund von Input durch die Industriepartner oder durch Hallway-Testing oder Usability-Tests abgeändert. Siehe dazu auch das Kapitel Testing (\ref{sec:umsetzung:testing}).
 
 \begin{figure}[H]
 	\centering
@@ -134,3 +132,11 @@ Um verschiedene grafische Elemente konsistent gleich aussehen zu lassen, wurde d
 
 
 Für die Icons wurde FontAwesome\footnote{\purl{http://fontawesome.io/}} verwendet.
+
+\subsection*{Regelwerk}
+
+\begin{decision}{Regelwerk}
+Die Anforderung aus der Aufgabenstellung wurde während des Projekts gestrichen.
+\end{decision}
+
+\xxx[Decision für Regelwerk, Verweis auf sec:ausblick:regelwerk im Ausblick]

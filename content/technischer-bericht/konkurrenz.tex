@@ -1,6 +1,15 @@
 \section{Konkurrenz} \label{sec:analysis:competition}
 
-Hier werden bereits existierende Lösungen für ähnliche Problemstellungen vorgestellt und analysiert sowie mit der Lösung \gls{upd89} verglichen.
+Hier werden bereits existierende Lösungen für ähnliche Problemstellungen vorgestellt und analysiert.
+
+Folgende Lösungen wurden untersucht:
+\begin{itemize}
+\item Landscape (Canonical)
+\item Ansible
+\item Spacewalk (Red Hat)
+\item WSUS (Microsoft)
+\item Puppet
+\end{itemize}
 
 \newcommand{\competitor}[8]{
 	\begin{tabularx}{\linewidth}{lX}
@@ -28,34 +37,35 @@ Es kann Software verwaltet und installiert werden, ebenso Security-Updates. Upda
 
 Landscape unterstützt neben Servern auch Desktops.}
 {
-- Deployment
+• Deployment
 
-- Software und Update Management inkl. Repository-Verwaltung
+• Software und Update Management inkl. Repository-Verwaltung
 
-- Monitoring, inkl. Prozess-Zugriff sowie div. Hardware-Abfragen
+• Monitoring, inkl. Prozess-Zugriff sowie div. Hardware-Abfragen
 
-- RBAC (Role-Based Access Control)
+• RBAC (Role-Based Access Control)
 }
 {Proprietär}
 {Kostenlos, benötigt aber eine Advantage-Lizenz. Diese kostet im Minimum 320 USD pro Server pro Jahr.\footnote{Quelle: \purl{http://www.ubuntu.com/management/ubuntu-advantage}}}
 {\purl{https://landscape.canonical.com/}}
 {Abgesehen von den hohen Kosten ist Landscape nicht Open-Source. Die Lösung ist auch zu umfangreich und bietet viele Funktionen, welche bei Nine bereits durch andere Tools abgedeckt werden (z.B. Deployment, Monitoring).}
 
+\clearpage
 \subsection*{Ansible}
 
 \competitor{Ansible}
 {AnsibleWorks, Inc.}
-{Ansible ist eine Plattform zur Automatisierung von Tasks und zur Orchestrierung. Sie kombiniert Softwareverteilung, Kommando-Ausführung und Konfigurationsmanagement.Server werden via SSH angesprochen, es ist kein Agent erforderlich.
+{Ansible ist eine Plattform zur Automatisierung von Tasks und zur Orchestrierung. Sie kombiniert Softwareverteilung, Kommando-Ausführung und Konfigurationsmanagement. Server werden via SSH angesprochen, es ist kein Agent erforderlich.
 
 Ansible Tower die zentrale Web-basierte Kommandozentrale und ist Open-Source.\footnote{Quelle: \purl{https://www.ansible.com/subscription-agreement}}}
 {
-- Applikations-Deployment
+• Applikations-Deployment
 
-- Konfigurations-Management
+• Konfigurations-Management
 
-- User-definierbare Playbooks für Tasks
+• User-definierbare Playbooks für Tasks
 
-- REST-Schnittstelle für Einbinden in andere Systeme
+• REST-Schnittstelle für Einbinden in andere Systeme
 }
 {GNU General Public License v3}
 {Im Enterprise-Paket kostet Ansible Tower 50 USD pro Server pro Jahr für > 1000 Server.\footnote{Quelle: \purl{https://www.ansible.com/pricing}}}
@@ -72,13 +82,13 @@ Es bietet unter anderem auch ein Update-Management über Systeme und Systemgrupp
 
 Spacewalk unterstützt Fedora, CentOS, SLE und Debian.}
 {
-- Inventar über Hardware und installierte Software
+• Inventar über Hardware und installierte Software
 
-- Installation von Software und Updates
+• Installation von Software und Updates
 
-- Konfigurationen verteilen und managen
+• Konfigurationen verteilen und managen
 
-- Content-Verteilung
+• Content-Verteilung
 }
 {GNU General Public License v2}
 {Kostenlos\footnote{Quelle: \purl{http://spacewalk.redhat.com/faq.html}}}
@@ -91,11 +101,11 @@ Spacewalk unterstützt Fedora, CentOS, SLE und Debian.}
 {Microsoft}
 {Windows Server Update Services ist eine proprietäre Update-Software von Microsoft für zentralisiertes Managen von Patches für Microsoft-Server.}
 {
-- Verteilen der Updates, einmaliges Herunterladen
+• Verteilen der Updates, einmaliges Herunterladen
 
-- Client-Komponente, welche mit dem Manager kommuniziert und Status-Details liefert
+• Client-Komponente welche dem Manager Status-Details liefert
 
-- Gruppieren von Systemen
+• Gruppieren von Systemen
 }
 {Proprietär}
 {Kostenlos\footnote{Quelle: \purl{https://technet.microsoft.com/en-us/windowsserver/bb332157}}}
@@ -110,15 +120,15 @@ Spacewalk unterstützt Fedora, CentOS, SLE und Debian.}
 
 Puppet ist als Open-Source oder als kostenpflichtige Enterprise-Version erhältlich. }
 {
-- Unterstützt verschiedene Linux- und Windows-Systeme
+• Unterstützt verschiedene Linux- und Windows-Systeme
 
-- in Ruby geschrieben
+• in Ruby geschrieben
 
-- deklarative Sprache zur Ressourcenbeschreibung für Systemkonfigurationen
+• deklarative Sprache zur Ressourcenbeschreibung für Systemkonfigurationen
 
-- Monitoring (Puppet Dashboard)
+• Monitoring (Puppet Dashboard)
 
-- Client-Server-Architektur mit einem Daemon auf jedem Node
+• Client-Server-Architektur mit einem Daemon auf jedem Node
 }
 {Apache 2.0 (seit 2.7.0, früher GPL)}
 {Kostenlos als Open-Source\footnote{Quelle: \purl{http://info.puppetlabs.com/open-source-puppet-download.html}} oder 120 USD pro Jahr pro Server mit Standard-Support als Enterprise-Verion\footnote{Quelle: \purl{https://puppetlabs.com/puppet/how-to-buy}}}
