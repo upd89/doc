@@ -42,7 +42,7 @@ Die Anforderungen aus dem Projektauftrag (siehe Kapitel \ref{sec:anforderung:auf
     \item Meldungen von \gls{apt} werden weitergereicht und bei Fehlschlagen eines Updates wird dieses besonders gekennzeichnet. Wird ein Neustart benötigt, wird das dem Control Center ebenfalls mitgeteilt.
     \item Die kürzlich durchgeführten Aktivitäten aller User ist einfach einsehbar und es kann pro Job ein Kommentar vom Auslöser hinzugefügt werden.
     \item [9.] Die Bedienbarkeit wurde durch Usability-Tests bestätigt.
-    \item [10.] Die Software wurde als Open-Source-Lösung mit der MIT-Lizenz (siehe auch Kapitel \ref{sec:license}) entwickelt.
+    \item [10.] Die Software wurde als Open-Source-Lösung mit der MIT-Lizenz (siehe auch Anhang \ref{sec:license}) entwickelt.
     \item [11.] Sie unterstützt mindestens die Ubuntu-Versionen 12.04, 14.04 und 16.04.
     \item [12.] Als Programmiersprachen wurden hauptsächlich Ruby und Python verwendet.
     \item [13.] Als Datenbank kommt PostgreSQL zum Einsatz.
@@ -68,11 +68,63 @@ Dass einige Features nicht umgesetzt werden konnten (primär das \hyperref[sec:a
 
 \section{Softwaredokumentation} \label{documentation}
 
-
-\xxx[Anhang/Github-Dingens zusammenfassen und übersetzen (Vorbedingungen nur kurz erwähnen, z.B. CA oder direkte Verbindung benötigt von A zu CC)]
+In diesem Kapitel wird kurz beschrieben, wie die Software benutzt werden soll. Im Anhang (Kapitel \ref{appendix:documentation}) ist die komplette Anleitung zu finden, so wie sie auf Github hinterlegt ist. Da die öffentlichen Dokumente in Englisch verfasst wurden (Siehe auch \ref{sec:implementation:documentation}), ist dort auch die Softwaredokumentation auf Englisch.
 
 \subsection*{Control Center}
 
+\subsubsection*{Vorbedingungen}
+
+Es gelten folgende Voraussetzungen, damit ein reibungsloser Betrieb der Software sichergestellt werden kann:
+
+\begin{itemize}
+    \item Git muss installiert sein
+    \item Eine \gls{ca} muss aufgesetzt sein
+    \item Passenger 5.0.27 / Apache/2.4.7 (Ubuntu 14.04) müssen installiert und konfiguriert sein
+    \item Ruby 2.2.3 und Rails 4.2.4
+    \item Postgresql-9.3
+\end{itemize}
+
+\xxx[CA aufsetzen, wie?]
+
+\subsubsection*{Installation}
+
+Sind alle Voraussetzungen erfüllt, kann das Control Center mit folgenden Befehlen installiert werden:
+
+\begin{srclst}[label=lst:cc:installation]{bash}{Installation}
+git clone https://github.com/upd89/controlcenter.git
+cd controlcenter
+bundle install
+rake db:create
+rake db:migrate
+rake db:base_data
+\end{srclst}
+
+Zu Testzwecken kann der Server lokal gestartet werden:
+
+\begin{srclst}[label=lst:cc:localtest]{bash}{Startet einen lokalen Server}
+rails server
+\end{srclst}
 
 
 \subsection*{Agent}
+
+Der Agent kann auf verschiedene Arten installiert werden. Einerseits wie das Control Center durch das Klonen von GitHub:
+
+\begin{srclst}[label=lst:agent:installation]{bash}{Installation}
+apt install python-apt python-daemonize python-configparser
+git clone https://github.com/upd89/agent.git
+python setup.py build
+python setup.py install
+update-rc.d upd89 defaults
+\end{srclst}
+
+Andererseits aber auch durch pip:
+
+\begin{srclst}[label=lst:agent:installation_by_pip]{bash}{Installation via pip}
+pip install upd89
+update-rc.d upd89 defaults
+\end{srclst}
+
+Anpassungen können in \mintinline{console}{/etc/upd89/config.ini} vorgenommen werden.
+
+Hinweis: Es wird eine direkte Verbindung vom Agent zum Control Center benötigt. Dies bedeutet, dass jeder Agent via HTTPS das Control Center erreichen können muss und umgekehrt.

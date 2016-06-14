@@ -15,6 +15,8 @@ Das \gls{controlcenter} wurde mit Ruby on Rails umgesetzt. Rails ist ein \gls{mv
 	\label{fig:tec:mvc}
 \end{figure}
 
+Ruby on Rails setzt standardmässig das Active-Record-Pattern ein. Ein 'Active Record' nimmt in Rails die Rolle des Models ein ('das M in \gls{mvc}'\footnote{\purl{http://guides.rubyonrails.org/active\textunderscore record\textunderscore basics.html}}) und repräsentiert den Layer im System, welcher für die Business Logic zuständig ist.
+
 Das \gls{mvc}-Pattern teilt Applikationen in drei Teile, welche jeweils verschiedene Aufgaben und Verantwortungen haben. Ziel ist, dass die Wiederverwendbarkeit und Trennbarkeit der Komponenten gewährleistet wird.
 
 Ruby on Rails bildet das Pattern bereits in der Dokumentenstruktur ab. Im Verzeichnis /app befinden sich Ordner für Controllers, Models und Views.
@@ -51,11 +53,6 @@ Unter anderem wurden bei \gls{upd89} folgende Gems verwendet:
 \begin{decision}{Javascript-Framework}
 Nach anfänglicher Überlegung wurde gegen ein grosses Javascript-Framework wie AngularJS entschieden. Obwohl bereits Erfahrungen mit AngularJS\footnote{\purl{https://angularjs.org/}} im Team vorhanden sind, wurde es als zu mächtig eingestuft. Rails sollte nicht nur als Backend benutzt werden, sondern auch gleich für die Views zuständig sein. Die Industriepartner teilten die Meinung. 
 \end{decision}
-
-\subsubsection*{Active Record}
-
-'Ein Objekt, welches einen Eintrag in einer Datenbank-Tabelle umfasst, den Datenbankzugriff kapselt und Domain Logic zu den Daten hinzufügt.' \cite{poeaa}
-Das Active-Record-Pattern wird von Ruby on Rails standardmässig eingesetzt. Ein 'Active Record' nimmt in Rails die Rolle des Models ein ('das M in \gls{mvc}'\footnote{\purl{http://guides.rubyonrails.org/active\textunderscore record\textunderscore basics.html}}) und repräsentiert den Layer im System, welcher für die Business Logic zuständig ist.
 
 \clearpage
 \subsection*{Agent} \label{sec:architecture:agent}
