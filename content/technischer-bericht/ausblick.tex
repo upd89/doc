@@ -28,7 +28,7 @@ In \gls{apt} existiert das Feature 'dry-run', womit ein Updatevorgang simuliert\
 
 \section{Message-Queue} \label{sec:ausblick:message_queue}
 
-Mehrmals kam das Thema einer Message Queue auf. Die umgesetzt Lösung lässt das Control Center mit den Agenten einzeln kommunizieren. Ein Nachteil dieses Vorgehens ist, dass jeder Agent für sich dafür sorgen muss, dass die Informationen beim Control Center ankommen. Auf der anderen Seite muss das Control Center dafür sorgen, dass genügend Threads vorhanden sind, die eingehende Verbindungen von den Agents verarbeiten.
+Mehrmals kam das Thema einer Message Queue auf. Die umgesetzt Lösung lässt das Control Center mit den Agents einzeln kommunizieren. Ein Nachteil dieses Vorgehens ist, dass jeder Agent für sich dafür sorgen muss, dass die Informationen beim Control Center ankommen. Auf der anderen Seite muss das Control Center dafür sorgen, dass genügend Threads vorhanden sind, die eingehende Verbindungen von den Agents verarbeiten.
 
 Mit einer Message Queue könnte das Control Center die Informationen nacheinander aus der Message Queue abholen, wodurch nur ein Thread nötig wäre. Bei einem Ausfall des Control Centers würden die Nachrichten zwischengespeichert, bis das Control Center wieder online ist.
 
@@ -49,13 +49,13 @@ In den Mockups wurde ein solches Feature bereits in groben Zügen angedacht (sie
 
 \section{Einfachere Registrierung} \label{sec:ausblick:simple_registration}
 
-Bei der aktuellen Lösung muss eine eigene \gls{ca} eingerichtet werden und das signierte Zertifikat beim Deployment vom Agenten mit ausgeliefert werden (siehe auch Kapitel \ref{sec:security}). Einfacher wäre es, wenn der Agent beim ersten Kontakt mit dem Control Center sich sein Zertifikat signieren lässt. Inspiriert ist der Ansatz durch Puppet, bei welchem sich die Agents beim puppet-master ein Zertifikat ausstellen lassen, siehe \footnote{\purl{http://www.masterzen.fr/2010/11/14/puppet-ssl-explained/}}, \footnote{\purl{https://docs.puppet.com/background/ssl/}} und \footnote{\purl{https://docs.puppet.com/puppet/4.5/reference/ssl\textunderscore autosign.html}}.
+Bei der aktuellen Lösung muss eine eigene \gls{ca} eingerichtet werden und das signierte Zertifikat beim Deployment vom Agents mit ausgeliefert werden (siehe auch Kapitel \ref{sec:security}). Einfacher wäre es, wenn der Agent beim ersten Kontakt mit dem Control Center sich sein Zertifikat signieren lässt. Inspiriert ist der Ansatz durch Puppet, bei welchem sich die Agents beim puppet-master ein Zertifikat ausstellen lassen, siehe \footnote{\purl{http://www.masterzen.fr/2010/11/14/puppet-ssl-explained/}}, \footnote{\purl{https://docs.puppet.com/background/ssl/}} und \footnote{\purl{https://docs.puppet.com/puppet/4.5/reference/ssl\textunderscore autosign.html}}.
 
 \section{Geplante Tasks} \label{sec:ausblick:scheduled_tasks}
 
 Ein zu Beginn vorgesehenes Feature war die Möglichkeit, Tasks auf einen gewissen Zeitpunkt hin zu planen. Dieses wurde aber aufgrund von anderen Prioritäten verworfen. Der Benutzer kann ein Datum und eine Uhrzeit eingeben, welche dann mit dem Task an den Agent übermittelt wird. Dieser plant die Ausführung selbst ein und meldet sich nach Abschluss des Tasks wieder beim Control Center.
 
-Dies hätte auch die Möglichkeit ergeben, einen geplanten Task wieder abbrechen zu können, solange er noch nicht ausgeführt worden ist, womit die \gls{api} auf Agenten-Seite hätte erweitert werden müssen.
+Dies hätte auch die Möglichkeit ergeben, einen geplanten Task wieder abbrechen zu können, solange er noch nicht ausgeführt worden ist, womit die \gls{api} auf Agent-Seite hätte erweitert werden müssen.
 
 Ein Grund gegen dieses Feature war der Wunsch des Industriepartners, dass alle Tasks manuell durch einen Menschen ausgelöst werden müssen. Dies reduziert auch potentielle Probleme mit der Applikation, da Fehler zeitnah und nicht erst bei der Ausführung des Tasks auftauchen würden.
 

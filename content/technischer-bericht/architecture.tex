@@ -146,18 +146,17 @@ Es wurde ein Python-Paket\footnote{Verfügbar auf \purl{https://pypi.python.org/
     \item bereit für Middleware: durch die Trennung der beiden Haupt-Komponenten kann eine Middleware, etwa eine Message Queue (siehe auch Kapitel \ref{sec:ausblick:message_queue}) ohne grossen Aufwand eingeführt werden.
 \end{itemize}
 
-\xxx[Decision, warum nicht Message queue]
 
 \begin{decision}{Message Queue}
-Es wurde beschlossen, dass die Komponenten direkt miteinander kommunizieren anstatt eine Message Queue zu benutzen.
+Es wurde beschlossen, dass die Komponenten direkt miteinander kommunizieren anstatt eine Message Queue zu benutzen. Eine Message Queue würde den Single-Point-of-Failure nur verschieben und eine weitere Abhängigkeit einführen. Das Thema wird im Ausblick (Kapitel \ref{sec:ausblick:message_queue}) näher behandelt.
 \end{decision}
 
 
-Die API selbst ist unkompliziert und zielt darauf ab, dem Entwickler eines Agenten Arbeit abzunehmen sowie die Logik im Control Center zu behalten.
+Die API selbst ist unkompliziert und zielt darauf ab, dem Entwickler eines Agents Arbeit abzunehmen sowie die Logik im Control Center zu behalten.
 
 Um den Netzwerkverkehr in Grenzen zu halten, wurde darauf verzichtet, bei jedem Aufruf alle Informationen zu einem Paket mitzuschicken, sondern es wird hauptsächlich mit dem Hash des Paketes gearbeitet. Sollte das \gls{controlcenter} einen Hash nicht kennen, wird dies dem Agent mitgeteilt und die vollen Paketinformationen werden nachgereicht.
 
-Zudem wird mit Deltas gearbeitet: Der Agent sendet jeweils nur neue Informationen wie etwa neue anstehende Updates. Das Control Center prüft jeweils, ob die Anzahl der gesamthaft vorhandenen Updates noch mit dem Kontrollwert übereinstimmt, welcher ebenfalls durch den Agenten übermittelt wird. Ist eine Diskrepanz vorhanden, muss der Agent die gesamten Informationen erneut übermitteln, da eventuell ein Update auf einem anderen Weg installiert wurde. Allerdings kann hier wieder mit der Liste der Hashes gearbeitet werden, womit sich die Last auf dem Netzwerk in Grenzen hält.
+Zudem wird mit Deltas gearbeitet: Der Agent sendet jeweils nur neue Informationen wie etwa neue anstehende Updates. Das Control Center prüft jeweils, ob die Anzahl der gesamthaft vorhandenen Updates noch mit dem Kontrollwert übereinstimmt, welcher ebenfalls durch den Agent übermittelt wird. Ist eine Diskrepanz vorhanden, muss der Agent die gesamten Informationen erneut übermitteln, da eventuell ein Update auf einem anderen Weg installiert wurde. Allerdings kann hier wieder mit der Liste der Hashes gearbeitet werden, womit sich die Last auf dem Netzwerk in Grenzen hält.
 
 Die API ist Bestandteil des Control Centers, da die meisten Aufrufe vom Agent zum Control Center hin verlaufen. Aber auch in der Gegenrichtung existiert eine (kleine) API. Somit kann auch das Control Center dem Agent Tasks ausliefern. Weitere API-Endpunkte auf Agent-Seite sind durchaus denkbar, aber nicht Bestandteil dieser Arbeit (Siehe auch Kapitel \ref{sec:ausblick:scheduled_tasks}).
 
@@ -180,7 +179,7 @@ Der typische Ablauf einer 'Unterhaltung' zwischen Agent und Control Center läuf
     \item Installierte Pakete (Komplett): Sollte das Control Center nicht alle gesendeten Hashes kennen, schickt der Agent die vollen Informationen.
     \item Updates (Hashes): In regelmässigen Abständen prüft der Agent über \gls{apt}, ob Updates anstehen. Ist das der Fall, übermittelt er die Hashes an das Control Center.
     \item Updates (Komplett): Wenn Hashes unbekannt sind, meldet das Control Center dies und der Agent schickt erneut die kompletten Angaben zu den Updates.
-    \item Auftrag: Ein Benutzer löst auf dem Control Center ein Update auf diesem System aus, worauf ein Task an den entsprechenden Agenten geschickt wird. Dieser enthält Versionsnummer und Namen der Pakete, welche aktualisiert werden sollen sowie eine Task-Nummer um den Task auf dem Control Center zu referenzieren.
+    \item Auftrag: Ein Benutzer löst auf dem Control Center ein Update auf diesem System aus, worauf ein Task an den entsprechenden Agent geschickt wird. Dieser enthält Versionsnummer und Namen der Pakete, welche aktualisiert werden sollen sowie eine Task-Nummer um den Task auf dem Control Center zu referenzieren.
     \item Feedback: Der Agent versucht, das Update über \gls{apt} auszuführen. Die Ausgaben von apt werden gesammelt und zusammen mit dem erreichten Ergebnis (Erfolgreich oder Fehlgeschlagen) zurück an das Control Center geschickt mit der vorhin erhaltenen Task-Nummer.
 \end{enumerate}
 
