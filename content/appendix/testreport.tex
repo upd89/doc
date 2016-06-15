@@ -1,3 +1,421 @@
 \chapter{Testprotokolle} \label{appendix:test_protocols}
 
+\section*{Usability-Tests}
+
+\subsection*{Persona}
+Sie sind ein 32-jähriger System-Administrator und seit 4 Jahren bei der Firma Neun.ch angestellt. Vor kurzem wurde die Software 'Upd8-Neun' eingeführt, mit welcher Sie die mehr als 1000 Server auf dem neuesten Stand halten sollen.
+
+\subsection*{Testfälle}
+
+
+\subsubsection*{Testfall 1}
+
+Sie haben heute früh in der Zeitung auf dem Weg zur Arbeit gelesen, dass es einen ähnlichen Fall wie 'Heartbleed' gibt und man sofort reagieren solle. Im Büro angekommen, finden Sie bereits mehrere Emails zum Thema, welche Sie auffordern, sofort und überall die neueste Version von der Open-Source-Implementierung von SSL zu installieren.
+
+\bigskip
+\textbf{Erwartete Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Seite 'System+Packages' aufrufen
+    \item Suche nach 'open'
+    \item Alle open*-Pakete auswählen oder 'Select All' klicken
+    \item 'Update Selected' anklicken
+    \item Job bestätigen ('Execute Job')
+\end{enumerate}
+
+
+
+\subsubsection*{Testfall 2}
+
+Ein Kunde ruft Sie an und fragt, ob Sie ihm mitteilen können, welche Version vom Paketmanager auf seinem Ubuntu-Server installiert sei.
+
+\bigskip
+\textbf{Erwartete Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item System herausfinden (upd89-03) und auf Seite 'Systems' finden
+    \item Paket ermitteln (apt)
+    \item Installierte Version ermitteln indem State: Installed ausgewählt wird
+    \item Ergebnis: 1.0.1ubuntu2.11
+\end{enumerate}
+
+
+\subsubsection*{Testfall 3}
+
+Ihre Firma erhält einen neuen Lehrling. Es wird ihm aufgetragen, jeden Morgen die anstehenden Updates der Systeme zu prüfen. Da der Lehrling aber noch jung ist, soll er keine Updates auslösen dürfen. Ihr Chef bittet Sie, dem Lehrling einen Zugang zu verschaffen.
+
+\bigskip
+\textbf{Erwartete Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Seite 'Users' aufrufen
+    \item 'New User' anklicken
+    \item Name, E-Mail, Passwort und Passwortbestätigung eingeben
+    \item Als Rolle 'Readonly' auswählen
+    \item Über 'Save' speichern
+\end{enumerate}
+
+
+\subsubsection*{Testfall 4}
+
+Ein Mitarbeiter, Bobby, hat genug von der Technologie und beschlossen, den Drucker sowie ein paar Server mit einem Vorschlaghammer zu demolieren. Nachdem er mit Nachhilfe aus dem Gebäude entfernt wurde, bittet Sie Ihr Chef, doch alle Zugänge des Mitarbeiters zu entfernen.
+
+\bigskip
+\textbf{Erwartete Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Seite 'Users' aufrufen
+    \item Bestimmten User finden (Bobby/Robert/...)
+    \item User löschen und Bestätigen
+\end{enumerate}
+
+
+\subsubsection*{Testfall 5}
+
+Ein weiterer Mitarbeiter wurde von Bobby bei seinem Rauswurf mit dem Bein am Kopf getroffen, kurz bevor er ein Update in Auftrag geben konnte. Ihr Chef bittet Sie, doch schnell das Update fertig abzuschicken, es sei schon alles vorbereitet.
+
+\bigskip
+\textbf{Erwartete Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Seite 'Jobs' aufrufen
+    \item 'Ready to be Sent'-Job oder nach Datum sortieren
+    \item Job anklicken
+    \item 'Execute Job' anklicken
+\end{enumerate}
+
+
+
+
+
+\section*{Durchführungen}
+
+
+
+\subsection*{Durchführung 1}
+
 \xxx
+
+\subsubsection*{Testfall 1}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Besucht Seite 'Pakete'
+    \item Sucht nach 'open'
+    \item Öffnet Paket 'openssl'
+    \item Sieht die verschiedenen Versionen, kommt nicht mehr weiter
+    \item Besucht 'Kombo-Ansicht'
+    \item Sucht wieder nach 'open'
+    \item Klickt Checkbox an
+    \item Möchte 'Update' anklicken, ist aber deaktiviert
+    \item wählt Paket mehrfach an und ab
+    \item gibt schliesslich auf
+\end{enumerate}
+
+\textcolor{Red}{Testfall nicht erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item 'Combination View' nicht aussagekräftiger Menupunkt für die Ansicht.
+    \item Angewähltes Paket ohne ausgewählte Systeme muss auf allen Systemen installiert werden.
+\end{itemize}
+
+
+\subsubsection*{Testfall 2}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Klickt auf 'Overview' im Dashboard bei der System-Box
+    \item befindet sich in der Gruppenzuordnung, sucht nach Paketen
+    \item Öffnet die System-Übersicht über das Menu
+    \item Wählt das erste System aus
+    \item Sucht in der Paket-Liste für dieses System nach einem Paketmanager
+    \item Fragt nach System und Paket (upd89-03 und apt)
+    \item wechselt zum richtigen System und findet das Paket
+    \item Findet die installierte Paket-Version.
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item Button für Systemgruppen-Zuordnung umbenennen
+\end{itemize}
+
+
+\subsubsection*{Testfall 3}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Besucht die User-Seite
+    \item Klickt auf 'New User'
+    \item Gibt Test-Daten für Name, Email und Passwort ein
+    \item Speichert User über 'Save'
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item Proband meint, dass Passwort-Richtlinien sinnvoll wären.
+    \item Im Menupunkt 'Users/Roles' sollte der Unterpunkt 'Users' auch zuerst aufgeführt sein.
+\end{itemize}
+
+
+\subsubsection*{Testfall 4}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Navigiert zu 'Users'
+    \item Sucht mit Ctrl-F nach 'Bobby', findet keinen User
+    \item Geht die Liste manuell durch, findet 'Bob'
+    \item Öffnet Bob
+    \item Klickt auf Löschen, bestätigt die Meldung
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item -
+\end{itemize}
+
+\subsubsection*{Testfall 5}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Öffnet 'Tasks'
+    \item Öffnet den obersten Task
+    \item Task ist bereits beendet, User findet keinen Weg diesen Task zu starten
+\end{enumerate}
+
+\textcolor{Red}{Testfall nicht erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item Eventuell Unterschied Task/Job erklären
+\end{itemize}
+
+
+
+\subsection*{Durchführung 2}
+
+\xxx
+
+\subsubsection*{Testfall 1}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item 
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item 
+\end{itemize}
+
+
+\subsubsection*{Testfall 2}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item 
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item 
+\end{itemize}
+
+
+\subsubsection*{Testfall 3}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item 
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item 
+\end{itemize}
+
+
+\subsubsection*{Testfall 4}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item 
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item 
+\end{itemize}
+
+\subsubsection*{Testfall 5}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item 
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item 
+\end{itemize}
+
+
+
+\subsection*{Durchführung 3}
+
+
+
+\subsubsection*{Testfall 1}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Klickt auf 'Systems+Packages'
+    \item Sucht direkt nach 'openssl'
+    \item Setzt den Haken bei openssl
+    \item Sucht Update-Button
+    \item Findet ihn unten links
+    \item Klickt auf Update-Button
+    \item Bestätigt Job
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item Name für 'Systems+Packages' nicht 100\% klar, aber nach erster Benützung verständlich. Ein Vorschlag für einen besseren Namen fiel dem Probanden nicht ein.
+\end{itemize}
+
+
+\subsubsection*{Testfall 2}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Fragt wegen Server-Name nach
+    \item Ruft Seite 'Systems' auf
+    \item Filtert nach 'upd89-03'
+    \item findet apt unter installierten Paketen
+    \item Version ist 1.0.1ubunut2.11
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item Filter-Funktion nach Paket-Status oben links beim System-Detail ist leicht zu übersehen.
+\end{itemize}
+
+
+\subsubsection*{Testfall 3}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Besucht Seite 'Users'
+    \item Klickt auf 'New User'
+    \item Fragt nach Namen/Email-Adresse des Lernenden
+    \item Rolle korrekt gefunden
+    \item Passwort zu kurz
+    \item Neues Passwort
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item Obwohl die Rolle 'Readonly' hiess, war nicht ganz klar, ob das die richtige Rolle sei. Auf Nachfrage, wie man denn sichergehen könne, erstelle der Proband eine neue Rolle 'Lehrling', gab ihr keine User-Verwaltungs-Rechte und ein Permission-Level von 0 und wies sie dem erstellten User zu.
+    \item Passwort-Einschränkungen sollten gemäss Proband besser schon sichtbar sein, bevor die Meldung erscheint dass das gewählte Passwort nicht den Richtlinien entspricht.
+\end{itemize}
+
+
+\subsubsection*{Testfall 4}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Öffnet Seite 'Users'
+    \item Findet Bob in der Liste
+    \item Löscht Benutzer
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item -
+\end{itemize}
+
+\subsubsection*{Testfall 5}
+
+\textbf{Schritte:}
+
+\begin{enumerate}[noitemsep,nolistsep]
+    \item Jobs
+    \item Sieht 'ready to be sent'
+    \item Öffnet Job
+    \item Execute
+\end{enumerate}
+
+\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+
+\bigskip
+\textbf{Bemerkungen:}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item -
+\end{itemize}
