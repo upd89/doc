@@ -60,13 +60,41 @@ Der optionale Punkt 15 wurde nicht erreicht. Systeme und Pakete müssen manuell 
 
 Die Vorgabe, dass Rails benutzt werden sollte, war einerseits ein kleiner Nachteil, da praktisch noch kein Know-How im Team vorhanden war; andererseits war es auch ein Vorteil, da Rails bei der Entwicklung viel Arbeit abnahm. Bei einer Durchführung ohne Rails hätte ein anderes Web-Applikations-Framework verwendet werden müssen, wo das Know-How ebenfalls nicht vorhanden gewesen wäre.
 
-Dass einige Features nicht umgesetzt werden konnten (primär das \hyperref[sec:ausblick:regelwerk]{Regelwerk} und weitere Features im Kapitel \hyperref[sec:ausblick]{Ausblick}) ist schade, aber nicht tragisch. Auch dass die Projektpartner interessiert am Projektverlauf waren und eigene Ideen einbrachten, zeugt von einer prinzipiell guten Idee. Ob das Projekt von der Open-Source-Gemeinde angenommen und benutzt wird, bleibt abzuwarten.
-
-\xxx[evtl zu umgangssprachlich mit dem 'nicht tragisch'?]
+Dass einige Features nicht umgesetzt werden konnten (beispielsweise das \hyperref[sec:ausblick:regelwerk]{Regelwerk} und weitere Features im Kapitel \hyperref[sec:ausblick]{Ausblick}) ist schade, trotzdem konnten alle primären Anforderungen erfüllt werden. Auch dass die Projektpartner interessiert am Projektverlauf waren und eigene Ideen einbrachten, zeugt von einer prinzipiell guten Idee. Ob das Projekt von der Open-Source-Gemeinde angenommen und benutzt wird, bleibt abzuwarten.
 
 \section{Softwaredokumentation} \label{documentation}
 
 In diesem Kapitel wird kurz beschrieben, wie die Software benutzt werden soll. Im Anhang (Kapitel \ref{appendix:documentation}) ist die komplette Anleitung zu finden, so wie sie auf Github hinterlegt ist. Da die öffentlichen Dokumente in Englisch verfasst wurden (Siehe auch \ref{sec:implementation:documentation}), ist dort auch die Softwaredokumentation auf Englisch.
+
+\subsection{\gls{ca}}
+Für die Absicherung der Kommunikation zwischen Control Center und Agent verwenden wir Zertifikate, die von einer eigenen \gls{ca} signiert sind (vgl. Kapitel \ref{sec:security}).
+
+\begin{srclst}[label=lst:ca:installation1]{bash}{Setup Easy-RSA}
+sudo apt install easy-rsa
+make-cadir ca
+cd ca
+sed -i 's/extendedKeyUsage.*/extendedKeyUsage=serverAuth,clientAuth/g' openssl*.cnf
+sed -i 's/export KEY_SIZE=.*/export KEY_SIZE=4096/g' vars
+nano vars
+\end{srclst}
+
+\begin{srclst}[label=lst:ca:installation2]{bash}{CA Konfiguration}
+export KEY_COUNTRY="US"
+export KEY_PROVINCE="CA"
+export KEY_CITY="SanFrancisco"
+export KEY_ORG="Fort-Funston"
+export KEY_EMAIL="me@myhost.mydomain"
+export KEY_OU="MyOrganizationalUnit"
+\end{srclst}
+
+\begin{srclst}[label=lst:ca:installation3]{bash}{Generieren der Zertifikate}
+./clean-all
+./pkitool --initca
+./pkitool --server controlcenter.your-domain.org
+./pkitool agent1.your-domain.org
+./pkitool agent2.your-domain.org
+./pkitool agent3.your-domaon.org
+\end{srclst}
 
 \subsection*{Control Center}
 
@@ -81,8 +109,6 @@ Es gelten folgende Voraussetzungen, damit ein reibungsloser Betrieb der Software
     \item Ruby 2.2.3 und Rails 4.2.4 müssen installiert sein
     \item Postgresql-9.3 muss installiert und konfiguriert sein
 \end{itemize}
-
-\xxx[CA aufsetzen, wie?]
 
 \subsubsection*{Installation}
 

@@ -66,37 +66,29 @@ Ziel war es, alle Risiken bis Ende Elaborations-Phase entweder komplett auszusch
 
 Es wurden nur für das Projekt relevante Risiken analysiert. Risiken wie 'Krankheit' wurden absichtlich nicht notiert, da es hier keine sinnvollen Präventionsmassnahmen gibt.
 
-\xxx[FIX TABLE]
-
 \begin{landscape}
-% Please add the following required packages to your document preamble:
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[H]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{llllllll}
-ID  & Risiko                                                                                                                                                                       & Schadens-potenzial (h) & Eintrittswahrschein-lichkeit (\%) & Schaden gewichtet (h) & Gewichtung                          & Präventionsmassnahmen                                                                                                                                                                 & Massnahme bei Eintritt                                                                                                                                        \\
-R01 & \begin{tabular}[c]{@{}l@{}}Regelwerk zwischen Updates und Systemen\\ zu komplex\end{tabular}                                                                                 & 40                     & 25\%                              & 10                    & \cellcolor[HTML]{FE0000}Sehr Schwer & \begin{tabular}[c]{@{}l@{}}Klare Anforderungen definieren, Erwartungen des\\ Auftraggebers früh abholen.\end{tabular}                                                                 & \begin{tabular}[c]{@{}l@{}}Schnell reagieren und Auftraggeber\\ kommunizieren, dass der Aufwand zu gross\\ wird. Einschränken der Anforderungen.\end{tabular} \\
-R02 & Komplexes Permission-System für Benutzer                                                                                                                                     & 24                     & 25\%                              & 6                     & \cellcolor[HTML]{FD6864}Schwer      & \begin{tabular}[c]{@{}l@{}}In Elaborations-Phase auf Rechtesystem einigen, so\\ dass Machbarkeit gewährleistet ist.\end{tabular}                                                      & \begin{tabular}[c]{@{}l@{}}Wenn möglich: Anforderungen einschränken.\\ Andernfalls Anforderung komplett weglassen.\end{tabular}                               \\
-R03 & \begin{tabular}[c]{@{}l@{}}Ruby ist für Umsetzung des Agents resp.\\ Anschluss an apt nicht geeignet\end{tabular}                                                            & 16                     & 25\%                              & 4                     & \cellcolor[HTML]{FFCB2F}Mittel      & So früh wie möglich Eignung von Ruby für Agent überprüfen.                                                                                                                            & \begin{tabular}[c]{@{}l@{}}Python benutzen, wo es bereits ähnliche\\ Projekte gibt.\end{tabular}                                                              \\
-R04 & \begin{tabular}[c]{@{}l@{}}apt-Schnittstelle ist nicht so umfangreich wie\\ erwartet, z.B. lässt sich nicht erkennen,\\ welche Updates einen Neustart erfordern\end{tabular} & 4                      & 50\%                              & 2                     & \cellcolor[HTML]{009901}Gering      & Frühzeitiges Abklären des Umfangs der aptSchnittstelle.                                                                                                                               & \begin{tabular}[c]{@{}l@{}}a) Selbst erstellte Schnittstelle einsetzen\\ b) Anpassung der Aufgabe, falls nicht anders\\ lösbar.\end{tabular}                  \\
-R05 & Zertifikat-Handling ist komplexer als erwartet                                                                                                                               & 8                      & 10\%                              & 0.8                   & \cellcolor[HTML]{34FF34}Sehr Gering & Machbarkeit früh abklären.                                                                                                                                                            & Spezialisten (HSR: Steffen; nine.ch) anfragen.                                                                                                                \\
-R06 & \begin{tabular}[c]{@{}l@{}}Viele gleichzeitige Anfragen bereiten\\ Probleme beim Control-Center (Last)\end{tabular}                                                          & 16                     & 25\%                              & 4                     & \cellcolor[HTML]{009901}Gering      & \begin{tabular}[c]{@{}l@{}}Auslastung einplanen, mit erstem stabilem Prototypen\\ Last-Tests fahren.\end{tabular}                                                                     & Spezialisten (HSR: Steffen; nine.ch) anfragen.                                                                                                                \\
-R07 & Auftraggeber mit Umsetzung nicht zufrieden                                                                                                                                   & 24                     & 25\%                              & 6                     & \cellcolor[HTML]{FD6864}Schwer      & \begin{tabular}[c]{@{}l@{}}Use-Cases, Scope und NFAs früh teilen und bestätigen\\ lassen. Regelmässige Meetings mit Statusbesprechung\\ und Planung der nächsten Wochen.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Meeting mit Betreuer und Auftraggeber\\ einberufen.\end{tabular}                                                                  
+\caption{Alle berücksichtigten Risiken}
+\label{tab:risikoanalyse}
+\begin{tabular}{|l|p{4cm}|l|l|l|l|p{5cm}|p{5cm}|}
+\hline
+ID  & Risiko                                                        & SP\footnotemark[1] & EW\footnotemark[2]   & SG\footnotemark[3]  & Gewichtung                          & Präventionsmassnahmen                                                                            & Massnahme bei Eintritt                                                                     \\ \hline
+R01 & Regelwerk zwischen Updates und Systemen zu komplex            & 40 & 25\% & 10  & \cellcolor[HTML]{FE0000}Sehr Schwer & Klare Anforderungen definieren, Erwartungen des Auftraggebers früh abholen.                      & Einschränken der Anforderungen.                                                            \\
+R02 & Komplexes Permission-System für Benutzer                      & 24 & 25\% & 6   & \cellcolor[HTML]{FD6864}Schwer      & In Elaborations-Phase auf Rechtesystem einigen, so dass Machbarkeit gewährleistet ist.           & Anforderungen einschränken oder komplett weglassen.                                        \\
+R03 & Ruby für Agent-Umsetzung oder Anschluss an apt nicht geeignet & 16 & 25\% & 4   & \cellcolor[HTML]{FFCB2F}Mittel      & So früh wie möglich Eignung von Ruby für Agent überprüfen.                                       & Python benutzen, wo es ähnliche Projekte gibt.                                             \\
+R04 & apt-Schnittstelle weniger umfangreich als erwartet            & 4  & 50\% & 2   & \cellcolor[HTML]{009901}Gering      & Frühzeitiges Abklären des Umfangs der apt-Schnittstelle.                                         & Selbst erstellte Schnittstelle einsetzen oder Aufgabe anpassen, falls nicht anders lösbar. \\
+R05 & Zertifikat-Handling ist komplexer als erwartet                & 8  & 10\% & 0.8 & \cellcolor[HTML]{34FF34}Sehr Gering & Machbarkeit früh abklären.                                                                       & Spezialisten\footnotemark[4] anfragen. \\
+R06 & Control Center durch gleichzeitige Anfragen überfordert       & 16 & 25\% & 4   & \cellcolor[HTML]{009901}Gering      & Auslastung einplanen, mit erstem stabilem Prototypen Last-Tests fahren.                   & Spezialisten\footnotemark[4] anfragen. \\
+R07 & Auftraggeber mit Umsetzung unzufrieden                        & 24 & 25\% & 6   & \cellcolor[HTML]{FD6864}Schwer      & Use-Cases, Scope und NFAs früh bestätigen lassen. Regelmässige Meetings mit gemeinsamer Planung. & Meeting mit Betreuer und Auftraggeber einberufen.                                          \\ \hline
 \end{tabular}
 \end{table}
-\end{landscape}
 
 
-\begin{landscape}
-	\begin{table}[H]
-		\centering
-		\includegraphics[width=1.3\textwidth,keepaspectratio]{Risikoanalyse.pdf}
-		\caption{Alle berücksichtigten Risiken}
-		\label{tab:risikoanalyse}
-	\end{table}
+\footnotetext[1]{Schadenspotenzial (h)}
+\footnotetext[2]{Eintrittswahrscheinlichkeit (\%)}
+\footnotetext[3]{Schaden gewichtet (h)}
+\footnotetext[4]{\gls{nine} oder Prof. Steffen (HSR)}
+
 \end{landscape}
 
 \subsection*{Kritische Risiken}
