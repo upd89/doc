@@ -62,11 +62,33 @@ An diesem Projekt arbeiten die beiden unten aufgeführten Informatik-Studenten. 
 
 Um die potentiellen Risiken während des Projekts zu sammeln, wurde eine Risiko-Checkliste verwendet. Für jedes Risiko wurde ein zusätzlicher Aufwand in Stunden geschätzt, welcher anfallen würde wenn das Risiko eintritt. Multipliziert mit der geschätzten Eintrittswahrscheinlichkeit ergab dies einen gewichteten Mehraufwand. Dieser wurde in fünf Kategorien (sehr gering bis sehr schwer) eingestuft.
 
-Ziel war es, alle Risiken bis Ende Elaborations-Phase entweder komplett auszuschliessen oder soweit zu entschärfen, dass beim Eintreten Sicherheitsmassnahmen greifen und keine grosse Verzögerung oder anderen Schaden verursachen.
+Ziel war es, alle Risiken bis Ende Elaborations-Phase entweder komplett auszuschliessen oder soweit zu entschärfen, dass beim Eintreten Sicherheitsmassnahmen greifen und keine grosse Verzögerung oder anderen Schaden verursacht werden.
 
 Es wurden nur für das Projekt relevante Risiken analysiert. Risiken wie 'Krankheit' wurden absichtlich nicht notiert, da es hier keine sinnvollen Präventionsmassnahmen gibt.
 
 \xxx[FIX TABLE]
+
+\begin{landscape}
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[H]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{llllllll}
+ID  & Risiko                                                                                                                                                                       & Schadens-potenzial (h) & Eintrittswahrschein-lichkeit (\%) & Schaden gewichtet (h) & Gewichtung                          & Präventionsmassnahmen                                                                                                                                                                 & Massnahme bei Eintritt                                                                                                                                        \\
+R01 & \begin{tabular}[c]{@{}l@{}}Regelwerk zwischen Updates und Systemen\\ zu komplex\end{tabular}                                                                                 & 40                     & 25\%                              & 10                    & \cellcolor[HTML]{FE0000}Sehr Schwer & \begin{tabular}[c]{@{}l@{}}Klare Anforderungen definieren, Erwartungen des\\ Auftraggebers früh abholen.\end{tabular}                                                                 & \begin{tabular}[c]{@{}l@{}}Schnell reagieren und Auftraggeber\\ kommunizieren, dass der Aufwand zu gross\\ wird. Einschränken der Anforderungen.\end{tabular} \\
+R02 & Komplexes Permission-System für Benutzer                                                                                                                                     & 24                     & 25\%                              & 6                     & \cellcolor[HTML]{FD6864}Schwer      & \begin{tabular}[c]{@{}l@{}}In Elaborations-Phase auf Rechtesystem einigen, so\\ dass Machbarkeit gewährleistet ist.\end{tabular}                                                      & \begin{tabular}[c]{@{}l@{}}Wenn möglich: Anforderungen einschränken.\\ Andernfalls Anforderung komplett weglassen.\end{tabular}                               \\
+R03 & \begin{tabular}[c]{@{}l@{}}Ruby ist für Umsetzung des Agents resp.\\ Anschluss an apt nicht geeignet\end{tabular}                                                            & 16                     & 25\%                              & 4                     & \cellcolor[HTML]{FFCB2F}Mittel      & So früh wie möglich Eignung von Ruby für Agent überprüfen.                                                                                                                            & \begin{tabular}[c]{@{}l@{}}Python benutzen, wo es bereits ähnliche\\ Projekte gibt.\end{tabular}                                                              \\
+R04 & \begin{tabular}[c]{@{}l@{}}apt-Schnittstelle ist nicht so umfangreich wie\\ erwartet, z.B. lässt sich nicht erkennen,\\ welche Updates einen Neustart erfordern\end{tabular} & 4                      & 50\%                              & 2                     & \cellcolor[HTML]{009901}Gering      & Frühzeitiges Abklären des Umfangs der aptSchnittstelle.                                                                                                                               & \begin{tabular}[c]{@{}l@{}}a) Selbst erstellte Schnittstelle einsetzen\\ b) Anpassung der Aufgabe, falls nicht anders\\ lösbar.\end{tabular}                  \\
+R05 & Zertifikat-Handling ist komplexer als erwartet                                                                                                                               & 8                      & 10\%                              & 0.8                   & \cellcolor[HTML]{34FF34}Sehr Gering & Machbarkeit früh abklären.                                                                                                                                                            & Spezialisten (HSR: Steffen; nine.ch) anfragen.                                                                                                                \\
+R06 & \begin{tabular}[c]{@{}l@{}}Viele gleichzeitige Anfragen bereiten\\ Probleme beim Control-Center (Last)\end{tabular}                                                          & 16                     & 25\%                              & 4                     & \cellcolor[HTML]{009901}Gering      & \begin{tabular}[c]{@{}l@{}}Auslastung einplanen, mit erstem stabilem Prototypen\\ Last-Tests fahren.\end{tabular}                                                                     & Spezialisten (HSR: Steffen; nine.ch) anfragen.                                                                                                                \\
+R07 & Auftraggeber mit Umsetzung nicht zufrieden                                                                                                                                   & 24                     & 25\%                              & 6                     & \cellcolor[HTML]{FD6864}Schwer      & \begin{tabular}[c]{@{}l@{}}Use-Cases, Scope und NFAs früh teilen und bestätigen\\ lassen. Regelmässige Meetings mit Statusbesprechung\\ und Planung der nächsten Wochen.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Meeting mit Betreuer und Auftraggeber\\ einberufen.\end{tabular}                                                                  
+\end{tabular}
+\end{table}
+\end{landscape}
+
 
 \begin{landscape}
 	\begin{table}[H]
@@ -136,7 +158,7 @@ Das Erstellen der Dokumentation fand in ShareLatex\footnote{\purl{https://www.sh
 	\label{fig:pm:entwicklungsumgebung}
 \end{figure}
 
-Zu Testzwecken wurden von \gls{nine} 10 Server gesponsert, welche  in 3 Gruppen eingeteilt wurden: Development, Test, Demo. Jede Gruppe enthält ein Control-Center sowie 2-3 Agent-Systeme. Die Dev-Systeme dienen dem aktiven Entwickeln des Frontends sowie zum Testen von neuen Features. Auf den Test-Systemen wurden nur stabile Versionen des Control-Centers installiert und dienten mehrheitlich dem Testen der Kommunikation mit den Agents. Auf den Systemen der Gruppe Demo wurden nur getestete Versionen aufgespielt. Diese dienten als Demonstrationszweck für die Industriepartner und Betreuer.
+Zu Testzwecken wurden von \gls{nine} 10 Server gesponsert, welche  in 3 Gruppen eingeteilt wurden: Development, Test, Demo. Jede Gruppe enthält ein Control-Center sowie 2-3 Agent-Systeme. Die Dev-Systeme dienten dem aktiven Entwickeln des Frontends sowie zum Testen von neuen Features. Auf den Test-Systemen wurden nur stabile Versionen des Control-Centers installiert und dienten mehrheitlich dem Testen der Kommunikation mit den Agents. Auf den Systemen der Gruppe Demo wurden nur getestete Versionen aufgespielt. Diese dienten als Demonstrationszweck für die Industriepartner und Betreuer.
 
 Es wurden sowohl die eigenen Notebooks als auch die von der HSR zur Verfügung gestellten Arbeitsplätze benutzt. Daneben waren zwei VMs der HSR im Einsatz; eine für Redmine und eine für Entwicklungen und Testing der Software. Der Source Code wurde über Github verwaltet.
 Für Ruby und Rails wurde angestrebt, eine möglichst aktuelle Version (Ruby 2.2 respektive Rails 4.2) zu unterstützen. Als Datenbank-System wurde PostgreSQL eingesetzt. Javascript wurde primär für kleinere Optimierungen und Erleichterungen benutzt.

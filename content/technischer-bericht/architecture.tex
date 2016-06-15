@@ -4,7 +4,7 @@ Mit begründeten Architekturentscheidungen, Mit Diskussion, wie Q-Attribute sich
 
 
 
-\section{Architektur}
+\section{Architektur} \label{sec:architecture}
 
 \subsection*{Control Center}
 
@@ -107,13 +107,10 @@ Die Klassen orientieren sich an dem Klassenmodell (Abbildung \ref{fig:tec:agentc
 
 \subsubsection*{Eigene Libraries}
 
-\xxx[Clientzertifikat Schreibweise?]
-\xxx[CA als gls]
-
 \begin{labeling}{httpsclientauthconnection.py}
     \item [bottletlsdaemon.py] Lässt einen Webserver als Daemon im Hintergrund laufen und stellt die Anforderungen an die HTTPS-Verbindung sicher. Wurde inspiriert durch das Python-Modul BottleDaemon\footnote{\purl{https://pypi.python.org/pypi/BottleDaemon/0.1.2}}.
     \item [configloader.py] Liest Werte aus einer angegebenen Konfigurationsdatei.
-    \item [httpsclientauthconnection.py] Stellt sicher, dass Verbindungen mit einem Clientzertifikat abgesichert sund und dass die Gegenstelle mit einem spezifischen CA-Zertifikat unterschrieben wurde.
+    \item [httpsclientauthconnection.py] Stellt sicher, dass Verbindungen mit einem Clientzertifikat abgesichert sund und dass die Gegenstelle mit einem spezifischen \gls{certificateauthority}-Zertifikat unterschrieben wurde.
     \item [log.py] Loggt bei Bedarf auf den Bildschirm oder in eine Datei.
     \item [mission.py] Koordiniert die Abläufe für eine spezifische Aufgabe.
     \item [persist.py] Abstrahiert die persistente Speicherung von Daten. Im Hintergrund wird shelve benutzt.
