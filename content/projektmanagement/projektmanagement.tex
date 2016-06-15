@@ -13,11 +13,11 @@ Das gesamte Projekt wurde im Stil von \gls{rup} geführt und dementsprechend in 
 	\label{fig:pm:project_overview}
 \end{figure}
 
-Die Inception-Phase diente dazu, den Auftrag zu definieren und sich gemainsam auf klare Ziele und ein grobes Vorgehen zu einigen. Dazu kam die Installation der Infrastruktur, soweit bekannt.
+Die Inception-Phase diente dazu, den Auftrag zu definieren und sich gemeinsam auf klare Ziele und ein grobes Vorgehen zu einigen. Dazu kam die Installation der Infrastruktur.
 
-In der Elaborations-Phase wurden weitere Informationen gesammelt. Ein Grossteil der Use-Cases und Arbeitspakete wurden definiert sowie das Domänenmodell erstellt. Zudem wurden die wichtigsten Risiken (Siehe auch \ref{sec:risiken}) definiert. Hauptziel war das Planen der Construction-Phase.
+In der Elaborations-Phase wurden weitere Informationen gesammelt. Ein Grossteil der Use-Cases und Arbeitspakete wurden definiert sowie das Domänenmodell erstellt. Zudem wurden die wichtigsten Risiken (Siehe auch \ref{sec:risiken}) definiert. Hauptziel war es, die Construction-Phase zu planen.
 
-In der Construction-Phase wurde nach agiler Vorgehensweise gearbeitet, so dass der Auftraggeber die Schwerpunkte setzen und priorisieren konnte (dazu mehr in Kapitel \ref{sec:pm:sprints}. Hier wurde entwickelt und die fertige Applikation entwickelt.
+In der Construction-Phase wurde nach agiler Vorgehensweise gearbeitet, so dass der Auftraggeber die Schwerpunkte setzen und priorisieren konnte (dazu mehr in Kapitel \ref{sec:pm:sprints}. Hier wurde die fertige Applikation entwickelt.
 
 Die Transition-Phase diente der Übergabe und Auslieferung sowie der Fertigstellung der Dokumentation.
 
@@ -54,17 +54,19 @@ An diesem Projekt arbeiten die beiden unten aufgeführten Informatik-Studenten. 
     Ueli Bosshard & Philipp Christen \\
     Stärken: Systemtechnik, OS, Netzwerk, DB
     &
-    Stärken: Frontend, UX \\
+    Stärken: Web-Entwicklung, Frontend, UX, Mockups \\
     \hline
 \end{tabularx}
 
 \section{Risiken}\label{sec:risiken}
 
-Um die potentiellen Risiken während des Projekts zu sammeln, wurde eine  Risiko-Checkliste verwendet. Für jedes Risiko wurde ein zusätzlicher Aufwand in Stunden geschätzt, welcher anfallen würde wenn das Risiko eintritt. Multipliziert mit der geschätzten Eintrittswahrscheinlichkeit ergab dies einen gewichteten Mehraufwand. Dieser wurde in 5 Kategorien (sehr gering bis sehr schwer) eingestuft.
+Um die potentiellen Risiken während des Projekts zu sammeln, wurde eine Risiko-Checkliste verwendet. Für jedes Risiko wurde ein zusätzlicher Aufwand in Stunden geschätzt, welcher anfallen würde wenn das Risiko eintritt. Multipliziert mit der geschätzten Eintrittswahrscheinlichkeit ergab dies einen gewichteten Mehraufwand. Dieser wurde in fünf Kategorien (sehr gering bis sehr schwer) eingestuft.
 
-Ziel war es, alle Risiken bis Ende Elaborations-Phase entweder komplett auszuschliessen oder soweit zu Entschärfen, dass beim Eintreten Sicherheitsmassnahmen greifen und keine grosse Verzögerung oder anderen Schaden verursachen.
+Ziel war es, alle Risiken bis Ende Elaborations-Phase entweder komplett auszuschliessen oder soweit zu entschärfen, dass beim Eintreten Sicherheitsmassnahmen greifen und keine grosse Verzögerung oder anderen Schaden verursachen.
 
-Es wurden nur für das Projekt relevante Risiken analysiert. Risiken wie "Krankheit" wurden absichtlich nicht notiert, da es hier keine sinnvollen Präventionsmassnahmen gibt.
+Es wurden nur für das Projekt relevante Risiken analysiert. Risiken wie 'Krankheit' wurden absichtlich nicht notiert, da es hier keine sinnvollen Präventionsmassnahmen gibt.
+
+\xxx[FIX TABLE]
 
 \begin{landscape}
 	\begin{table}[H]
@@ -93,13 +95,13 @@ Die besonders kritischen Risiken werden hier kurz erläutert und genauer beschri
 
 
 \projectrisk{R01}{Regelwerk zwischen Updates und Systemen zu komplex}
-{Es war von Beginn an nicht klar, wie das Regelwerk genau aussehen soll, welches die Kombinationen von Systemen und Updates einschränt. Im schlimmsten Fall können es beliebig tiefe Abhängigkeiten sein, welche über mehrere Gruppen hinweg geprüft werden müssen.}
+{Es war von Beginn an nicht klar, wie das Regelwerk genau aussehen soll, welches die Kombinationen von Systemen und Updates einschränkt. Im schlimmsten Fall können es beliebig tiefe Abhängigkeiten sein, welche über mehrere Gruppen hinweg geprüft werden müssen.}
 {In der Elaborations-Phase sollte so gut wie möglich geklärt werden, in welcher Form das Regelwerk entstehen soll. Sobald sich herausstellt, dass die gewählte Tiefe der Umsetzung zu viel Aufwand verursacht, wird mit dem Auftraggeber entschieden, ob die Anforderung gegebenenfalls eingegrenzt werden kann.}
 
 
 \projectrisk{R02}{Komplexes Permission-System für User}
 {Wie beim Regelwerk zwischen Updates und Systemen können die Berechtigungen der Benutzer beliebig fein konzeptioniert werden. Dadurch müssen nicht nur die Berechtigungen selbst geprüft werden, sondern auch Abhängigkeiten unter den Berechtigungen - es ist sinnlos, wenn man einem Benutzer das Updaten einer spezifischen Gruppe verbietet, aber das Erstellen und Bearbeiten einer Gruppe erlaubt ist.}
-{Wiederum soll in der Elaboration-Phase mit dem Auftraggeber das Rechtesystem vereinbart werden, so dass die Machbarkeit gewährleistet ist. Falls dies nicht gelingt oder sich als schwerer als geplant entpuppt, sollen wenn möglich die Anforderungen eingeschränkt werden. Falls es keine brauchbare Lösung gibt, muss auf das Rechtesystem verzichtet werden.}
+{Wiederum soll in der Elaboration-Phase mit dem Auftraggeber das Rechtesystem vereinbart werden um die Machbarkeit zu gewährleisten. Falls dies nicht gelingt oder sich als schwerer als geplant entpuppt, sollen wenn möglich die Anforderungen eingeschränkt werden. Falls es keine brauchbare Lösung gibt, muss auf das Rechtesystem verzichtet werden.}
 
 
 \projectrisk{R07}{Auftraggeber mit Umsetzung nicht zufrieden}
@@ -112,7 +114,7 @@ Die kritischen Risiken R01 und R02 konnten entschärft werden. Das Regelwerk (R0
 
 Das Permission-System für die Benutzer (R02) wurde vereinfacht und als Rechte-Skala (PermissionLevel, siehe auch Kapitel \ref{sec:domain:permission_level}) definiert. Dies erfüllt die Anforderungen an das Feature, aber ist weniger komplex umzusetzen als alternative Lösungen (siehe dazu die Mockups in Kapitel \ref{sec:design:permissions}).
 
-
+\xxx[Comment zu R07!]
 
 
 \section{Infrastruktur} \label{sec:pm:infrastructure}
@@ -134,7 +136,7 @@ Das Erstellen der Dokumentation fand in ShareLatex\footnote{\purl{https://www.sh
 	\label{fig:pm:entwicklungsumgebung}
 \end{figure}
 
-Zu Testzwecken wurden von \gls{nine} 10 Server gesponsert, welche  in 3 Gruppen eingeteilt wurden: Dev, Test, Demo. Jede Gruppe enthält ein Control-Center sowie 2-3 Agent-Systeme. Die Dev-Systeme dienen zum aktiven Entwickeln am Frontend sowie zum Testen von neuen Features. Auf den Test-Systemen wurden nur stabile Versionen des Control-Centers installiert und dienten mehrheitlich zum Testen der Kommunikation mit den Agents. Auf den Systemen der Gruppe Demo wurden nur getestete Versionen aufgespielt und dienten als Demonstrationszweck für die Industriepartner und Betreuer.
+Zu Testzwecken wurden von \gls{nine} 10 Server gesponsert, welche  in 3 Gruppen eingeteilt wurden: Development, Test, Demo. Jede Gruppe enthält ein Control-Center sowie 2-3 Agent-Systeme. Die Dev-Systeme dienen dem aktiven Entwickeln des Frontends sowie zum Testen von neuen Features. Auf den Test-Systemen wurden nur stabile Versionen des Control-Centers installiert und dienten mehrheitlich dem Testen der Kommunikation mit den Agents. Auf den Systemen der Gruppe Demo wurden nur getestete Versionen aufgespielt. Diese dienten als Demonstrationszweck für die Industriepartner und Betreuer.
 
 Es wurden sowohl die eigenen Notebooks als auch die von der HSR zur Verfügung gestellten Arbeitsplätze benutzt. Daneben waren zwei VMs der HSR im Einsatz; eine für Redmine und eine für Entwicklungen und Testing der Software. Der Source Code wurde über Github verwaltet.
 Für Ruby und Rails wurde angestrebt, eine möglichst aktuelle Version (Ruby 2.2 respektive Rails 4.2) zu unterstützen. Als Datenbank-System wurde PostgreSQL eingesetzt. Javascript wurde primär für kleinere Optimierungen und Erleichterungen benutzt.
@@ -143,6 +145,8 @@ Für Ruby und Rails wurde angestrebt, eine möglichst aktuelle Version (Ruby 2.2
 \section{Arbeitsablauf}
 
 Um die Qualität der abgeschlossenen Tasks zu erhöhen und sicherzustellen wurde das 'Vier-Augen-Prinzip' angewendet. Jeder Task musste, bevor dessen Status auf 'Erledigt' gesetzt wurde, vom jeweils anderen Teammitglied kontrolliert und als akzeptabel eingestuft hat. Dazu existierten unterschiedliche Bedingungen: Bei Unterstützungstasks (z.B. Dokumentation o. Ä.) wurde, wo sinnvoll, eine Liste von Akzeptanzkriterien im Task selbst definiert; bei Umsetzungstasks musste der Code über Unit-Tests getestet und gelintet sein.
+
+\xxx[explain linting?!]
 
 Der normale Workflow eines Tasks in Redmine sah deshalb folgendermassen aus:
 
@@ -153,7 +157,7 @@ Der normale Workflow eines Tasks in Redmine sah deshalb folgendermassen aus:
 	\label{fig:pm:workflow}
 \end{figure}
 
-Wenn der Reviewer mit dem Resultat des Tasks nicht zufrieden war oder noch Punkte oder Fragen offen waren, wurde der entsprechende Task wieder an den ursprünglichen Bearbeiter zurückgewiesen und in den Status 'In Bearbeitung' gesetzt. Das Feedback dazu konnte mündlich oder via Kommentar-Funktion erfolgen.
+Wenn der Reviewer mit dem Resultat des Tasks nicht zufrieden war oder noch offene Punkte oder Fragen hatte, wurde der entsprechende Task wieder an den ursprünglichen Bearbeiter zurückgewiesen und in den Status 'In Bearbeitung' gesetzt. Das Feedback dazu konnte mündlich oder via Kommentar-Funktion erfolgen.
 
 \section{Qualitätsmanagement}
 
@@ -163,12 +167,12 @@ Um den Stil des Source-Codes einheitlich zu halten, wurde der 'Ruby On Rails Sty
 
 \subsection*{Testing}
 
-Wo immer sinnvoll wurden Unit-Tests für das Testen der Funktionalität verwendet. Es wurde eine Sammlung von Unit-Tests entstehen, welche die Applikation automatisch testeten.
+Wo immer sinnvoll wurden Unit-Tests für das Testen der Funktionalität verwendet. Es wurde eine Sammlung von Unit-Tests erstellt, welche die Applikation automatisch testeten.
 
-Dabei wurde aber nicht stur der Ansatz des Test-Driven Developments verfolgt, es sollten insbesondere kritische Komponenten ausgiebig getestet werden um die Nachhaltigkeit des Projekts sicher zu stellen.
+Dabei wurde aber nicht stur der Ansatz des Test-Driven Developments verfolgt, es sollten insbesondere kritische Komponenten ausgiebig getestet werden, um die Nachhaltigkeit des Projekts sicher zu stellen.
 
 Die Umsetzung wurde im Kapitel \ref{sec:umsetzung:testing} behandelt.
 
 \subsection*{Usability}
 
-Weil auch einfache Bedienbarkeit im Fokus lag, wurden Usability-Überlegungen zusammen mit dem Kunden besprochen und entsprechend umgesetzt. Es wurden auch einige Usability-Tests, primär in Form von Hallway-Testing, geplant. Die Umsetzung befindet sich in Kapitel \ref{sec:umsetzung:usability}.
+Weil auch einfache Bedienbarkeit im Fokus lag, wurden Usability-Überlegungen zusammen mit dem Kunden besprochen und entsprechend umgesetzt. Es wurden auch einige Usability-Tests, primär in Form von Hallway-Testing, geplant und umgesetzt. Dies wird in Kapitel \ref{sec:umsetzung:usability} genauer beschrieben.

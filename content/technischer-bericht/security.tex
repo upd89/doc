@@ -1,7 +1,7 @@
 \section{Sicherheit}
 \label{sec:security}
 
-In der Analyse der Anforderungen wurde festgestellt, dass auf die Sicherheit besonderes Augenmerk gelegt werden muss. Insbesondere die festgestellten Abuse Cases (siehe \ref{sec:abuse_cases}) mussten berücksichtigt werden.
+In der Analyse der Anforderungen wurde festgestellt, dass auf die Sicherheit ein besonderes Augenmerk gelegt werden muss. Insbesondere die festgestellten Abuse Cases (Siehe \ref{sec:abuse_cases}) mussten berücksichtigt werden.
 
 \subsection*{Übersicht}
 
@@ -17,7 +17,7 @@ Im Fokus stand eine vertrauenswürdige Verbindung zwischen allen Teilnehmern des
 Jeder Teilnehmer muss sich sicher sein, dass er mit dem korrekten Gegenüber kommuniziert.
 
 \begin{enumerate}[label=\color{orange}\theenumi]
-    \item Der \gls{agent} überprüft das Zertifikat des \glspl{controlcenter}, damit er weiss, dass er den Auftrag ausführen darf, den er auf diesem Weg bekommt. Ausserdem stellt er sicher, dass er Statusinformationen an das korrekte Gegenüber abliefert.
+    \item Der \gls{agent} überprüft das Zertifikat des \glspl{controlcenter}, damit er weiss, dass er den erhaltenen Auftrag ausführen darf. Ausserdem stellt er sicher, dass er Statusinformationen an das korrekte Gegenüber abliefert.
     \item Das \gls{controlcenter} seinerseits stellt ebenfalls mit dem Zertifikat des Agents fest, ob er dem Gegenüber vertrauen kann und die gelieferten Informationen für ihn relevant und korrekt sind.
     \item Der Administrator kann anhand des Zertifikats des Servers feststellen, ob er mit dem korrekten \gls{controlcenter} verbunden ist.
     \item Das \gls{controlcenter} vertraut dem Administrator anhand des eingegebenen Passworts.
@@ -40,7 +40,7 @@ Das Konzept einer Zertifizierungsstelle (\gls{ca}) sieht wie folgt aus: Die \gls
 \clearpage
 \subsubsection*{Sichere Verbindung}
 
-Die Teilnehmer sind im Besitz des \gls{ca}-Zertifikats, welches als Vertrauensanker dient, können so die Zertifikate ihrer Kommunikationspartner überprüfen und so eine sichere Verbindung gewährleisten.
+Die Teilnehmer sind im Besitz des \gls{ca}-Zertifikats, welches als Vertrauensanker dient und können so die Zertifikate ihrer Kommunikationspartner überprüfen um eine sichere Verbindung gewährleisten.
 
 \begin{figure}
   \centering

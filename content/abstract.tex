@@ -16,13 +16,15 @@ Offene Fragen:
 \addcontentsline{toc}{chapter}{Abstract}
 \chapter*{Abstract}
 
-Das Unternehmen Nine Internet Solutions AG betreibt Linux-Server für Unternehmen. Da die Server direkt am Internet angeschlossen sind, muss die eingesetzte Software fortlaufend auf dem neuesten Stand gehalten werden. Dies wird durch einen Mitarbeiter erledigt, welcher im Durchschnitt einen Tag pro Woche damit verbringt. Aufgrund der grossen Anzahl von Servern und Paketen sowie Abhängigkeiten zwischen verschiedenen Arten von Servern ist es schwierig, den Überblick über die installierten Versionen und anstehenden Updates zu behalten.
+Das Unternehmen Nine Internet Solutions AG betreibt Linux-Server für Unternehmen. Da die Server direkt am Internet angeschlossen sind, muss die eingesetzte Software fortlaufend auf dem neuesten Stand gehalten werden. Dies wird durch einen Mitarbeiter erledigt, welcher im Durchschnitt einen Tag pro Woche damit verbringt. Aufgrund der grossen Anzahl von Servern und Paketen sowie Abhängigkeiten zwischen den verschiedenen Arten von Servern ist es schwierig, den Überblick über die installierten Versionen und anstehenden Updates zu behalten.
 
 Im Rahmen dieser Arbeit wurde eine verteilte Software-Lösung entwickelt, mit welcher Systemadministratoren Updates auf Systemen in Auftrag geben können. Diese Updates werden anschliessend automatisch auf den Servern installiert. Dadurch lässt sich der zeitliche Aufwand deutlich reduzieren. Zusätzlich gewinnen sie einen optimalen Überblick über den Zustand der zu verwaltenden Systeme bezüglich der Aktualisierungen.
 
-Das zentrale Control-Center ist ein Webinterface und wurde mit Ruby on Rails umgesetzt, die Agenten auf den Servern mit Python. Die Agenten kommunizieren mit dem Kontrollcenter asynchron über eine API. Für das Kontrollcenter kommt PostgreSQL als Datenbank zum Einsatz, in der alle Informationen über die Systeme verwaltet werden. Besondere Beachtung wurde auf die sichere Kommunikation zwischen den Komponenten gelegt, sowie auf eine intuitive Bedienung des Kontrollcenters. Die Veröffentlichung als Open-Source-Projekt ermöglicht die Erweiterung der Benutzer- und Entwicklerbasis auf weitere interessierte Personen.
+Das zentrale Control-Center ist ein Webinterface und wurde mit Ruby on Rails umgesetzt. Die Agents auf den Servern wurden in Python implementiert. Die Agenten kommunizieren mit dem Kontrollcenter asynchron über eine API. Für das Kontrollcenter kommt PostgreSQL als Datenbank zum Einsatz, in der alle Informationen über die Systeme verwaltet werden. Besondere Beachtung wurde auf die sichere Kommunikation zwischen den Komponenten gelegt, sowie auf die intuitive Bedienung des Kontrollcenters. Die Veröffentlichung als Open-Source-Projekt ermöglicht die Erweiterung der Benutzer- und Entwicklerbasis auf weitere interessierte Personen.
 
 \bigskip
 Webseite: \purl{https://upd89.org}
 
 \glsresetall
+
+\xxx[Agenten durch Agents ersetzen?]

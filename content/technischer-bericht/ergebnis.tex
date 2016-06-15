@@ -40,8 +40,8 @@ Die Anforderungen aus dem Projektauftrag (siehe Kapitel \ref{sec:anforderung:auf
     \item Pro System läuft ein Agent, welcher mit dem Control Center kommuniziert.
     \item Die Kommunikation mit dem Control Center verläuft verschlüsselt bei richtiger Konfiguration.
     \item Meldungen von \gls{apt} werden weitergereicht und bei Fehlschlagen eines Updates wird dieses besonders gekennzeichnet. Wird ein Neustart benötigt, wird das dem Control Center ebenfalls mitgeteilt.
-    \item Die kürzlich durchgeführten Aktivitäten aller User ist einfach einsehbar und es kann pro Job ein Kommentar vom Auslöser hinzugefügt werden.
-    \item [9.] Die Bedienbarkeit wurde durch Usability-Tests bestätigt.
+    \item Die kürzlich durchgeführten Aktivitäten aller Benutzer ist einfach einsehbar und es kann pro Job ein Kommentar vom Auslöser hinzugefügt werden.
+    \item [9.] Die Bedienbarkeit wurde durch Usability-Tests bes    tätigt.
     \item [10.] Die Software wurde als Open-Source-Lösung mit der MIT-Lizenz (siehe auch Anhang \ref{sec:license}) entwickelt.
     \item [11.] Sie unterstützt mindestens die Ubuntu-Versionen 12.04, 14.04 und 16.04.
     \item [12.] Als Programmiersprachen wurden hauptsächlich Ruby und Python verwendet.
@@ -58,13 +58,13 @@ Der optionale Punkt 15 wurde nicht erreicht. Systeme und Pakete müssen manuell 
 \section{Schlussfolgerung}
 \label{conclusion}
 
-\gls{upd89} ist grafisch nicht so detailreich ausgearbeitet wie kommerzielle Produkte wie etwa \hyperref[sec:analysis:competition:landscape]{Landscape} und besitzt nicht so viele Features wie grössere Open-Source-Produkte wie \hyperref[sec:analysis:competition:spacewalk]{Spacewalk}. Im Vergleich mit anderen verfügbaren Produkten konzentriert sich die Applikation auf die Kernfunktionen, das Aktualisieren von Ubuntu-Systemen. Dies wurde erreicht und funktioniert stabil.
+\gls{upd89} ist grafisch nicht so detailreich ausgearbeitet wie kommerzielle Produkte wie etwa \hyperref[sec:analysis:competition:landscape]{Landscape} und besitzt nicht so viele Features wie grössere Open-Source-Produkte wie \hyperref[sec:analysis:competition:spacewalk]{Spacewalk}. Im Vergleich mit anderen verfügbaren Produkten konzentriert sich die Applikation auf die Kernfunktion, das Aktualisieren von Ubuntu-Systemen. Dies wurde erreicht und funktioniert stabil.
 
-Die Vorgabe, dass Rails benutzt werden sollte, war einerseits ein kleiner Nachteil, da praktisch noch kein Know-How im Team vorhanden war; andererseits war es auch ein Vorteil, da Rails bei der Entwicklung viel Arbeit abnahm. Bei einer Durchführung ohne Rails hätte ein anderes Web-Applikations-Framework verwendet werden müssen, wo das Know-How ebenfalls nicht grösser gewesen wäre.
+Die Vorgabe, dass Rails benutzt werden sollte, war einerseits ein kleiner Nachteil, da praktisch noch kein Know-How im Team vorhanden war; andererseits war es auch ein Vorteil, da Rails bei der Entwicklung viel Arbeit abnahm. Bei einer Durchführung ohne Rails hätte ein anderes Web-Applikations-Framework verwendet werden müssen, wo das Know-How ebenfalls nicht vorhanden gewesen wäre.
 
 Dass einige Features nicht umgesetzt werden konnten (primär das \hyperref[sec:ausblick:regelwerk]{Regelwerk} und weitere Features im Kapitel \hyperref[sec:ausblick]{Ausblick}) ist schade, aber nicht tragisch. Auch dass die Projektpartner interessiert am Projektverlauf waren und eigene Ideen einbrachten, zeugt von einer prinzipiell guten Idee. Ob das Projekt von der Open-Source-Gemeinde angenommen und benutzt wird, bleibt abzuwarten.
 
-\xxx
+\xxx[evtl zu umgangssprachlich mit dem 'nicht tragisch'?]
 
 \section{Softwaredokumentation} \label{documentation}
 
@@ -79,9 +79,9 @@ Es gelten folgende Voraussetzungen, damit ein reibungsloser Betrieb der Software
 \begin{itemize}
     \item Git muss installiert sein
     \item Eine \gls{ca} muss aufgesetzt sein
-    \item Passenger 5.0.27 / Apache/2.4.7 (Ubuntu 14.04) müssen installiert und konfiguriert sein
-    \item Ruby 2.2.3 und Rails 4.2.4
-    \item Postgresql-9.3
+    \item Passenger 5.0.27 / Apache 2.4.7 (Ubuntu 14.04) müssen installiert und konfiguriert sein
+    \item Ruby 2.2.3 und Rails 4.2.4 müssen installiert sein
+    \item Postgresql-9.3 muss installiert und konfiguriert sein
 \end{itemize}
 
 \xxx[CA aufsetzen, wie?]

@@ -4,11 +4,11 @@ Vor dem Umsetzen dieser Arbeit war der Vorgang zum Aktualisieren der Systeme seh
 
 \subsection*{Mockups} \label{design:mockups}
 
-Als Diskussionsgrundlage und Vorlage für die Umsetzung wurden ca. 30 verschiedene \glspl{mockup} mit Balsamiq\footnote{\purl{https://balsamiq.com/products/mockups/}} umgesetzt. Die Wichtigsten werden hier kurz porträtiert.
+Als Diskussionsgrundlage und Vorlage für die Umsetzung wurden etwa 30 verschiedene \glspl{mockup} mit Balsamiq\footnote{\purl{https://balsamiq.com/products/mockups/}} umgesetzt. Die Wichtigsten werden hier kurz porträtiert.
 
 \subsubsection*{Gruppierungen}
 
-Gemäss Use-Cases 08 und 11 (siehe \ref{sec:uc_08} und \ref{sec:uc_11}) können Systeme und Pakete einer (oder mehreren für Pakete) beliebigen Gruppe zugeordnet werden. In den Entwürfen zu den entsprechenden Views wurde zusätzlich zu den umgesetzten Funktionalitäten noch eine automatische Zuweisungs-Regel konzeptioniert. Auf Bild \ref{fig:design:group_systems_mockup} ist die Gruppe 'Test-Group' zu sehen, welcher alle neu registrierten Systeme mit 'test' im Namen automatisch zugewiesen werden. Dieses Feature wurde aber aufgrund von anderen Prioritäten nicht umgesetzt.
+Gemäss Use-Cases 08 und 11 (siehe \ref{sec:uc_08} und \ref{sec:uc_11}) können Systeme und Pakete einer (oder mehreren für Pakete) beliebigen Gruppe zugeordnet werden. In den Entwürfen zu den entsprechenden Ansichten wurde zusätzlich zu den umgesetzten Funktionalitäten noch eine automatische Zuweisungsregel konzeptioniert. Auf Bild \ref{fig:design:group_systems_mockup} ist die Gruppe 'Test-Group' zu sehen, welcher alle neu registrierten Systeme mit 'test' im Namen automatisch zugewiesen werden. Dieses Feature wurde aber aufgrund von anderen Prioritäten nicht umgesetzt.
 
 \begin{figure}[H]
 	\centering
@@ -19,9 +19,9 @@ Gemäss Use-Cases 08 und 11 (siehe \ref{sec:uc_08} und \ref{sec:uc_11}) können 
 
 \subsubsection*{Berechtigungen} \label{sec:design:permissions}
 
-Für den Use-Case 07 (siehe \ref{sec:uc_07}) wurden drei verschiedene Vorgehensweisen konzipiert. Die erste (Bild \ref{fig:design:permission_1}) sah vor, dass pro User die Einstellungen für jedes System, jede Art (Gruppe) von Anwendungen und sogar unterscheidend zwischen grossen oder kleinen Versionssprüngen vorgenommen werden kann. Dies wurde aber verworfen, da der Administrationsaufwand bei Änderungen zu gross gewesen wäre. Zudem kann nicht garantiert werden, dass 'grosse' Versionssprünge korrekt erkannt werden.
+Für den Use-Case 07 (siehe \ref{sec:uc_07}) wurden drei verschiedene Vorgehensweisen konzipiert. Die erste (Bild \ref{fig:design:permission_1}) sah vor, dass pro Benutzer die Einstellungen für jedes System, jede Art von Anwendungen und sogar unterscheidend zwischen grossen oder kleinen Versionssprüngen vorgenommen werden kann. Dies wurde aber verworfen, da der Administrationsaufwand bei Änderungen zu gross gewesen wäre. Zudem kann nicht garantiert werden, dass 'grosse' Versionssprünge korrekt erkannt werden.
 
-Eine Alternative sah weiterhin die Verwaltung der Rechte pro User vor, aber in einer tabellarischen Form mit simplen Ja/Nein-Berechtigungen für verschiedene Aktionen (Bild \ref{fig:design:permission_2}). Hier wurde auch zwischen 'normalen' und 'kritischen' Updates unterschieden, also nur mit zwei Paketgruppen. Der Vorteil war die einfache Bedienung und die klare Darstellung der Berechtigungen. Aufgrund der gewünschten beliebigen Anzahl Paketgruppen wurde diese Alternative aber ebenfalls verworfen.
+Eine Alternative sah weiterhin die Verwaltung der Rechte pro Benutzer vor, aber in einer tabellarischen Form mit simplen Ja/Nein-Berechtigungen für verschiedene Aktionen (Bild \ref{fig:design:permission_2}). Hier wurde auch zwischen 'normalen' und 'kritischen' Updates unterschieden, also nur zwischen zwei Paketgruppen. Der Vorteil war die einfache Bedienung und die klare Darstellung der Berechtigungen. Aufgrund der gewünschten beliebigen Anzahl Paketgruppen wurde diese Alternative aber ebenfalls verworfen.
 
 Schlussendlich hat sich eine Rollen- und Stufen-basierte Rechteverwaltung durchgesetzt. Jeder Benutzer wird einer Rolle zugeteilt, welche eine bestimmte Berechtigungsstufe besitzt. Ob ein Benutzer nun ein Paket auf einem System aktualisieren darf, hängt von der Gruppenzugehörigkeit des Paketes und des Systems ab.
 
@@ -30,24 +30,24 @@ Auf diese Weise ist es sehr einfach, ganzen Benutzergruppen die Rechte für mehr
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{files/mockups/permission_1}
-	\caption{Rechtesystem mit verschiedenen Einstellungen}
+	\caption{Verworfenes Rechtesystem mit verschiedenen Einstellungen}
 	\label{fig:design:permission_1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\linewidth]{files/mockups/permission_2}
-	\caption{Rechtesystem als Tabelle mit Icons}
+	\caption{Verworfenes Rechtesystem als Tabelle mit Icons}
 	\label{fig:design:permission_2}
 \end{figure}
 
 \subsubsection*{Dashboard}
 
-Eine Art Übersichtsseite war von Beginn an geplant und auch durch den Industriepartner begrüsst. Bei einer grösseren Anzahl von Systemen ist es oft einfacher, eine vereinfachte Zusammenfassung als eine detaillierte Auflistung aller einzelnen Systeme zu lesen. Dies, sowie relevante Aktionen bei Auftreten von bestimmten Situationen anzubieten, war das Ziel des Dashboards (Bild \ref{fig:design:dashboard_mockup}).
+Eine Art Übersichtsseite war von Beginn an geplant und auch durch den Industriepartner begrüsst. Bei einer grösseren Anzahl von Systemen ist es oft einfacher, eine vereinfachte Zusammenfassung als eine detaillierte Auflistung aller einzelnen Systeme zu lesen. Dies, sowie relevante Aktionen bei Auftreten von bestimmten Situationen anzubieten, war das Ziel des Dashboards (Abbildung \ref{fig:design:dashboard_mockup}).
 
-Einerseits sollte sichtbar sein, wieviele Systeme verfügbar sind, auf welchen Systemen Updates anstehen oder wo gerade Installationen durchgeführt werden. Andererseits sollten auch die letzten Aktivitäten und deren Ergebnis sichtbar sein, um schnell zu sehen, wo Probleme entstanden sind und wodurch diese ausgelöst worden sein könnten.
+Einerseits sollte sichtbar sein, wieviele Systeme verfügbar sind, auf welchen Systemen Updates anstehen oder wo gerade Installationen durchgeführt werden. Andererseits sollten auch die letzten Aktivitäten und deren Ergebnis sichtbar sein, um Probleme und deren potentiellen Ursachen schnell erkennen zu können.
 
-Da das Feature zur automatischen Zuweisung von neu registrierten Systemen und noch unbekannten Paketen in Gruppen verworfen wurde, musste dies nun manuell erledigt werden. Dazu wurde eine Auflistung dieser Systeme und Pakete auf dem Dashboard konzipiert, wo sie auch gleich in Gruppen eingeteilt werden können. 
+Da die Funktionalität zur automatischen Zuweisung von neu registrierten Systemen und noch unbekannten Paketen in Gruppen verworfen wurde, musste dies nun manuell erledigt werden. Dazu wurde eine Auflistung dieser Systeme und Pakete auf dem Dashboard konzipiert, wo sie auch gleich in Gruppen eingeteilt werden können. 
 
 \begin{figure}[H]
 	\centering
@@ -58,7 +58,7 @@ Da das Feature zur automatischen Zuweisung von neu registrierten Systemen und no
 
 \subsubsection*{System- und Paket-Ansicht}
 
-Neben den spezifischen Ansichten für je alle Pakete oder Systeme mit entsprechenden Filtern, von wo aus Updatevorgänge gestartet werden können, war es ein Wunsch vom Industriepartner, auch eine kombinierte Ansicht zu haben, wo sowohl nach Paketen als auch nach Systemen gefiltert und gesucht werden kann. Nach mehreren Entwurfsiterationen wurde schliesslich Bild \ref{fig:design:combo_view_mockup} als passendes Design gefunden. Hier ist es möglich, mehrere Pakete gleichzeitig auf mehreren, einzeln aus- oder abwählbaren Systemen in Auftrag zu geben.
+Neben den spezifischen Ansichten für alle Pakete oder Systeme mit entsprechenden Filtern, von denen aus Updatevorgänge gestartet werden können, war es ein Wunsch des Industriepartners, auch eine kombinierte Ansicht mit Filterung und Suche nach Paketen und Systemen zu haben. Nach mehreren Entwurfsiterationen wurde schliesslich Bild \ref{fig:design:combo_view_mockup} als passendes Design gefunden. Hier ist es möglich, mehrere Pakete gleichzeitig auf mehreren, einzeln auswählbaren Systemen in Auftrag zu geben.
 
 \begin{figure}[H]
 	\centering
@@ -69,7 +69,7 @@ Neben den spezifischen Ansichten für je alle Pakete oder Systeme mit entspreche
 
 \subsection*{User Interface}
 
-Die Oberflächen halten sich grösstenteils an die Mockups aus der Planung, einige Details wurden aber aufgrund von Input durch die Industriepartner oder durch Hallway-Testing und Usability-Tests abgeändert. Siehe dazu auch das Kapitel Testing (\ref{sec:umsetzung:testing}).
+Die Oberflächen halten sich grösstenteils an die Mockups aus der Planung, einige Details wurden aber aufgrund von Input durch den Industriepartner oder durch Hallway-Testing und Usability-Tests abgeändert. Siehe dazu auch das Kapitel Testing (\ref{sec:umsetzung:testing}).
 
 \begin{figure}[H]
 	\centering
@@ -82,7 +82,7 @@ Die Oberflächen halten sich grösstenteils an die Mockups aus der Planung, eini
 
 Obwohl das \gls{controlcenter} in Ruby on Rails umgesetzt wurde, spielte Javascript eine wichtige Rolle. Ohne Javascript verursacht fast jede Aktion durch den Benutzer und jede Änderung am Inhalt ein Nachladen der Seite, was je nach Inhalt und Verbindungsqualität langsam und ablenkend sein kann. 
 
-Mit Javascript können Interaktionen des Benutzers bereits im Browser des Benutzers abgefangen und darauf reagiert werden, ohne den Umweg über den Server zu machen. Bei Bedarf kann der Javascript-Code aber auch Teilinhalte nachladen, ohne dass die momentane Seite verlassen werden muss. In der Paket- und System-Ansicht (Bild \ref{fig:design:js_example}) beispielsweise wird über \gls{ajax} beim Filtern von Paketen und Systemen oder auf die entsprechenden Gruppen oder beim Sortieren  der Tabellen jeweils nur der Inhalt der Tabelle neu geladen. Ein Klick auf den Pfeil neben einem Paket lädt ebenfalls via \gls{ajax} die betroffenen Systeme für die System-Tabelle auf der rechten Seite nach. Zudem wird die Schaltfläche zum Ausführen der Updates dynamisch aktiviert oder deaktiviert, je nach Auswahl von Paketen und Systemen.
+Mit Javascript können Interaktionen des Benutzers bereits im Browser abgefangen werden und es kann darauf reagiert werden ohne den Umweg über den Server zu machen. Bei Bedarf kann der Javascript-Code aber auch Teilinhalte nachladen, ohne dass die momentane Seite verlassen werden muss. In der Paket- und System-Ansicht (Bild \ref{fig:design:js_example}) beispielsweise wird über \gls{ajax} beim Filtern von Paketen und Systemen oder auf die entsprechenden Gruppen oder beim Sortieren  der Tabellen jeweils nur der Inhalt der Tabelle neu geladen. Ein Klick auf den Pfeil neben einem Paket lädt ebenfalls via \gls{ajax} die betroffenen Systeme für die System-Tabelle auf der rechten Seite nach. Zudem wird die Schaltfläche zum Ausführen der Updates dynamisch aktiviert oder deaktiviert, je nach Auswahl von Paketen und Systemen.
 
 \begin{figure}[H]
 	\centering
@@ -95,7 +95,7 @@ Mit Javascript können Interaktionen des Benutzers bereits im Browser des Benutz
 
 Das Logo wurde im Squarespace Logo Generator\footnote{\purl{https://www.squarespace.com/logo/}} erstellt mit dem Icon 'Nodes'\footnote{\purl{https://thenounproject.com/search/?q=nodes+by+gregor\&i=138240}} von Gregor Črešnar. Die Schriftart für 'UPD89' ist Montserrat\footnote{\purl{https://www.fontsquirrel.com/fonts/montserrat}} von Julieta Ulanovsky.
 
-Das Icon wurde als Symbol für die zentrale Verwaltung und die Kommunikation mit den einzelnen Servern gewählt. Es kann Bei Bedarf durch das Ersetzen einer einzelnen Bilddatei durch ein beliebiges Logo angepasst werden.
+Das Icon wurde als Symbol für die zentrale Verwaltung und die Kommunikation mit den einzelnen Servern gewählt. Es kann bei Bedarf durch ein beliebiges Logo ersetzt werden.
 
 \subsection*{Farben}
 
@@ -117,12 +117,12 @@ Die selbst definierten Farben wurden in einer separaten \gls{scss}-Datei definie
 	\label{fig:design:colorcodes}
 \end{figure}
 
-Ein besonderes Augenmerk wurde auf die farbliche Kennzeichnung der Systeme und Pakete gelegt. Besonders in der kombinierten Ansicht, wo es Filtermöglichkeiten zu Systemen und zu Paketen gibt, ist es mit einer farblichen Unterscheidung einfacher zu sehen, was welche Entitätsgruppe betrifft. Diese Farben wurden auch ins Menu und ins Dashboard weitergezogen; in der ganzen Applikation sind Infos und Einstellungen, welche zu Systemen relevant sind, generell im 'System-Blau', solche für Pakete im 'Paket-Grün' (Beispiel im Bild \ref{fig:design:sys_pkg_colors}).
+Ein besonderes Augenmerk wurde auf die farbliche Kennzeichnung der Systeme und Pakete gelegt. Besonders in der kombinierten Ansicht, wo es Filtermöglichkeiten zu Systemen und zu Paketen gibt, ist es mit einer farblichen Unterscheidung einfacher zu sehen, was welche Entitätsgruppe betrifft. Diese Farben wurden auch ins Menu und ins Dashboard weitergezogen; in der ganzen Applikation sind Infos und Einstellungen, welche für Systeme relevant sind, generell im 'System-Blau' und solche für Pakete im 'Paket-Grün' (Beispiel im Bild \ref{fig:design:sys_pkg_colors}).
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{files/colors_pkg_sys}
-	\caption{Farb-Hinweise: Blau für Systeme, Grünlich für Pakete}
+	\caption{Farb-Hinweise: Blau für Systeme, Grün für Pakete}
 	\label{fig:design:sys_pkg_colors}
 \end{figure}
 
@@ -135,5 +135,5 @@ Für die Icons wurde FontAwesome\footnote{\purl{http://fontawesome.io/}} verwend
 \subsection*{Regelwerk}
 
 \begin{decision}{Regelwerk}
-Die Anforderung aus der Aufgabenstellung wurde während des Projekts in Absprache mit den Projektpartnern gestrichen. Die Funktionalität wurde als zu komplex erachtet und andere Features wurden höher priorisiert. Jedoch wurden Vorschläge und Mockups erstellt, wie in Kapitel \ref{sec:ausblick:regelwerk} ersichtlich ist.
+Die Anforderung bezüglich einem Regelwerk aus der Aufgabenstellung wurde während des Projekts in Absprache mit den Projektpartnern gestrichen. Die Funktionalität wurde als zu komplex erachtet und andere Features wurden höher priorisiert. Jedoch wurden Vorschläge und Mockups erstellt, wie in Kapitel \ref{sec:ausblick:regelwerk} ersichtlich ist.
 \end{decision}

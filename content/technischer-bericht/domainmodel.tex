@@ -1,6 +1,6 @@
 \section{Domäne}
 
-Das nachfolgende Domänen-Modell (Abbildung \ref{fig:domainmodel}) zeigt alle nötigen Attribute für die Umsetzung der Applikation. Es beinhaltet die angelieferten Daten von den Agenten (grün), die konfigurierbaren Daten, wie beispielsweise Benutzer, Rollen und Gruppenzugehörigkeiten (rot) und ausserdem die Informationen, welche für die Auftragsverwaltung benötigt werden (gelb).
+Das nachfolgende Domänen-Modell (Abbildung \ref{fig:domainmodel}) zeigt alle nötigen Attribute für die Umsetzung der Applikation. Es beinhaltet die von den Agenten erhaltenen Daten (grün), die konfigurierbaren Daten, wie beispielsweise Benutzer, Rollen und Gruppenzugehörigkeiten (rot) und ausserdem die Informationen, welche für die Auftragsverwaltung benötigt werden (gelb).
 
 \begin{figure}
   \centering
@@ -13,15 +13,15 @@ Das nachfolgende Domänen-Modell (Abbildung \ref{fig:domainmodel}) zeigt alle n�
 
 \subsubsection{System}
 
-Ein System repräsentiert einen einzelnen Server, auf welchem die Updates verwaltet werden sollen. Relevante Daten über die Systeme werden erfasst, respektive beim Registrieren durch den Agent mitgeteilt.
+Ein System repräsentiert einen einzelnen Server, auf welchem die Updates verwaltet werden sollen. Relevante Daten über die Systeme werden erfasst oder beim Registrieren durch den Agent mitgeteilt.
 
 \subsubsection{Package}
 
-Ein Package ist ein einzelnes Applikationspaket, welches vom Paketmanager (hier apt) verwaltet wird. Beispiele dafür sind vim, openssl oder sudo. Das Paket selbst ist unabhängig von Versionen oder Distributionen.
+Ein Package ist ein einzelnes Applikationspaket, welches vom Paketmanager (hier: \gls{apt}) verwaltet wird. Beispiele dafür sind vim, openssl oder sudo. Das Paket selbst ist unabhängig von Versionen oder Distributionen.
 
 \subsubsection{PackageVersion}
 
-Eine Paket-Version ist eine verfügbare Version eines bestimmten Paketes auf einem spezifischen Repository/einer Distribution. Eine spezifische Paket-Version kann eine Base-Version sein. Das bedeutet, dass diese Paket-Version zusammen mit der Distribution ausgeliefert wurde. Eine Paket-Version, welche keine Base-Version ist, kann aber einen Verweis auf eine frühere Version des selben Pakets besitzen, welche wiederum eine Base-Version ist.
+Eine Paket-Version ist eine verfügbare Version eines bestimmten Paketes auf einem spezifischen Repository/einer Distribution. Eine spezifische Paket-Version kann eine Base-Version sein. Das bedeutet, dass diese Paket-Version zusammen mit der Distribution ausgeliefert wurde. Wenn eine Paket-Version keine Base-Version ist, kann sie aber einen optionalen Verweis auf eine frühere Version besitzen.
 
 \subsubsection{ConcretePackageVersion}
 
@@ -42,7 +42,7 @@ Eine Distribution, oft auch 'Distro' genannt, ist ein Betriebssystem basierend a
 
 \subsubsection{Repository}
 
-Ein Repository ist eine Sammlung von Paketen, primär für eine bestimmte Distribution.
+Ein Repository ist eine Sammlung von Paketen für eine bestimmte Distribution.
 
 \subsubsection{Job}
 
@@ -68,7 +68,7 @@ Ein User ist ein Benutzer, welcher sich über seine Email-Adresse und sein Passw
 
 \subsubsection{Role}
 
-Eine Rlole definiert, zu welcher Gruppe ein Benutzer gehört und welche Rechte dieser besitzt. Einerseits wird definiert, ob eine Rolle andere Benutzer bearbeiten kann, andererseits wird einer Rolle ein \textbf{PermissionLevel} zugewiesen.
+Eine Rolle definiert, zu welcher Gruppe ein Benutzer gehört und welche Rechte dieser besitzt. Einerseits wird definiert, ob andere Benutzer bearbeitet werden können, andererseits wird ein \textbf{PermissionLevel} zugewiesen.
 
 \subsubsection{PermissionLevel} \label{sec:domain:permission_level}
 
