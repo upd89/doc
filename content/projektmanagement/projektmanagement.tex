@@ -128,7 +128,7 @@ Die kritischen Risiken R01 und R02 konnten entschärft werden. Das Regelwerk (R0
 
 Das Permission-System für die Benutzer (R02) wurde vereinfacht und als Rechte-Skala (PermissionLevel, siehe auch Kapitel \ref{sec:domain:permission_level}) definiert. Dies erfüllt die Anforderungen an das Feature, aber ist weniger komplex umzusetzen als alternative Lösungen (siehe dazu die Mockups in Kapitel \ref{sec:design:permissions}).
 
-\xxx[Comment zu R07!]
+R07 wurde ebenfalls im Laufe der Arbeit minimiert. \gls{nine} wurde mindestens alle zwei Wochen über neue Erkenntnisse und Entwicklungen informiert und Feedback wurde jeweils direkt diskutiert und in den nächsten Sprint übernommen.
 
 
 \section{Infrastruktur} \label{sec:pm:infrastructure}
@@ -158,9 +158,7 @@ Für Ruby und Rails wurde angestrebt, eine möglichst aktuelle Version (Ruby 2.2
 \clearpage
 \section{Arbeitsablauf}
 
-Um die Qualität der abgeschlossenen Tasks zu erhöhen und sicherzustellen wurde das 'Vier-Augen-Prinzip' angewendet. Jeder Task musste, bevor dessen Status auf 'Erledigt' gesetzt wurde, vom jeweils anderen Teammitglied kontrolliert und als akzeptabel eingestuft hat. Dazu existierten unterschiedliche Bedingungen: Bei Unterstützungstasks (z.B. Dokumentation o. Ä.) wurde, wo sinnvoll, eine Liste von Akzeptanzkriterien im Task selbst definiert; bei Umsetzungstasks musste der Code über Unit-Tests getestet und gelintet sein.
-
-\xxx[explain linting?!]
+Um die Qualität der abgeschlossenen Tasks zu erhöhen und sicherzustellen wurde das 'Vier-Augen-Prinzip' angewendet. Jeder Task musste, bevor dessen Status auf 'Erledigt' gesetzt wurde, vom jeweils anderen Teammitglied kontrolliert und als akzeptabel eingestuft hat. Dazu existierten unterschiedliche Bedingungen: Bei Unterstützungstasks (z.B. Dokumentation o. Ä.) wurde, wo sinnvoll, eine Liste von Akzeptanzkriterien im Task selbst definiert; bei Umsetzungstasks musste der Code über Unit-Tests getestet und gelintet\footnote{Linting ist ein Prozess zur statischen Code-Analyse um potenzielle Fehler zu finden} sein.
 
 Der normale Workflow eines Tasks in Redmine sah deshalb folgendermassen aus:
 
