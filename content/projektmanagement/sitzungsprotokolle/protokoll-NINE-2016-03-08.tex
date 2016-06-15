@@ -35,7 +35,7 @@
         \item Debian 6 durch Debian 7 ersetzen? -> Debian nicht mehr erwähnen
         \item Client-Side JS? Präferenzen? Angular ok? -> ok
         \item TDD? In welcher Form? -> keine Vorgabe durch \gls{nine}
-        \item Reboot-required erkennbar, aber nur durch Download der debs + grep nach "requires-reboot". Frage: Handling der Pakete? Caching lokal OK? -> output von apt genügt
+        \item Reboot-required erkennbar, aber nur durch Download der debs + grep nach 'requires-reboot'. Frage: Handling der Pakete? Caching lokal OK? -> output von apt genügt
         \begin{itemize}
             \item Grösserer Aufwand wenn im Vorherein erkennen, ob reboot required. Im Nachhinein simpel durch /var/run/...
         \end{itemize}
@@ -95,7 +95,7 @@
     IST:
     
     \begin{itemize}
-        \item Erst unkritische Systeme und unkritische Pakete, dann zweiter/dritter Durchlauf mit immer "kritischeren" Kombinationen bis alles aktualisiert wurde
+        \item Erst unkritische Systeme und unkritische Pakete, dann zweiter/dritter Durchlauf mit immer 'kritischeren' Kombinationen bis alles aktualisiert wurde
         \item Erst grosse Masse von unkritischen Kombinationen, danach Spezialfälle
         \item HA-Systeme werden separat aktualisiert, da sehr kritisch
         \item DB-Systeme in einem eigenen Step um verwundbare Fläche (Unterbruchsdauer) klein zu halten (-> Replikation)
@@ -135,9 +135,9 @@
         \begin{itemize}
             \item Prozentsatz oder bestimmte Anzahl von zufällig ausgewählten Systemen für Dry-Run angeben
             \item Durchsicht der Logfiles (Output von Apt)
-            \item Anschliessend "scharfe" Durchführung mit selben Parametern (bedingt eventuell Speichern von Runs)
+            \item Anschliessend 'scharfe' Durchführung mit selben Parametern (bedingt eventuell Speichern von Runs)
         \end{itemize}
-        \item Name "UPD89" für die BA OK.
+        \item Name 'UPD89' für die BA OK.
     \end{itemize}
     
     \subsection*{Tasks bis zur nächsten Sitzung}
