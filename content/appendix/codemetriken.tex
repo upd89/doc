@@ -1,0 +1,30 @@
+\chapter{Codemetriken} \label{appendix:code-metrics}
+
+\section*{Dateitypen im Rails-Projekt}
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.95\textwidth]{fig/github_filetypes}
+  \caption{Dateitypen im Control Center}
+  \label{fig:metrics-filetypes}
+\end{figure}
+
+\section*{Ruby-Code}
+
+Statistik über die im Control Center vorhandenen Dateien:
+\begin{itemize}
+\item 20 Klassenn\footnote{Ermittelt mit: ls -l app/models/*.rb | wc -l}
+\item 132 Ruby-Dateien\footnote{Ermittelt mit: find . -name "*.rb" \textbar wc -l}
+\item 4862 Zeilen Code in Ruby-Dateien\footnote{Ermittelt mit: find . -name "*.rb" \textbar xargs wc -l}
+\item 4082 Zeilen Code in Ruby-Dateien, ohne leere Zeilen\footnote{Ermittelt mit: find . -name "*.rb" \textbar xargs grep -v "\char94 \char36 " \textbar wc -l}
+\item 3439 Zeilen Code in Rails-Templates, ohne leere Zeilen\footnote{Ermittelt mit: find . -name "*.erb" \textbar xargs grep -v "\char94 \char36 " \textbar wc -l}
+\item 2064 Zeilen Code in JavaScript-Dateien, ohne leere Zeilen\footnote{Ermittelt mit: find . -name "*.js" \textbar xargs grep -v "\char94 \char36 " \textbar wc -l}
+\end{itemize}
+
+\section*{Python-Code}
+\begin{itemize}
+\item 10 Klassenn\footnote{Ermittelt mit: ls -l upd89/classes/*.py | wc -l}
+\item 65 Python-Dateien\footnote{Ermittelt mit: find . -name "*.py" \textbar wc -l}
+\item 2478 Zeilen Code in Python-Dateien\footnote{Ermittelt mit: find . -name "*.py" \textbar xargs wc -l}
+\item 1912 Zeilen Code in Python-Dateien, ohne leere Zeilen\footnote{Ermittelt mit: find . -name "*.py" \textbar xargs grep -v "\char94 \char36 " \textbar wc -l}
+\end{itemize}
