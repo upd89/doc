@@ -220,16 +220,21 @@ Ein weiterer Mitarbeiter wurde von Bobby bei seinem Rauswurf mit dem Bein am Kop
 \textbf{Schritte:}
 
 \begin{enumerate}[noitemsep,nolistsep]
-    \item 
+    \item Besucht Seite 'Systems+Packages'
+    \item Sucht manuell über Pagination nach einem passenden Paket
+    \item findet openssh-server
+    \item wählt dieses aus (Checkbox)
+    \item klickt auf 'Update Selected'
 \end{enumerate}
 
-\textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
+\textcolor{Red}{Testfall nicht erfolgreich abgeschlossen}
 
 \bigskip
 \textbf{Bemerkungen:}
 
 \begin{itemize}[noitemsep,nolistsep]
-    \item 
+    \item Anordnung im Menu stimmt nicht, es sollte 'Systems', 'Systems+Packages' und 'Packages' sein. (Wurde so umgesetzt)
+    \item Nicht-Bestehen des Testfalls hängt nicht mit Applikation, sondern mit fehlendem Wissen zusammen. Proband: 'Schön wäre eine kurze Erklärung pro Paket'.
 \end{itemize}
 
 
@@ -238,7 +243,11 @@ Ein weiterer Mitarbeiter wurde von Bobby bei seinem Rauswurf mit dem Bein am Kop
 \textbf{Schritte:}
 
 \begin{enumerate}[noitemsep,nolistsep]
-    \item 
+    \item Fragt nach System und Paket (upd89-03, apt)
+    \item Öffnet System-Seite
+    \item Sucht nach upd89-03
+    \item findet apt in der Detail-Seite vom System
+    \item liest Paket-Version aus liste aus
 \end{enumerate}
 
 \textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
@@ -247,7 +256,7 @@ Ein weiterer Mitarbeiter wurde von Bobby bei seinem Rauswurf mit dem Bein am Kop
 \textbf{Bemerkungen:}
 
 \begin{itemize}[noitemsep,nolistsep]
-    \item 
+    \item -
 \end{itemize}
 
 
@@ -256,7 +265,14 @@ Ein weiterer Mitarbeiter wurde von Bobby bei seinem Rauswurf mit dem Bein am Kop
 \textbf{Schritte:}
 
 \begin{enumerate}[noitemsep,nolistsep]
-    \item 
+    \item Besucht die User-Seite
+    \item Klickt auf 'New User'
+    \item Beginnt, Daten einzugeben, sieht das Role-Feld und dass keine Rolle 'Lernende' existiert
+    \item Geht zur 'Roles'-Seite
+    \item erstellt neue Rolle 'Lernende'
+    \item Geht zurück zu den Users
+    \item erstellt neuen User mit Rolle 'Lernende'
+    \item Speichert mit 'Save'
 \end{enumerate}
 
 \textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
@@ -265,7 +281,8 @@ Ein weiterer Mitarbeiter wurde von Bobby bei seinem Rauswurf mit dem Bein am Kop
 \textbf{Bemerkungen:}
 
 \begin{itemize}[noitemsep,nolistsep]
-    \item 
+    \item Eine Zusammenfassung der Fähigkeiten pro User wäre schön, meint der Proband (Wurde so umgesetzt)
+    \item Beschreibung der Rolle in Dropdown (z.B. ob User-Manager) wäre hilfreich.
 \end{itemize}
 
 
@@ -274,7 +291,9 @@ Ein weiterer Mitarbeiter wurde von Bobby bei seinem Rauswurf mit dem Bein am Kop
 \textbf{Schritte:}
 
 \begin{enumerate}[noitemsep,nolistsep]
-    \item 
+    \item Ruft Seite 'Users' auf
+    \item Findet 'Bob'
+    \item Klickt auf den X-Button und bestätigt die Meldung
 \end{enumerate}
 
 \textcolor{ForestGreen}{Testfall erfolgreich abgeschlossen}
@@ -283,7 +302,7 @@ Ein weiterer Mitarbeiter wurde von Bobby bei seinem Rauswurf mit dem Bein am Kop
 \textbf{Bemerkungen:}
 
 \begin{itemize}[noitemsep,nolistsep]
-    \item 
+    \item -
 \end{itemize}
 
 \subsubsection*{Testfall 5}
