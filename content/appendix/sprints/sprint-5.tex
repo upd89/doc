@@ -21,12 +21,16 @@
 	\item MS8: UC06: Statusreport anzeigen
 	\item MS8: UC07: Systemgruppen verwalten
 	\item MS8: UC10: Regelverwaltung umgesetzt
-	\item 
+	\item CC: Dashboard umsetzen
+	\item CC: API-Logik in Service auslagern
+	\item CC: Packagegroups zuweisen
 \end{itemize}
 
 
 \subsubsection*{Erledigt}
-\xxx
+MS8 wurde erreicht. Die kombinierte Ansicht wurde mit einer eigenen Datenbank-View erfolgreich umgesetzt. Das Dashboard wurde erstellt und in mehreren Schritten verbessert. Verschiedene Reports und Übersichten wurden erstellt und das Zuweisen von neuen Paketen und Systemen vom Dashboard aus implementiert. Die API wurde übersichtlicher gestaltet, indem ein grosser Teil ausgelagert werden konnte. 
+
+Das Regelwerk-Feature wurde bereits früher abgelehnt und deswegen nicht umgesetzt.
 
 \subsubsection*{Probleme}
-\xxx
+Bei Lasttests wurde ein Problem mit gleichzeitigen Schreibzugriffen festgestellt. An den entsprechenden Stellen wurden transaktionssichere Operationen eingeführt. Ausserdem wurde festgestellt, dass nicht alle Pakete über einen gesetzten Hash-Wert verfügen, deshalb mussten wir einen Pseudo-Hashwert einführen.

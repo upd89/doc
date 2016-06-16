@@ -21,13 +21,18 @@
 	\item MS7: UC02: Registration Agent an Control Center
 	\item MS7: UC07: Berechtigungen verwalten
 	\item MS7: UC09: User verwalten
-	\item TLS implementiert
-	\item 
+	\item CC und A: TLS implementiert
+	\item CC und A: Redundanzen bei API Calls verringern
+	\item CC: User Authentifizierung, Rechtesystem implementieren
+	\item CC: Filter und Ordering in JS implementieren
+	\item A: Logfile an Server übermitteln
 \end{itemize}
 
 
 \subsubsection*{Erledigt}
-\xxx
+MS7 wurde erreicht. Die Agenten konnten sich beim Control Center registrieren und die Systeme konnten dort verwaltet werden. Usermanagement und Login-Funktionalität wurden implementiert sowie Filter- und Sortiermöglichkeit eingebaut. Das Rechtesystem wurde ebenfalls implementiert.
 
 \subsubsection*{Probleme}
-\xxx
+Bei Löschoperationen weigerte sich Rails die Löschung vorzunehmen, falls Referenzen auf das zu löschende Objekt existieren. Das Vorgehen diesbezüglich wurde deshalb mit \gls{nine} besprochen.
+
+Das Gem für die Filter (Filteriffic) unterstützt leider nur einen Active-Record-Eintrag pro View, weswegen die kombinierte Paket- und System-View noch nicht fertiggestellt wurde.

@@ -20,14 +20,16 @@
 \begin{itemize}
 	\item MS6: UC05: Updates auslösen
 	\item MS6: UC04: Updates durchführen
-	\item 
-	\item 
-	\item 
+	\item CC: Job und Tasks erstellen
+	\item CC: Zusätzliche Properties für Models bezüglich Redundanzverringerung
+	\item A: Update ausführen
 \end{itemize}
 
 
 \subsubsection*{Erledigt}
-\xxx
+MS6 wurde erreicht: Updates konnten durch das Control Center ausgelöst werden, welche dann durch den Agent automatisch installiert wurden. Somit war die Grundfunktionalität vorhanden. Es konnte jeweils für ein System ein Job mit einem einzelnen Task erstellt werden.
 
 \subsubsection*{Probleme}
-\xxx
+Der Agent Daemon musste überarbeitet werden, da er jeweils nach einigen Stunden Laufzeit durch eine unerwartete Exception abstürzte. Ausserdem musste das Domänenmodel leicht überarbeitet, da nun Hash-Werte der Pakete aufgrund der Redundanzverminderung verwendet werden.
+
+Es war noch nicht möglich, mehrere Systeme auf einmal zu aktualisieren.
